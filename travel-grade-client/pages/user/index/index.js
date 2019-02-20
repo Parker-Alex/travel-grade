@@ -1,0 +1,41 @@
+// pages/user/index/index.js
+const app = getApp();
+const util = require('../../../utils/util.js');
+const user = require('../../../utils/user.js');
+const api = require('../../../config/api.js');
+
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        userInfo: {
+            nickName: '点击登录',
+            avatarUrl: 'http://yanxuan.nosdn.127.net/8945ae63d940cc42406c3f67019c5cb6.png'
+        },
+        hasLogin: false
+    },
+
+    onLoad: function (options) {
+
+    },
+
+    onShow: function (options) {
+        if (app.globalData.hasLogin) {
+            let userInfo = wx.getStorageSync('userInfo');
+            this.setData({
+                userInfo: userInfo,
+                hasLogin: true
+            });
+        }
+    },
+
+    goLogin() {
+        if (!this.data.hasLogin) {
+            wx.navigateTo({
+                url: '/pages/system/login/login',
+            });
+        }
+    }    
+})

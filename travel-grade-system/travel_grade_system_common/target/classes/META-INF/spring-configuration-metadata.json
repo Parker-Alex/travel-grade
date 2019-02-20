@@ -1,0 +1,42 @@
+{
+  "groups": [
+    {
+      "name": "litemall.wx",
+      "type": "com.leo.config.WxProperties",
+      "sourceType": "com.leo.config.WxProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "litemall.wx.app-id",
+      "type": "java.lang.String",
+      "sourceType": "com.leo.config.WxProperties"
+    },
+    {
+      "name": "litemall.wx.app-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.leo.config.WxProperties"
+    },
+    {
+      "name": "litemall.wx.key-path",
+      "type": "java.lang.String",
+      "sourceType": "com.leo.config.WxProperties"
+    },
+    {
+      "name": "litemall.wx.mch-id",
+      "type": "java.lang.String",
+      "sourceType": "com.leo.config.WxProperties"
+    },
+    {
+      "name": "litemall.wx.mch-key",
+      "type": "java.lang.String",
+      "sourceType": "com.leo.config.WxProperties"
+    },
+    {
+      "name": "litemall.wx.notify-url",
+      "type": "java.lang.String",
+      "sourceType": "com.leo.config.WxProperties"
+    }
+  ],
+  "hints": []
+}

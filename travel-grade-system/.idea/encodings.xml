@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis-generator-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/travel_grade_system_api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/travel_grade_system_common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/travel_grade_system_mapper" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/travel_grade_system_pojo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/travel_grade_system_service" charset="UTF-8" />
+  </component>
+</project>

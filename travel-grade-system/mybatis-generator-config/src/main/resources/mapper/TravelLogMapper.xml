@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leo.mapper.TravelLogMapper">
+  <resultMap id="BaseResultMap" type="com.leo.pojo.TravelLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="logout_time" jdbcType="TIMESTAMP" property="logoutTime" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="login_city" jdbcType="VARCHAR" property="loginCity" />
+    <result column="login_province" jdbcType="VARCHAR" property="loginProvince" />
+    <result column="login_country" jdbcType="VARCHAR" property="loginCountry" />
+  </resultMap>
+
+</mapper>

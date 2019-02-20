@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.leo.mapper.TravelCityMapper" >
+  <resultMap id="BaseResultMap" type="com.leo.pojo.TravelCity" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="province_id" property="provinceId" jdbcType="VARCHAR" />
+    <result column="favour_count" property="favourCount" jdbcType="INTEGER" />
+    <result column="commend_count" property="commendCount" jdbcType="INTEGER" />
+    <result column="like_count" property="likeCount" jdbcType="INTEGER" />
+    <result column="grade_count" property="gradeCount" jdbcType="INTEGER" />
+    <result column="grade" property="grade" jdbcType="DOUBLE" />
+    <result column="introduce" property="introduce" jdbcType="VARCHAR" />
+    <result column="cover" property="cover" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>
