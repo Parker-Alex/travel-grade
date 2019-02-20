@@ -1,12 +1,8 @@
-package com.leo.pojo.dao;
+package com.leo.vo;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * 用户令牌类

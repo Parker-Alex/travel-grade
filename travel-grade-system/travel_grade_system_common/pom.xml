@@ -49,6 +49,32 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
+        <!--引入spring json，用于解析json格式依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-json</artifactId>
+        </dependency>
+
+        <!--引入spring mail依赖，用于发送邮件-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <!--引入云消息服务依赖，用于发送手机验证码-->
+        <!-- https://mvnrepository.com/artifact/com.github.qcloudsms/qcloudsms -->
+        <dependency>
+            <groupId>com.github.qcloudsms</groupId>
+            <artifactId>qcloudsms</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.qcloud/cos_api -->
+        <dependency>
+            <groupId>com.qcloud</groupId>
+            <artifactId>cos_api</artifactId>
+            <version>5.4.10</version>
+        </dependency>
+
         <!--资源管理 用于偶然引用资源配置-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

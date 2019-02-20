@@ -2,21 +2,22 @@ package com.leo.controller.wx;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
+import com.leo.manager.CaptchaManager;
 import com.leo.pojo.TravelLog;
 import com.leo.pojo.TravelUser;
-import com.leo.pojo.dao.UserInfo;
-import com.leo.pojo.dao.UserToken;
-import com.leo.pojo.dao.WxUserInfo;
-import com.leo.pojo.util.TokenManager;
+import com.leo.vo.UserInfo;
+import com.leo.vo.UserToken;
+import com.leo.vo.WxUserInfo;
+import com.leo.manager.TokenManager;
 import com.leo.service.ILogService;
 import com.leo.service.IUserService;
-import com.leo.utils.IpUtil;
-import com.leo.utils.MyResult;
+import com.leo.utils.*;
 import me.chanjar.weixin.common.error.WxErrorException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -41,6 +42,12 @@ public class SystemController {
     @Autowired
     private ILogService logService;
 
+    /**
+     * 用户使用微信登录接口
+     * @param wxUserInfo
+     * @param request
+     * @return
+     */
     @PostMapping("/login_by_wx")
     public MyResult loginByWx(@RequestBody WxUserInfo wxUserInfo, HttpServletRequest request) {
         LOGGER.info("调用微信登录方法");
@@ -110,6 +117,12 @@ public class SystemController {
         return MyResult.ok(data);
     }
 
+    /**
+     * 用户登录接口
+     * @param travelUser
+     * @param request
+     * @return
+     */
     @PostMapping("/login")
     public MyResult login(@RequestBody TravelUser travelUser, HttpServletRequest request) {
         LOGGER.info("调用用户登录接口");
@@ -167,6 +180,41 @@ public class SystemController {
         data.put("token", userToken.getToken());
         data.put("userInfo", userInfo);
         data.put("expireTime", userToken.getExpireTime().toString());
+
+        return MyResult.ok(data);
+    }
+
+    /**
+     * 获取验证码接口
+     */
+    @PostMapping("/captcha")
+    public MyResult getCaptcha(@RequestBody String body) {
+//        获得手机号
+        String mobile = JacksonUtil.parseString(body, "mobile");
+
+//        检验手机号内容
+        if (StringUtils.isEmpty(mobile)) {
+            return MyResult.errorMsg("手机号为空");
+        }
+
+//        检验手机号格式
+        if (!RegexUtil.isMobileExact(mobile)) {
+            return MyResult.errorMsg("手机号格式错误");
+        }
+
+//        生成验证码
+        String code = CharUtil.generateRandomNum(6);
+
+//        添加手机号和验证码到缓存
+        boolean success = CaptchaManager.addToCache(mobile, code);
+//        添加失败
+        if (!success) {
+          return MyResult.errorMsg("验证码未超过1分钟,不能发送");
+        }
+
+//        返回相关数据
+        Map<String, Object> data = new HashMap<>();
+        data.put("code", code);
 
         return MyResult.ok(data);
     }

@@ -28,6 +28,7 @@ Page({
         });
     },
 
+    //清空输入框
     clearInput: function(e) {
         switch (e.currentTarget.id) {
             case 'clear-username':
@@ -43,6 +44,7 @@ Page({
         }
     },
 
+    // 登录
     accountLogin: function() {
         var that = this;
 
@@ -61,7 +63,6 @@ Page({
         });
 
         wx.request({
-
             url: api.LoginByAccount,
             data: {
                 username: that.data.username,
@@ -95,5 +96,6 @@ Page({
                 util.showErrorToast('连接超时');
             }
         })
-    }
+    },
+
 })

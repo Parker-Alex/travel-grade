@@ -1,4 +1,4 @@
-package com.leo.pojo.dao;
+package com.leo.vo;
 
 import lombok.Data;
 
