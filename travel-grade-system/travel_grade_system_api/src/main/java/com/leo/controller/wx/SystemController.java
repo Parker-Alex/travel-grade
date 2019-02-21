@@ -68,6 +68,7 @@ public class SystemController {
             openId = result.getOpenid();
         } catch (WxErrorException e) {
             e.printStackTrace();
+            return MyResult.errorMsg("获取openid失败");
         }
 
         if (sessionKey == null || openId == null) {
@@ -86,7 +87,7 @@ public class SystemController {
             user.setGender(userInfo.getGender());
             user.setLevel(0);
             user.setAddTime(new Date());
-            user.setUpdataTime(new Date());
+            user.setUpdateTime(new Date());
 
             result = userService.addUser(user);
         }
@@ -215,6 +216,103 @@ public class SystemController {
 //        返回相关数据
         Map<String, Object> data = new HashMap<>();
         data.put("code", code);
+
+        return MyResult.ok(data);
+    }
+
+    /**
+     * 用户注册接口
+     * @param body
+     * @param request
+     * @return
+     */
+    @PostMapping("/register")
+    public MyResult register(@RequestBody String body, HttpServletRequest request) throws Exception {
+//        获得请求体中参数值
+        String username = JacksonUtil.parseString(body, "username");
+        String password = JacksonUtil.parseString(body, "password");
+        String mobile = JacksonUtil.parseString(body, "mobile");
+        String code = JacksonUtil.parseString(body, "code");
+        String wxCode = JacksonUtil.parseString(body, "wxCode");
+
+//        检查参数
+        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password) || StringUtils.isEmpty(mobile)
+                || StringUtils.isEmpty(wxCode) || StringUtils.isEmpty(code)) {
+            return MyResult.errorMsg("注册信息不能为空");
+        }
+
+//        通过用户名查询用户列表
+        List<TravelUser> userList = userService.getUsersByUsername(username);
+        if (userList.size() > 0) {
+            return MyResult.errorMsg("该用户名已注册");
+        }
+
+//        通过手机号查询用户列表
+        userList = userService.getUsersByMobile(mobile);
+        if (userList.size() > 0) {
+            return MyResult.errorMsg("该手机号已注册");
+        }
+
+//        检验手机格式
+        if (!RegexUtil.isMobileExact(mobile)) {
+            return MyResult.errorMsg("手机号格式不正确");
+        }
+
+//        判断验证码
+        String cacheCode = CaptchaManager.getCaptcha(mobile);
+        if (cacheCode == null || cacheCode.isEmpty() || !cacheCode.equals(code)) {
+            return MyResult.errorMsg("验证码错误");
+        }
+
+        String openId = null;
+        try {
+            WxMaJscode2SessionResult result = this.wxService.getUserService().getSessionInfo(wxCode);
+            openId = result.getOpenid();
+        } catch (WxErrorException e) {
+            e.printStackTrace();
+            return MyResult.errorMsg("获取openid失败");
+        }
+
+//        通过openId查询用户列表
+        userList = userService.getUsersByOpenId(openId);
+        if (userList.size() > 1) {
+            return MyResult.errorMsg("服务器错误");
+        }
+
+        if (userList.size() == 1) {
+            TravelUser checkUser = userList.get(0);
+            String checkUsername = checkUser.getUsername();
+            String checkPassword = checkUser.getPassword();
+            if (!checkUsername.equals(openId) || !checkPassword.equals(openId)) {
+                return MyResult.errorMsg("openid已绑定账号");
+            }
+        }
+
+        TravelUser user = new TravelUser();
+        user.setUsername(username);
+        user.setNickname(username);
+        user.setPassword(MD5Utils.getMD5Str(password));
+        user.setMobile(mobile);
+        user.setOpenId(openId);
+        user.setLevel(0);
+        user.setAddTime(new Date());
+        user.setGender((byte)0);
+        user.setAvatar("https://yanxuan.nosdn.127.net/80841d741d7fa3073e0ae27bf487339f.jpg?imageView&quality=90&thumbnail=64x64");
+
+        userService.addUser(user);
+
+//        获取token
+        UserToken userToken = TokenManager.generateToken(user.getId());
+
+        UserInfo userInfo = new UserInfo();
+        userInfo.setNickName(username);
+        userInfo.setAvatarUrl(user.getAvatar());
+        userInfo.setGender(user.getGender());
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("token", userToken.getToken());
+        data.put("tokenExpire", userToken.getExpireTime().toString());
+        data.put("userInfo", userInfo);
 
         return MyResult.ok(data);
     }

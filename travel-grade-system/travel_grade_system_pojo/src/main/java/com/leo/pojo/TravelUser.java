@@ -33,8 +33,8 @@ public class TravelUser {
     @Column(name = "commend_count")
     private Integer commendCount;
 
-    @Column(name = "opend_id")
-    private String opendId;
+    @Column(name = "open_id")
+    private String openId;
 
     private Integer level;
 
@@ -43,10 +43,10 @@ public class TravelUser {
     @Column(name = "add_time")
     private Date addTime;
 
-    @Column(name = "updata_time")
-    private Date updataTime;
+    @Column(name = "update_time")
+    private Date updateTime;
 
-    private String moblie;
+    private String mobile;
 
     private Byte gender;
 

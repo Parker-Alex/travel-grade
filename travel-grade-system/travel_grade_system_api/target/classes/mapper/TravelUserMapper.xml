@@ -14,12 +14,12 @@
     <result column="follow_count" jdbcType="INTEGER" property="followCount" />
     <result column="recommend_count" jdbcType="INTEGER" property="recommendCount" />
     <result column="commend_count" jdbcType="INTEGER" property="commendCount" />
-    <result column="opend_id" jdbcType="VARCHAR" property="opendId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
     <result column="level" jdbcType="INTEGER" property="level" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
     <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
-    <result column="updata_time" jdbcType="TIMESTAMP" property="updataTime" />
-    <result column="moblie" jdbcType="VARCHAR" property="moblie" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
     <result column="gender" jdbcType="TINYINT" property="gender" />
   </resultMap>
 

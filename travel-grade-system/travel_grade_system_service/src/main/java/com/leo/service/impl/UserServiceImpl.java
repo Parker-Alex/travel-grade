@@ -21,15 +21,6 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     private Sid sid;
 
-    @Transactional(propagation = Propagation.SUPPORTS)
-    @Override
-    public TravelUser getUserByOpenId(String openId) {
-        Example example = new Example(TravelUser.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("opendId", openId);
-        return userMapper.selectOneByExample(example);
-    }
-
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int addUser(TravelUser user) {
@@ -39,10 +30,37 @@ public class UserServiceImpl implements IUserService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
+    public TravelUser getUserByOpenId(String openId) {
+        Example example = new Example(TravelUser.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("openId", openId);
+        return userMapper.selectOneByExample(example);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelUser> getUsersByOpenId(String openId) {
+        Example example = new Example(TravelUser.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("openId", openId);
+        return userMapper.selectByExample(example);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
     public List<TravelUser> getUsersByUsername(String username) {
         Example example = new Example(TravelUser.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("username", username);
+        return userMapper.selectByExample(example);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelUser> getUsersByMobile(String mobile) {
+        Example example = new Example(TravelUser.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("mobile", mobile);
         return userMapper.selectByExample(example);
     }
 }

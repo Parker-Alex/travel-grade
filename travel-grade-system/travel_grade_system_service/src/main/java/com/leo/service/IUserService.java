@@ -6,10 +6,14 @@ import java.util.List;
 
 public interface IUserService {
 
-    TravelUser getUserByOpenId(String openId);
-
     int addUser(TravelUser user);
 
+    TravelUser getUserByOpenId(String openId);
+
+    List<TravelUser> getUsersByOpenId(String openId);
+
     List<TravelUser> getUsersByUsername(String username);
+
+    List<TravelUser> getUsersByMobile(String mobile);
 
 }
