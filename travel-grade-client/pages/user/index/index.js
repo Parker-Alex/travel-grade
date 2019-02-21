@@ -37,5 +37,32 @@ Page({
                 url: '/pages/system/login/login',
             });
         }
+    },
+
+    loginout() {
+        let that = this;
+
+        wx.showModal({
+            title: '提示',
+            content: '退出登录?',
+            confirmColor: '#b4282d',
+            success(res) {
+                if (res.confirm) {
+                    util.request(api.LoginOut, {}, 'POST');
+                    app.globalData.hasLogin = false;
+                    // 清缓存
+                    wx.removeStorageSync('userInfo');
+                    wx.removeStorageSync('token');
+                    // 重新启动
+                    wx.reLaunch({
+                        url: '/pages/index/index'
+                    });
+                } else {
+                    return;
+                }
+            }
+        })
+
+        
     }    
 })

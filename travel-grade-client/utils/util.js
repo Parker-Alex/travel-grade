@@ -23,6 +23,12 @@ function formatNumber(n) {
  */
 function request(url, data = {}, method = 'GET') {
     return new Promise(function(resolve, reject) {
+
+        wx.showLoading({
+            title: '请稍等...',
+            mask: true
+        })
+
         wx.request({
             url: url,
             data: data,
@@ -32,10 +38,15 @@ function request(url, data = {}, method = 'GET') {
                 'X-Leo-Token': wx.getStorageSync('token')
             },
             success(res) {
-                console.log('util.js 调用后台成功')
-                console.log(res);
                 if (res.statusCode === 200) {
+                    wx.hideLoading();        
+
                     if (res.data.status === 500) {
+                        wx.showModal({
+                            title: '错误信息',
+                            content: res.data.msg + ',请重试',
+                            showCancel: false
+                        })
                         // 清除登录相关内容
                         try {
                             wx.removeStorageSync('userInfo');
@@ -43,14 +54,12 @@ function request(url, data = {}, method = 'GET') {
                         } catch (e) {
                             // Do something when catch error
                         }
-                        // 切换到登录页面
-                        wx.navigateTo({
-                            url: '/pages/system/login/login'
-                        });
+
                     } else {
                         resolve(res.data);
                     } 
                 } else {
+                    wx.hideLoading();
                     reject(res.errMsg);
                 }
             },

@@ -49,8 +49,6 @@ function loginByWx(userInfo) {
                 code: res.code,
                 userInfo: userInfo
             }, 'POST').then(res => {
-                console.log('user.js 登录成功')
-                console.log(res);
                 if (res.status === 200) {
                     //储存用户信息
                     wx.setStorageSync('userInfo', res.data.userInfo);

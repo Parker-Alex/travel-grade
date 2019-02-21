@@ -21,29 +21,28 @@ Page({
     },
 
     wxLogin(e) {
-        util.showErrorToast('暂时不支持该功能');
-        // if (e.detail.userInfo == undefined) {
-        //     app.globalData.hasLogin = false;
-        //     util.showErrorToast('微信登录失败');
-        //     return;
-        // }
+        // util.showErrorToast('暂时不支持该功能');
+        if (e.detail.userInfo == undefined) {
+            app.globalData.hasLogin = false;
+            util.showErrorToast('微信登录失败');
+            return;
+        }
         
-        // user.checkLogin().catch(() => {
+        user.checkLogin().catch(() => {
 
-        //     user.loginByWx(e.detail.userInfo).then(res => {
-        //         console.log('login.js 登录微信成功')
-        //         console.log(res);
-        //         // 登录成功
-        //         app.globalData.hasLogin = true;               
-        //         wx.navigateBack({
-        //             delta: 1
-        //         });
-        //     }).catch((err) => {
-        //         // 登录失败
-        //         app.globalData.hasLogin = false;
-        //         util.showErrorToast('微信登录失败');
-        //     });
-        // });
+            user.loginByWx(e.detail.userInfo).then(res => {
+                // 登录成功
+                app.globalData.hasLogin = true;               
+                wx.navigateBack({
+                    delta: 1
+                });
+            }).catch((err) => {
+                // 登录失败
+                app.globalData.hasLogin = false;
+                console.log(err);
+                util.showErrorToast('微信登录失败');
+            });
+        });
     },
 
     accountLogin() {

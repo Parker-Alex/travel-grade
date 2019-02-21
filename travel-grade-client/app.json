@@ -1,10 +1,10 @@
 {
   "pages":[
+    "pages/user/index/index",
+    "pages/system/login/login",
     "pages/system/register/register",
     "pages/system/accountLogin/accountLogin",
-    "pages/index/index",
-    "pages/user/index/index",
-    "pages/system/login/login"
+    "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"dark",

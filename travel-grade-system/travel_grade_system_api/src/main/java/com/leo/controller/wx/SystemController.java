@@ -53,16 +53,21 @@ public class SystemController {
         LOGGER.info("调用微信登录方法");
         LOGGER.info("请求参数为：" + wxUserInfo);
 
+//        获取微信登录码和微信用户信息
         String code = wxUserInfo.getCode();
         UserInfo userInfo = wxUserInfo.getUserInfo();
+
+//        参数判空
         if (code == null || userInfo == null) {
             LOGGER.error("传递参数为空");
             return MyResult.errorMsg("用户信息为空");
         }
 
+//        通过第三方类获取sessionKey以及openId
         String sessionKey = null;
         String openId = null;
         try {
+//            sessionKey和openId的获取需要微信登录码
             WxMaJscode2SessionResult result = this.wxService.getUserService().getSessionInfo(code);
             sessionKey = result.getSessionKey();
             openId = result.getOpenid();
@@ -76,12 +81,16 @@ public class SystemController {
             return MyResult.errorMsg("服务器获取数据失败，请重试...");
         }
 
-//        添加用户
+//        通过openId获得用户
         TravelUser user = userService.getUserByOpenId(openId);
-        int result = 0;
+
         if (user == null) {
+//            如果是第一次使用微信登录，创建新用户并保存相关信息
+            user = new TravelUser();
+
             user.setUsername(openId);
             user.setPassword(openId);
+            user.setOpenId(openId);
             user.setNickname(userInfo.getNickName());
             user.setAvatar(userInfo.getAvatarUrl());
             user.setGender(userInfo.getGender());
@@ -89,27 +98,38 @@ public class SystemController {
             user.setAddTime(new Date());
             user.setUpdateTime(new Date());
 
-            result = userService.addUser(user);
-        }
-        if (result == 0) {
-            LOGGER.error("添加用户失败");
-            return MyResult.errorMsg("微信登录失败");
+//            添加用户并保存结果
+            int result = userService.addUser(user);
+//            判断添加用户结果
+            if (result == 0) {
+                LOGGER.error("添加用户失败");
+                return MyResult.errorMsg("微信登录失败");
+            }
+            LOGGER.info("添加用户成功");
         }
 
 //        添加用户令牌
         UserToken userToken = TokenManager.generateToken(user.getId());
         userToken.setSessionKey(sessionKey);
 
-//        添加用户日志
-        TravelLog  travelLog = logService.getLogByUserId(user.getId());
-        travelLog.setUserId(user.getId());
-        travelLog.setLoginCity(userInfo.getCity());
-        travelLog.setLoginProvince(userInfo.getProvince());
-        travelLog.setLoginProvince(userInfo.getCountry());
-        travelLog.setLoginIp(IpUtil.getIp(request));
-        travelLog.setLoginTime(new Date());
-        logService.addLog(travelLog);
+//        判断用户登录状态
+        if (loginMap.get(user.getId()) == null || !loginMap.get(user.getId())) {
+//            添加用户日志
+            TravelLog  travelLog = new TravelLog();
+            travelLog.setUserId(user.getId());
+            travelLog.setLoginCity(userInfo.getCity());
+            travelLog.setLoginProvince(userInfo.getProvince());
+            travelLog.setLoginCountry(userInfo.getCountry());
+            travelLog.setLoginIp(IpUtil.getIp(request));
+            travelLog.setLoginTime(new Date());
 
+            logService.addLog(travelLog);
+            LOGGER.info("添加用户日志对象");
+
+            loginMap.put(user.getId(), true);
+        }
+
+//        设置返回数据
         Map<String, Object> data = new HashMap<>();
         data.put("token", userToken.getToken());
         data.put("expireTime", userToken.getExpireTime().toString());
@@ -190,6 +210,8 @@ public class SystemController {
      */
     @PostMapping("/captcha")
     public MyResult getCaptcha(@RequestBody String body) {
+        LOGGER.info("调用获取验证码接口");
+
 //        获得手机号
         String mobile = JacksonUtil.parseString(body, "mobile");
 
@@ -228,6 +250,9 @@ public class SystemController {
      */
     @PostMapping("/register")
     public MyResult register(@RequestBody String body, HttpServletRequest request) throws Exception {
+
+        LOGGER.info("调用用户注册接口");
+
 //        获得请求体中参数值
         String username = JacksonUtil.parseString(body, "username");
         String password = JacksonUtil.parseString(body, "password");
