@@ -2,11 +2,13 @@ package com.leo.service;
 
 import com.leo.pojo.TravelLog;
 
-public interface ILogService {
+import java.util.List;
 
-    TravelLog getLogByUserId(String userId);
+public interface ILogService {
 
     int addLog(TravelLog travelLog);
 
     int updateLog(TravelLog travelLog);
+
+    List<TravelLog> getLogsByUserId(String userId);
 }

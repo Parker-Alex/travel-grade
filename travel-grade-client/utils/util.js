@@ -54,7 +54,10 @@ function request(url, data = {}, method = 'GET') {
                         } catch (e) {
                             // Do something when catch error
                         }
-
+                        // 跳转到登录页面
+                        wx.navigateTo({
+                            url: '/pages/user/index/index',
+                        })
                     } else {
                         resolve(res.data);
                     } 

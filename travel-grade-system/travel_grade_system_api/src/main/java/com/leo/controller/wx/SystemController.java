@@ -2,6 +2,7 @@ package com.leo.controller.wx;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
+import com.leo.annotation.LoginUser;
 import com.leo.manager.CaptchaManager;
 import com.leo.pojo.TravelLog;
 import com.leo.pojo.TravelUser;
@@ -127,6 +128,7 @@ public class SystemController {
             LOGGER.info("添加用户日志对象");
 
             loginMap.put(user.getId(), true);
+            LOGGER.info("目前登录数：" + loginMap.size() + "，当前用户状态" + loginMap.get(user.getId()));
         }
 
 //        设置返回数据
@@ -186,6 +188,7 @@ public class SystemController {
             LOGGER.info("添加用户日志对象");
 //            将该登录日志的用户登录状态设为true
             loginMap.put(user.getId(), true);
+            LOGGER.info("目前登录数：" + loginMap.size() + "，当前用户状态" + loginMap.get(user.getId()));
         }
 
 //        设置微信用户信息
@@ -210,6 +213,7 @@ public class SystemController {
      */
     @PostMapping("/captcha")
     public MyResult getCaptcha(@RequestBody String body) {
+
         LOGGER.info("调用获取验证码接口");
 
 //        获得手机号
@@ -230,7 +234,7 @@ public class SystemController {
 
 //        添加手机号和验证码到缓存
         boolean success = CaptchaManager.addToCache(mobile, code);
-//        添加失败
+//        添加失败情况
         if (!success) {
           return MyResult.errorMsg("验证码未超过1分钟,不能发送");
         }
@@ -313,6 +317,7 @@ public class SystemController {
             }
         }
 
+//        设置用户属性
         TravelUser user = new TravelUser();
         user.setUsername(username);
         user.setNickname(username);
@@ -324,21 +329,57 @@ public class SystemController {
         user.setGender((byte)0);
         user.setAvatar("https://yanxuan.nosdn.127.net/80841d741d7fa3073e0ae27bf487339f.jpg?imageView&quality=90&thumbnail=64x64");
 
+//        添加用户
         userService.addUser(user);
 
 //        获取token
         UserToken userToken = TokenManager.generateToken(user.getId());
 
+//        设置微信用户信息
         UserInfo userInfo = new UserInfo();
         userInfo.setNickName(username);
         userInfo.setAvatarUrl(user.getAvatar());
         userInfo.setGender(user.getGender());
 
+//        返回相关数据
         Map<String, Object> data = new HashMap<>();
         data.put("token", userToken.getToken());
         data.put("tokenExpire", userToken.getExpireTime().toString());
         data.put("userInfo", userInfo);
 
         return MyResult.ok(data);
+    }
+
+    /**
+     * 用户注销接口
+     */
+    @PostMapping("/loginout")
+    public MyResult loginOut(@LoginUser String userId) {
+
+        LOGGER.info("调用用户注销接口");
+
+//        判空
+        if (userId == null) {
+            return MyResult.errorMsg("目前没有用户登录");
+        }
+
+//        移除用户id对应的token
+        TokenManager.removeToken(userId);
+
+//        判断用户登录状态
+        if (loginMap.get(userId) != null && loginMap.get(userId)) {
+
+//            如果正在登录，将状态设为下线
+            loginMap.remove(userId);
+            LOGGER.info("目前登录数：" + loginMap.size());
+
+//            更新日志
+            List<TravelLog> list  = logService.getLogsByUserId(userId);
+            TravelLog travelLog = list.get(0);
+            travelLog.setLogoutTime(new Date());
+            logService.updateLog(travelLog);
+        }
+
+        return MyResult.ok();
     }
 }

@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.List;
+
 @Service
 public class LogServiceImpl implements ILogService {
 
@@ -18,15 +20,6 @@ public class LogServiceImpl implements ILogService {
 
     @Autowired
     private Sid sid;
-
-    @Transactional(propagation = Propagation.SUPPORTS)
-    @Override
-    public TravelLog getLogByUserId(String userId) {
-        Example example = new Example(TravelLog.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("userId", userId);
-        return logMapper.selectOneByExample(example);
-    }
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -38,6 +31,18 @@ public class LogServiceImpl implements ILogService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int updateLog(TravelLog travelLog) {
-        return logMapper.updateByPrimaryKey(travelLog);
+//        该更新方法只更新对象中值为null的属性
+        return logMapper.updateByPrimaryKeySelective(travelLog);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelLog> getLogsByUserId(String userId) {
+        Example example = new Example(TravelLog.class);
+//        设置按登录时间降序排序
+        example.setOrderByClause("login_time desc");
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("userId", userId);
+        return logMapper.selectByExample(example);
     }
 }
