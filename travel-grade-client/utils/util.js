@@ -67,6 +67,7 @@ function request(url, data = {}, method = 'GET') {
                 }
             },
             fail(err) {
+                showErrorToast("服务器异常");
                 reject(err);
             }
         });

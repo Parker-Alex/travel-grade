@@ -268,13 +268,14 @@
   font-size: 33rpx;
 }
 
-.a-groupon .b .counterPrice {
-  text-decoration: line-through;
+.a-groupon .b .likeCount {
+  /* text-decoration: line-through; */
   font-size: 28rpx;
-  color: #999;
+  /* color: #999; */
+  color: #a78845;
 }
 
-.a-groupon .b .retailPrice {
+.a-groupon .b .favourCount {
   margin-left: 30rpx;
   font-size: 28rpx;
   color: #a78845;

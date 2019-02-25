@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="orders-switch">
+    <view class="item {{ showType == 0 ? 'active' : ''}}" bindtap="switchTab" data-index='0'>
+      <view class="txt">发起的团购</view>
+    </view>
+    <view class="item {{ showType == 1 ? 'active' : ''}}" bindtap="switchTab" data-index='1'>
+      <view class="txt">参加的团购</view>
+    </view>
+  </view>
+  <view class="no-order">
+   <!-- wx:if="{{orderList.length <= 0}}"> -->
+    <view class="c">
+      <image src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/noCart-a8fe3f12e5.png" />
+      <text>尚未参加任何团购</text>
+    </view>
+  </view>
+
+  <view class="orders">
+    <navigator url="../grouponDetail/grouponDetail?id={{item.id}}" class="order" open-type="navigate" >
+    <!-- wx:for="{{orderList}}" wx:key="id"> -->
+      <view class="h">
+        <view class="l">订单编号：</view>
+        <view class="r">状态信息</view>
+      </view>
+      <view class="j">
+        <view class="l">团购立减：</view>
+        <view class="r">参与时间：</view>
+      </view>
+      <view class="i">
+        <view class="l">团购要求：0人</view>
+        <view class="r">当前参与：0</view>
+      </view>
+      <view class="goods" >
+      <!-- wx:for="{{item.goodsList}}" wx:key="id" wx:for-item="gitem"> -->
+        <view class="img">
+          <image src="http://m.tuniucdn.com/fb2/t1/G5/M00/3D/D2/Cii-tFxAWxiIXvtnAAwrPGn38YYAATMtQEdKVAADCtU334_w500_h280_c1_t0.jpg"></image>
+        </view>
+        <view class="info">
+          <text class="name">名字</text>
+          <text class="number">共4件商品</text>
+        </view>
+        <view class="status"></view>
+      </view>
+      <view class="b">
+        <view class="l">实付：￥10</view>
+        <view class="capsule-tag">
+          <zan-capsule color="#a78845" leftText="状态" rightText="{{item.joinerCount>=item.rules.discountMember?'已达成':'团购中'}}" />
+        </view>
+        <view class="capsule-tag">
+          <zan-capsule color="#a78845" leftText="发起" rightText="{{item.creator}}" wx:if="{{!item.isCreator}}" />
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

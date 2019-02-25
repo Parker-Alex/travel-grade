@@ -16,3 +16,43 @@ view, text {
   font-size: 29rpx;
   color: #333;
 }
+
+.color0 {
+  background-color: #f8bbd0;
+}
+
+.color1 {
+  background-color: #b39ddb;
+}
+
+.color2 {
+  background-color: #90caf9;
+}
+
+.color3 {
+  background-color: #80deea;
+}
+
+.color4 {
+  background-color: #a5d6a7;
+}
+
+.color5 {
+  background-color: #e6ee9c;
+}
+
+.color6 {
+  background-color: #ffe082;
+}
+
+.color7 {
+  background-color: #ffab91;
+}
+
+.color8 {
+  background-color: #b0bec5;
+}
+
+.color9 {
+  background-color: #ef9a9a;
+}

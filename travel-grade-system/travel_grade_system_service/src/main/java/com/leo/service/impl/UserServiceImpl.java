@@ -25,7 +25,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public int addUser(TravelUser user) {
         user.setId(sid.nextShort());
-        return userMapper.insert(user);
+        return userMapper.insertSelective(user);
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)

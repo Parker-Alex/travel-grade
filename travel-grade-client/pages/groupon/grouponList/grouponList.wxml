@@ -1,0 +1,67 @@
+<view class="container">
+  <scroll-view class="groupon-list" scroll-y="true" scroll-top="{{scrollTop}}">
+
+    <view class="item" >
+    <!-- wx:for="{{grouponList}}" wx:for-index="index" wx:for-item="item" wx:key="id"> -->
+      <navigator url="/pages/goods/goods?id={{item.goods.id}}">
+        <image class="img" src="http://m.tuniucdn.com/fb2/t1/G5/M00/3D/D2/Cii-tFxAWxiIXvtnAAwrPGn38YYAATMtQEdKVAADCtU334_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+        <view class="right">
+          <view class="text">
+            <view class="header">
+              <text class="name">名字</text>
+              <view class="capsule-tag">
+                <zan-capsule color="#a78845" leftText="团购" rightText="成员" />
+              </view>
+            </view>
+            <text class="desc">描述</text>
+            <view class="price">
+              <view class="counterPrice">原价：￥99</view>
+              <view class="retailPrice">现价：￥199</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <navigator url="/pages/goods/goods?id={{item.goods.id}}">
+        <image class="img" src="http://m.tuniucdn.com/fb2/t1/G5/M00/3D/D2/Cii-tFxAWxiIXvtnAAwrPGn38YYAATMtQEdKVAADCtU334_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+        <view class="right">
+          <view class="text">
+            <view class="header">
+              <text class="name">名字</text>
+              <view class="capsule-tag">
+                <zan-capsule color="#a78845" leftText="团购" rightText="成员" />
+              </view>
+            </view>
+            <text class="desc">描述</text>
+            <view class="price">
+              <view class="counterPrice">原价：￥99</view>
+              <view class="retailPrice">现价：￥199</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <navigator url="/pages/goods/goods?id={{item.goods.id}}">
+        <image class="img" src="http://m.tuniucdn.com/fb2/t1/G5/M00/3D/D2/Cii-tFxAWxiIXvtnAAwrPGn38YYAATMtQEdKVAADCtU334_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+        <view class="right">
+          <view class="text">
+            <view class="header">
+              <text class="name">名字</text>
+              <view class="capsule-tag">
+                <zan-capsule color="#a78845" leftText="团购" rightText="成员" />
+              </view>
+            </view>
+            <text class="desc">描述</text>
+            <view class="price">
+              <view class="counterPrice">原价：￥99</view>
+              <view class="retailPrice">现价：￥199</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="page" wx:if="{{showPage}}">
+      <view class="prev {{ page <= 1 ? 'disabled' : ''}}" bindtap="prevPage">上一页</view>
+      <view class="next {{ (count / size) < page ? 'disabled' : ''}}" bindtap="nextPage">下一页</view>
+    </view>
+  </scroll-view>
+</view>

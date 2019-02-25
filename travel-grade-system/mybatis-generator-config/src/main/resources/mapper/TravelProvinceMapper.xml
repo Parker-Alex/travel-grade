@@ -11,5 +11,6 @@
     <result column="city_count" property="cityCount" jdbcType="INTEGER" />
     <result column="introduce" property="introduce" jdbcType="VARCHAR" />
     <result column="cover" property="cover" jdbcType="VARCHAR" />
+    <result column="short_name" property="shortName" jdbcType="VARCHAR" />
   </resultMap>
 </mapper>

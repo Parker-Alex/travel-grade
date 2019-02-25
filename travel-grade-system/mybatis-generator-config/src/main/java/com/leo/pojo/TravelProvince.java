@@ -18,6 +18,9 @@ public class TravelProvince {
 
     private String cover;
 
+    @Column(name = "short_name")
+    private String shortName;
+
     /**
      * @return id
      */
@@ -100,5 +103,19 @@ public class TravelProvince {
      */
     public void setCover(String cover) {
         this.cover = cover == null ? null : cover.trim();
+    }
+
+    /**
+     * @return short_name
+     */
+    public String getShortName() {
+        return shortName;
+    }
+
+    /**
+     * @param shortName
+     */
+    public void setShortName(String shortName) {
+        this.shortName = shortName == null ? null : shortName.trim();
     }
 }

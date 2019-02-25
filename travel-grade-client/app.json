@@ -1,19 +1,26 @@
 {
-  "pages":[
-    "pages/user/index/index",
-    "pages/system/login/login",
-    "pages/system/register/register",
-    "pages/system/accountLogin/accountLogin",
-    "pages/index/index"
-  ],
-  "window":{
-    "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "旅游评分系统",
-    "navigationBarTextStyle":"black",
-    "backgroundColor": "#fff",
-    "enablePullDownRefresh": true
-  },
+    "pages": [
+        
+        "pages/catalog/catalog",
+        "pages/index/index",
+        "pages/user/index/index",
+        "pages/groupon/grouponDetail/grouponDetail",
+        "pages/groupon/myGroupon/myGroupon",
+        "pages/groupon/grouponList/grouponList",
+        "pages/system/login/login",
+        "pages/system/register/register",
+        "pages/system/accountLogin/accountLogin",
+        "pages/category/category",
+        "pages/search/search"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "旅游评分系统",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#fff",
+        "enablePullDownRefresh": true
+    },
     "tabBar": {
         "backgroundColor": "#fafafa",
         "borderStyle": "white",
@@ -25,6 +32,12 @@
                 "iconPath": "images/home.png",
                 "selectedIconPath": "images/home@selected.png",
                 "text": "首页"
+            },
+            {
+                "pagePath": "pages/catalog/catalog",
+                "iconPath": "images/category.png",
+                "selectedIconPath": "images/category@selected.png",
+                "text": "分类"
             },
             {
                 "pagePath": "pages/user/index/index",

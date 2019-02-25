@@ -25,7 +25,7 @@ public class LogServiceImpl implements ILogService {
     @Override
     public int addLog(TravelLog travelLog) {
         travelLog.setId(sid.nextShort());
-        return logMapper.insert(travelLog);
+        return logMapper.insertSelective(travelLog);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
