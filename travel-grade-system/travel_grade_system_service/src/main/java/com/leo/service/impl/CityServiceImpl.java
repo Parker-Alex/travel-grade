@@ -1,6 +1,8 @@
 package com.leo.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.leo.dto.TravelCityCustom;
+import com.leo.mapper.TravelCityCustomMapper;
 import com.leo.mapper.TravelCityMapper;
 import com.leo.pojo.TravelCity;
 import com.leo.service.ICityService;
@@ -15,6 +17,9 @@ import java.util.List;
 
 @Service
 public class CityServiceImpl implements ICityService {
+
+    @Autowired
+    private TravelCityCustomMapper cityCustomMapper;
 
     @Autowired
     private TravelCityMapper cityMapper;
@@ -62,5 +67,32 @@ public class CityServiceImpl implements ICityService {
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("provinceId", provinceId);
         return cityMapper.selectByExample(example);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public TravelCityCustom getCity(String cityId, String name) {
+//        Example example = new Example(TravelCity.class);
+//        example.setOrderByClause("grade desc");
+//        Example.Criteria criteria = example.createCriteria();
+//        criteria.andLike("name", "%" + name + "%");
+//        return cityMapper.selectByExample(example).get(0);
+//        TravelCityCustom cityCustom = new TravelCityCustom();
+//        cityCustom.setName(name);
+//        cityCustom.setId(cityId);
+        List<TravelCityCustom> list = cityCustomMapper.getCity(cityId, name);
+        if (list.size() <= 0) {
+            return null;
+        }
+        for (TravelCityCustom c : list) {
+            System.out.println(c);
+        }
+        return list.get(0);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<String> getAllName() {
+        return cityMapper.getAllName();
     }
 }

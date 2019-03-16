@@ -63,6 +63,7 @@ function request(url, data = {}, method = 'GET') {
                     } 
                 } else {
                     wx.hideLoading();
+                    showErrorToast("服务器异常");
                     reject(res.errMsg);
                 }
             },

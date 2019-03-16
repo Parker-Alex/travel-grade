@@ -4,6 +4,7 @@ import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import tk.mybatis.spring.annotation.MapperScan;
 
 //使用exclude指定需要排除的自动配置类
@@ -11,6 +12,8 @@ import tk.mybatis.spring.annotation.MapperScan;
 //扫描mapper驱动
 @MapperScan(basePackages = "com.leo.mapper")
 @ComponentScan(basePackages = {"com.leo","org.n3r.idworker"})
+// 开启定时任务
+@EnableScheduling
 public class Application {
 
     public static void main(String[] args) {

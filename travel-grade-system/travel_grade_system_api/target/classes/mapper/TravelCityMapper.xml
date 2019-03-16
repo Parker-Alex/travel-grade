@@ -16,4 +16,10 @@
     <result column="introduce" property="introduce" jdbcType="VARCHAR" />
     <result column="cover" property="cover" jdbcType="VARCHAR" />
   </resultMap>
+
+  <select id="getAllName" resultType="java.lang.String">
+    SELECT c.name FROM leo_travel_system_city c
+  </select>
+
+
 </mapper>

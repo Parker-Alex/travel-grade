@@ -1,5 +1,6 @@
 package com.leo.service;
 
+import com.leo.dto.TravelCityCustom;
 import com.leo.pojo.TravelCity;
 
 import java.util.List;
@@ -14,4 +15,8 @@ public interface ICityService {
     int addCity(TravelCity city);
 
     List<TravelCity> getCitiesByProvinceId(String provinceId);
+
+    TravelCityCustom getCity(String cityId, String name);
+
+    List<String> getAllName();
 }

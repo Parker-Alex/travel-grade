@@ -1,9 +1,9 @@
 {
     "pages": [
-        
-        "pages/catalog/catalog",
         "pages/index/index",
         "pages/user/index/index",
+        "pages/catalog/catalog",
+        "pages/detail/detail",
         "pages/groupon/grouponDetail/grouponDetail",
         "pages/groupon/myGroupon/myGroupon",
         "pages/groupon/grouponList/grouponList",

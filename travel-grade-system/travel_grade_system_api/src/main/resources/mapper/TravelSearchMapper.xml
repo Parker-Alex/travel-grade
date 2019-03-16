@@ -8,4 +8,12 @@
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
   </resultMap>
+
+  <select id="getHotKey" resultType="java.lang.String">
+    SELECT content
+    FROM leo_travel_system_search
+    GROUP BY content
+    ORDER BY count(content)
+    DESC
+  </select>
 </mapper>
