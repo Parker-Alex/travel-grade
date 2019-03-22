@@ -28,6 +28,8 @@ public class TravelCityCustom {
 
     private Integer gradeCount;
 
+    private Integer goneCount;
+
     private Double grade;
 
     private String introduce;

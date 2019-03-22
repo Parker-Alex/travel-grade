@@ -1,0 +1,113 @@
+<!--pages/movies/movies-detail/movies-detail.wxml-->
+<import src='/pages/city/stars/stars-template.wxml' />
+<view class="container">
+
+    <image class="head-img" src="{{city.cover}}" mode="aspectFill" />
+
+    <view class="head-img-hover" data-src="{{city.cover}}" catchtap="viewMoviePostImg">
+        <text class="main-title">{{city.name}}</text>
+        <text class="sub-title">{{city.provinceName}}</text>
+        <view class="like">
+            <text class="highlight-font">
+        {{city.favourCount}}
+      </text>
+            <text class="plain-font">
+        人点赞
+      </text>
+            <text class="highlight-font">
+        {{city.likeCount}}
+      </text>
+            <text class="plain-font">
+        人想去
+      </text>
+        </view>
+    </view>
+
+    <image class="city-img" src="{{city.cover}}" data-src="{{city.cover}}" catchtap="viewMoviePostImg" />
+
+    <view class="summary">
+        <view class="original-title">
+            <text>{{city.name}}</text>
+        </view>
+        <view class="flex-row">
+            <text class="mark">评分</text>
+            <template is="starsTemplate" data="{{stars:stars, score:city.grade}}" />
+        </view>
+        <view class="flex-row">
+            <text class="mark">点赞数</text>
+            <text>{{city.favourCount}}</text>
+        </view>
+        <view class="flex-row">
+            <text class="mark">去过数</text>
+            <text>{{city.goneCount}}</text>
+        </view>
+        <view class="flex-row">
+            <text class="mark">评论数</text>
+            <text>{{city.commendCount}}</text>
+        </view>
+    </view>
+
+    <!-- 分割线 -->
+    <view class="hr"></view>
+
+    <view class="synopsis">
+        <text class="synopsis-font">城市简介</text>
+        <text class="summary-content">{{city.introduce}}</text>
+    </view>
+
+    <!-- 分割线 -->
+    <view class="hr"></view>
+
+    <view class="cast">
+        <text class="cast-font">主演</text>
+        <scroll-view class="cast-imgs" scroll-x="true" style="width:100%">
+            <block wx:for="{{movie.castsInfo}}" wx:for-item="item" wx:key='{{index}}'>
+                <view class="cast-container">
+                    <image class="cast-img" src="{{item.img}}" data-src='{{item.img}}' catchtap='viewMoviePostImg'></image>
+                    <text class="cast-name">{{item.name}}</text>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+
+    <!-- 用户操作栏 -->
+    <view class="answer-footer flex-wrp">
+        <view class="good flex-item">
+            <view class="good-bad">
+                <!-- <image src="../../images/icon/good-bad.png"></image> -->
+            </view>
+            <view class="good-num"></view>
+        </view>
+        <view class="operation-wrp flex-item">
+            <view class="operation flex-wrp flex-tab">
+                <view class="operation-btn flex-item" bindtap='likeBtn'>
+                    <image wx:if="{{isLike==false}}" src="../../images/icon/flag.png"></image>
+                    <image wx:else src="../../images/icon/flag-ok.png"></image>
+                    <text wx:if="{{isLike==false}}">想去</text>
+                    <text wx:else style='color: #4EA3E7; font-weight:bold;'>想去</text>
+                </view>
+                <view class="operation-btn flex-item" bindtap='favourBtn'>
+                    <image wx:if="{{isFavour==false}}" src="../../images/icon/heart2.png"></image>
+                    <image wx:else src="../../images/icon/heart2-ok.png"></image>
+                    <text wx:if="{{isFavour==false}}">点赞</text>
+                    <text wx:else style='color: #4EA3E7; font-weight:bold;'>点赞</text>
+                </view>
+                <view class="operation-btn flex-item" bindtap='goneBtn'>
+                    <image wx:if="{{isGone==false}}" src="../../images/icon/star2.png"></image>
+                    <image wx:else src="../../images/icon/star2-ok.png"></image>
+                    <text wx:if="{{isGone==false}}">去过</text>
+                    <text wx:else style='color: #4EA3E7; font-weight:bold;'>去过</text>
+                </view>
+                <!-- <view class="operation-btn flex-item" bindtap='commentBtn'>
+                    <image src="../../images/icon/comment.png"></image>
+                    <text>评论</text>
+                </view> -->
+                <navigator url='/pages/city/comment/comment?id={{city.id}}' class="operation-btn flex-item">
+                    <image src="../../images/icon/comment.png"></image>
+                    <text>评论</text>
+                </navigator>
+            </view>
+        </view>
+    </view>
+
+</view>

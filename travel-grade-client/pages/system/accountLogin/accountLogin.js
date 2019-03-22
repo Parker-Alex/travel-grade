@@ -81,9 +81,12 @@ Page({
                         key: 'token',
                         data: res.data.data.token,
                         success(res) {
+                            // wx.navigateBack({
+                            //     delta: 2
+                            // });
                             wx.switchTab({
-                                url: '/pages/user/index/index',
-                            });
+                                url: '/pages/index/index',
+                            })
                         }
                     });
                 } else {

@@ -1,6 +1,7 @@
 var api = require("../config/api.js");
 var app = getApp();
 
+// 格式化日期
 function formatTime(date) {
     var year = date.getFullYear();
     var month = date.getMouth() + 1;
@@ -75,6 +76,7 @@ function request(url, data = {}, method = 'GET') {
     });
 }
 
+// 重定向方法
 function redirect(url) {
 
     // 先判断页面是否需要登录
@@ -90,6 +92,7 @@ function redirect(url) {
     }
 }
 
+// 显示错误信息
 function showErrorToast(msg) {
     wx.showToast({
         title: msg,
@@ -98,9 +101,25 @@ function showErrorToast(msg) {
     });
 }
 
+// 将星星数转化为数组
+function converStars(stars) {
+    // 获取评分的第一个数
+    var num = stars.toString().substring(0, 1);
+    var array = [];
+    for (var i = 2; i <= 10; i += 2) {
+        if (i <= num) {
+            array.push(1);
+        } else {
+            array.push(0);
+        }
+    }
+    return array;
+}
+
 module.exports = {
     formatTime,
     request,
     redirect,
-    showErrorToast
+    showErrorToast,
+    converStars
 }

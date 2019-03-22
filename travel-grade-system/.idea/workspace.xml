@@ -3,38 +3,41 @@
   <component name="ChangeListManager">
     <list default="true" id="a064fae9-5f81-4326-bf75-716db8bebed4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../travel-grade-client/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../travel-grade-client/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../travel-grade-client/config/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../travel-grade-client/config/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/catalog/catalog.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../travel-grade-client/pages/catalog/catalog.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/category/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/../travel-grade-client/pages/category/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/detail/detail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/detail/detail.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/detail/detail.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/detail/detail.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/detail/stars/stars-template.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/detail/stars/stars-template.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../travel-grade-client/pages/index/index.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/search/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/../travel-grade-client/pages/search/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/search/search.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../travel-grade-client/pages/search/search.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/search/search.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../travel-grade-client/pages/search/search.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../travel-grade-client/pages/wxSearchView/wxSearchView.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../travel-grade-client/pages/wxSearchView/wxSearchView.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../travel-grade-client/utils/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/../travel-grade-client/utils/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/34df7e24-0856-4255-8ca7-53ccf5f29db2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/34df7e24-0856-4255-8ca7-53ccf5f29db2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generator-config/src/main/java/com/leo/pojo/TravelSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generator-config/src/main/java/com/leo/pojo/TravelSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generator-config/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generator-config/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generator-config/src/main/resources/mapper/TravelSearchMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generator-config/target/classes/com/leo/pojo/TravelProvince.class" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generator-config/target/classes/com/leo/pojo/TravelProvince.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generator-config/src/main/java/com/leo/pojo/TravelCity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generator-config/src/main/resources/mapper/TravelCityMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generator-config/target/classes/com/leo/mapper/TravelCityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generator-config/target/classes/com/leo/mapper/TravelCityMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generator-config/target/classes/com/leo/pojo/TravelCity.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mybatis-generator-config/target/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generator-config/target/classes/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generator-config/target/classes/mapper/TravelCityMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelSearchMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelSearchMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityCustomMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityCustomMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelUserCityRelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelUserCityRelMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/travel_grade_system_api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/target/classes/com/leo/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/target/classes/com/leo/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/target/classes/com/leo/controller/wx/SearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/target/classes/com/leo/controller/wx/SearchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/target/classes/com/leo/controller/wx/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/target/classes/com/leo/controller/wx/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/target/classes/mapper/TravelCityCustomMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/target/classes/mapper/TravelCityCustomMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/travel_grade_system_api/target/classes/mapper/TravelCityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/target/classes/mapper/TravelCityMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_api/target/classes/mapper/TravelSearchMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_api/target/classes/mapper/TravelSearchMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelCityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelCityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelSearchMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelSearchMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_mapper/target/classes/com/leo/mapper/TravelCityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_mapper/target/classes/com/leo/mapper/TravelCityMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_mapper/target/classes/com/leo/mapper/TravelSearchMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_mapper/target/classes/com/leo/mapper/TravelSearchMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_pojo/target/classes/com/leo/pojo/TravelSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_pojo/target/classes/com/leo/pojo/TravelSearch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/ICityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/ICityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/dto/TravelCityCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/dto/TravelCityCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelCity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelUserCityRel.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelUserCityRel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_pojo/target/classes/com/leo/dto/TravelCityCustom.class" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_pojo/target/classes/com/leo/dto/TravelCityCustom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_grade_system_pojo/target/classes/com/leo/pojo/TravelCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_pojo/target/classes/com/leo/pojo/TravelCity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/impl/CityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/impl/CityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_grade_system_service/target/classes/com/leo/service/ICityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_service/target/classes/com/leo/service/ICityService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/travel_grade_system_service/target/classes/com/leo/service/impl/CityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/travel_grade_system_service/target/classes/com/leo/service/impl/CityServiceImpl.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -84,10 +87,55 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/SystemController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/SearchController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="94" column="47" selection-start-line="94" selection-start-column="47" selection-end-line="94" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://34df7e24-0856-4255-8ca7-53ccf5f29db2/schema/travel_grade_system/table/leo_travel_system_user_city_rel">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/impl/UserCityRelServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="49" column="60" selection-start-line="49" selection-start-column="60" selection-end-line="49" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelUserCityRel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-872">
-              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+            <state relative-caret-position="21">
+              <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -95,82 +143,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-              <folding>
-                <element signature="e#606#607#0" expanded="true" />
-                <element signature="e#633#634#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="175">
+              <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/annotation/LoginUser.java">
+        <entry file="file://$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/IUserCityRelService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/annotation/config/WxWebMvcConfiguration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/annotation/support/LoginUserHandlerMethodArgumentResolver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/SystemController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-53">
-              <caret line="356" column="53" selection-start-line="356" selection-start-column="47" selection-end-line="356" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/TestController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelUserCommentRelMapper.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelUserCityRelMapper.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://34df7e24-0856-4255-8ca7-53ccf5f29db2/schema/travel_grade_system/table/leo_travel_system_city">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+            <state relative-caret-position="64">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -196,6 +179,7 @@
       <find>addLog</find>
       <find>insert</find>
       <find>json</find>
+      <find>TravelCityCustom</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,14 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/travel_grade_system_common/src/main/java/com/leo/utils/CharUtil.java" />
-        <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/manager/TokenManager.java" />
-        <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/vo/UserInfo.java" />
-        <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/vo/CaptchaItem.java" />
-        <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/manager/CaptchaManager.java" />
-        <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/IUserService.java" />
-        <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelUser.java" />
-        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelUserMapper.xml" />
         <option value="$PROJECT_DIR$/travel_grade_system_common/src/main/resources/application-wx.yml" />
         <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/annotation/LoginUser.java" />
         <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/ILogService.java" />
@@ -240,20 +216,28 @@
         <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/schedule/SearchSchedule.java" />
         <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/ISearchService.java" />
         <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/impl/SearchServiceImpl.java" />
-        <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/dto/TravelCityCustom.java" />
-        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityMapper.xml" />
         <option value="$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelCityCustomMapper.java" />
         <option value="$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelCityMapper.java" />
         <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/ICityService.java" />
-        <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/impl/CityServiceImpl.java" />
         <option value="$PROJECT_DIR$/travel_grade_system_common/src/main/java/com/leo/utils/ExcelUtil.java" />
         <option value="$PROJECT_DIR$/travel_grade_system_common/pom.xml" />
-        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityCustomMapper.xml" />
-        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/SearchController.java" />
-        <option value="$PROJECT_DIR$/mybatis-generator-config/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelUserRel.java" />
         <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/mybatis-generator-config/src/main/resources/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/mybatis-generator-config/src/main/java/com/leo/mapper/TravelCityMapper.java" />
+        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityMapper1.xml" />
+        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelCity.java" />
+        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityMapper.xml" />
+        <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelUserCityRel.java" />
+        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelUserCityRelMapper.xml" />
+        <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/IUserCityRel.java" />
+        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/SearchController.java" />
+        <option value="$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/dto/TravelCityCustom.java" />
+        <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityCustomMapper.xml" />
+        <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/impl/CityServiceImpl.java" />
+        <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/IUserCityRelService.java" />
+        <option value="$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/impl/UserCityRelServiceImpl.java" />
         <option value="$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/UserController.java" />
       </list>
     </option>
@@ -284,7 +268,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -352,23 +335,6 @@
             <path>
               <item name="travel-grade-system" type="b2602c69:ProjectViewProjectNode" />
               <item name="travel-grade-system" type="462c0819:PsiDirectoryNode" />
-              <item name="travel_grade_system_api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="travel-grade-system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="travel-grade-system" type="462c0819:PsiDirectoryNode" />
-              <item name="travel_grade_system_api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="travel-grade-system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="travel-grade-system" type="462c0819:PsiDirectoryNode" />
               <item name="travel_grade_system_pojo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -409,28 +375,58 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="leo" type="462c0819:PsiDirectoryNode" />
-              <item name="annotation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="travel-grade-system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="travel-grade-system" type="462c0819:PsiDirectoryNode" />
-              <item name="travel_grade_system_pojo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="leo" type="462c0819:PsiDirectoryNode" />
-              <item name="annotation" type="462c0819:PsiDirectoryNode" />
-              <item name="support" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="travel-grade-system" type="b2602c69:ProjectViewProjectNode" />
               <item name="travel-grade-system" type="462c0819:PsiDirectoryNode" />
               <item name="travel_grade_system_service" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="travel-grade-system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="travel-grade-system" type="462c0819:PsiDirectoryNode" />
+              <item name="travel_grade_system_service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="travel-grade-system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="travel-grade-system" type="462c0819:PsiDirectoryNode" />
+              <item name="travel_grade_system_service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="travel-grade-system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="travel-grade-system" type="462c0819:PsiDirectoryNode" />
+              <item name="travel_grade_system_service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="travel-grade-system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="travel-grade-system" type="462c0819:PsiDirectoryNode" />
+              <item name="travel_grade_system_service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="travel-grade-system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="travel-grade-system" type="462c0819:PsiDirectoryNode" />
+              <item name="travel_grade_system_service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -443,19 +439,19 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="D:/masterSpring/code/SpringBoot/mini-video-dev" />
+    <property name="last_opened_file_path" value="D:/masterSpring/code/SpringBoot/cpc" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.leo.pojo" />
       <recent name="com.leo.mapper" />
       <recent name="com.leo.dto" />
-      <recent name="com.leo.pojo" />
       <recent name="com.leo.pojo.util" />
       <recent name="com.leo.utils" />
     </key>
@@ -512,8 +508,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MyGenerator" />
         <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Application.MyGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -559,11 +555,18 @@
       <workItem from="1551880451897" duration="4160000" />
       <workItem from="1552269865522" duration="8773000" />
       <workItem from="1552462264664" duration="558000" />
+      <workItem from="1552793225322" duration="964000" />
+      <workItem from="1553088221374" duration="4717000" />
+      <workItem from="1553131258200" duration="52000" />
+      <workItem from="1553169579137" duration="2400000" />
+      <workItem from="1553217467623" duration="98000" />
+      <workItem from="1553236784571" duration="6343000" />
+      <workItem from="1553254758726" duration="6978000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145549000" />
+    <option name="totallyTimeSpent" value="167101000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -577,31 +580,31 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18683812" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20801815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32872504" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5951613" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39846155" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32718122" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.59395975" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32903227" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32923076" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.5604027" />
       <window_info anchor="bottom" id="Spring" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32872504" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32419354" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3238255" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.32872504" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.21860817" />
+      <window_info anchor="right" id="Database" order="3" weight="0.19440243" />
       <window_info anchor="right" id="Maven" order="4" weight="0.32980332" />
       <window_info anchor="right" id="Bean Validation" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
@@ -610,71 +613,47 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/3.5.3/mapper-3.5.3.jar!/tk/mybatis/mapper/entity/Example.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="777" column="32" selection-start-line="777" selection-start-column="32" selection-end-line="777" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/test.xml" />
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/TT.java" />
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/Test.java" />
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelCity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.4.RELEASE/spring-context-5.1.4.RELEASE.jar!/org/springframework/scheduling/annotation/EnableScheduling.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.4.RELEASE/spring-context-5.1.4.RELEASE.jar!/org/springframework/scheduling/annotation/Scheduled.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.4.RELEASE/spring-context-5.1.4.RELEASE.jar!/org/springframework/scheduling/annotation/Schedules.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_common/src/main/java/com/leo/utils/Test.java" />
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_common/src/main/java/com/leo/utils/MyJob.java" />
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/schedule/SearchSchedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="39" column="57" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/travel_grade_system_common/src/main/java/com/leo/config/WxConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -740,27 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/dto/TravelCityCustom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelCityMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.16/poi-3.16.jar!/org/apache/poi/hssf/usermodel/HSSFRow.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -798,68 +756,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/ICityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/impl/CityServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="82" column="56" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelCityCustomMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://34df7e24-0856-4255-8ca7-53ccf5f29db2/schema/travel_grade_system/table/leo_travel_system_search">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityCustomMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/SearchController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="80" column="42" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mybatis-generator-config/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="68" column="97" selection-start-line="68" selection-start-column="97" selection-end-line="68" selection-end-column="97" />
         </state>
       </provider>
     </entry>
@@ -875,23 +775,27 @@
     <entry file="file://$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelUserRelMapper.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelUserCommentRelMapper.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelUserCityRelMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://34df7e24-0856-4255-8ca7-53ccf5f29db2/schema/travel_grade_system/table/leo_travel_system_city">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/annotation/LoginUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelUserCityRel.java">
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/annotation/config/WxWebMvcConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-872">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        <state relative-caret-position="189">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/annotation/support/LoginUserHandlerMethodArgumentResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -902,48 +806,222 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/annotation/LoginUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelUserCommentRelMapper.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://34df7e24-0856-4255-8ca7-53ccf5f29db2/schema/travel_grade_system/table/leo_travel_system_city">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/annotation/config/WxWebMvcConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/schedule/SearchSchedule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="717">
+          <caret line="39" column="59" lean-forward="true" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mybatis-generator-config/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="57" column="33" lean-forward="true" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelCityMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mybatis-generator-config/src/main/java/com/leo/mapper/TravelCityMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mybatis-generator-config/src/main/resources/mapper/TravelCityMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelCity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelComment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mybatis-generator-config/src/main/resources/mapper/TravelSearchMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_mapper/src/main/java/com/leo/mapper/TravelCityCustomMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelUserCityRelMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32">
+          <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/ICityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/impl/CityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/dto/TravelCityCustom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/resources/mapper/TravelCityCustomMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/SystemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53">
-          <caret line="356" column="53" selection-start-line="356" selection-start-column="47" selection-end-line="356" selection-end-column="53" />
+        <state relative-caret-position="528">
+          <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/annotation/support/LoginUserHandlerMethodArgumentResolver.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.4.RELEASE/spring-web-5.1.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="90">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/impl/UserCityRelServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="49" column="60" selection-start-line="49" selection-start-column="60" selection-end-line="49" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://34df7e24-0856-4255-8ca7-53ccf5f29db2/schema/travel_grade_system/table/leo_travel_system_log">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_service/src/main/java/com/leo/service/IUserCityRelService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://34df7e24-0856-4255-8ca7-53ccf5f29db2/schema/travel_grade_system/table/leo_travel_system_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/SearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="94" column="47" selection-start-line="94" selection-start-column="47" selection-end-line="94" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://34df7e24-0856-4255-8ca7-53ccf5f29db2/schema/travel_grade_system/table/leo_travel_system_user_city_rel.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://34df7e24-0856-4255-8ca7-53ccf5f29db2/schema/travel_grade_system/table/leo_travel_system_user_city_rel">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travel_grade_system_pojo/src/main/java/com/leo/pojo/TravelUserCityRel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/travel_grade_system_api/src/main/java/com/leo/controller/wx/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding>
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="175">
+          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
         </state>
       </provider>
     </entry>

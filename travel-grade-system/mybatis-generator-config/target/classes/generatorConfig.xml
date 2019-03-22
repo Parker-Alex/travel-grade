@@ -54,7 +54,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <!--<table tableName="leo_travel_system_city" domainObjectName="TravelCity"/>-->
+        <table tableName="leo_travel_system_city" domainObjectName="TravelCity"/>
         <!--<table tableName="leo_travel_system_comment" domainObjectName="TravelComment"/>-->
         <!--<table tableName="leo_travel_system_image" domainObjectName="TravelImage"/>-->
         <!--<table tableName="leo_travel_system_other" domainObjectName="TravelOther"/>-->
@@ -64,9 +64,9 @@
         <!--<table tableName="leo_travel_system_token" domainObjectName="TravelToken"/>-->
         <!--<table tableName="leo_travel_system_log" domainObjectName="TravelLog"/>-->
         <!--<table tableName="leo_travel_system_search" domainObjectName="TravelSearch"/>-->
-        <table tableName="leo_travel_system_user_rel" domainObjectName="TravelUserRel"/>
-        <table tableName="leo_travel_system_user_city_rel" domainObjectName="TravelUserCityRel"/>
-        <table tableName="leo_travel_system_user_comment_rel" domainObjectName="TravelUserCommentRel"/>
+        <!--<table tableName="leo_travel_system_user_rel" domainObjectName="TravelUserRel"/>-->
+        <!--<table tableName="leo_travel_system_user_city_rel" domainObjectName="TravelUserCityRel"/>-->
+        <!--<table tableName="leo_travel_system_user_comment_rel" domainObjectName="TravelUserCommentRel"/>-->
 
     </context>
 </generatorConfiguration>

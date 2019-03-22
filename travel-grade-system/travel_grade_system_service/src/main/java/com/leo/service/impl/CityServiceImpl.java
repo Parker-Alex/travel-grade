@@ -84,9 +84,6 @@ public class CityServiceImpl implements ICityService {
         if (list.size() <= 0) {
             return null;
         }
-        for (TravelCityCustom c : list) {
-            System.out.println(c);
-        }
         return list.get(0);
     }
 

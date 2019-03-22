@@ -78,8 +78,7 @@
                                     <zan-capsule color="#a78845" leftText="评分" rightText="{{item.grade}}" />
                                 </view>
                             </view>
-                            <text wx:if = '{{item.introduce.length > 0}}' class="desc">{{item.introduce.substring(0, 10)}}</text>
-                            <text wx: else class="desc">简介</text>
+                            <text class="desc">简介</text>
                             <view class="price">
                                 <view class="likeCount">想去：{{item.likeCount}}人</view>
                                 <view class="favourCount">点赞：{{item.favourCount}}人</view>

@@ -3,7 +3,7 @@
         "pages/index/index",
         "pages/user/index/index",
         "pages/catalog/catalog",
-        "pages/detail/detail",
+        "pages/city/city",
         "pages/groupon/grouponDetail/grouponDetail",
         "pages/groupon/myGroupon/myGroupon",
         "pages/groupon/grouponList/grouponList",
@@ -11,7 +11,8 @@
         "pages/system/register/register",
         "pages/system/accountLogin/accountLogin",
         "pages/category/category",
-        "pages/search/search"
+        "pages/search/search",
+        "pages/city/comment/comment"
     ],
     "window": {
         "backgroundTextStyle": "dark",

@@ -11,6 +11,7 @@ module.exports = {
     Register: WxApiRoot + 'system/register',//账号注册
     LoginOut: WxApiRoot + 'system/loginout',//注销
     RegisterCaptcha: WxApiRoot + 'system/captcha',//注册验证码
+    UpdateUserCityRel: WxApiRoot + 'user/update_user_city_rel',//更新用户与城市之间关系
 
     /**
      * 首页相关操作API

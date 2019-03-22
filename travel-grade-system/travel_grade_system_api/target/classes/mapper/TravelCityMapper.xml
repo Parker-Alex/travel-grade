@@ -12,6 +12,7 @@
     <result column="commend_count" property="commendCount" jdbcType="INTEGER" />
     <result column="like_count" property="likeCount" jdbcType="INTEGER" />
     <result column="grade_count" property="gradeCount" jdbcType="INTEGER" />
+    <result column="gone_count" property="goneCount" jdbcType="INTEGER" />
     <result column="grade" property="grade" jdbcType="DOUBLE" />
     <result column="introduce" property="introduce" jdbcType="VARCHAR" />
     <result column="cover" property="cover" jdbcType="VARCHAR" />

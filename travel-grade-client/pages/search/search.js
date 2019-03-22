@@ -36,7 +36,7 @@ Page({
 
     mySearchFunction: function (value) {
        wx.redirectTo({
-           url: '/pages/detail/detail?value=' + value,
+           url: '/pages/city/city?value=' + value,
        })
     },
 

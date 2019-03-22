@@ -1,13 +1,17 @@
 package com.leo.controller.wx;
 
+import com.leo.annotation.LoginUser;
 import com.leo.dto.TravelCityCustom;
 import com.leo.pojo.TravelCity;
 import com.leo.pojo.TravelSearch;
+import com.leo.pojo.TravelUserCityRel;
 import com.leo.service.ICityService;
 import com.leo.service.ISearchService;
+import com.leo.service.IUserCityRelService;
 import com.leo.utils.MyResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +31,9 @@ public class SearchController {
 
     @Autowired
     private ICityService cityService;
+
+    @Autowired
+    private IUserCityRelService userCityRelService;
 
     /**
      * 得到热搜词列表和所有城市名称接口
@@ -51,10 +58,26 @@ public class SearchController {
      * @return
      */
     @GetMapping("/search")
-    public MyResult search(@RequestParam("name") String name,
+    public MyResult search(@LoginUser String userId,
+                           @RequestParam("name") String name,
                            @RequestParam("id") String cityId) {
 
         LOGGER.info("调用通过名字模糊查询城市接口");
+
+        Map<String, Object> data = new HashMap<>();
+
+//        如果无用户登录，用户城市关系信息设为空，否则查询出相关记录
+        if (StringUtils.isEmpty(userId)) {
+            data.put("user_city_rel", null);
+        } else {
+            TravelUserCityRel userCityRel = userCityRelService.getRelByUserIdAndCityId(userId, cityId);
+//            如果该用户还没对城市进行操作，用户城市关系同样设为空
+            if (userCityRel == null) {
+                data.put("user_city_rel", null);
+            } else {
+                data.put("user_city_rel", userCityRel);
+            }
+        }
 
         if (cityId.equals("null")) {
             cityId = null;
@@ -75,12 +98,13 @@ public class SearchController {
         if (city == null) {
             return MyResult.errorMsg("无法找到匹配城市");
         }
+        data.put("city", city);
 
 //        当通过名字查询时，才保存该搜索词
         if (!StringUtils.isEmpty(name)) {
             searchService.addHotKey(name);
         }
 
-        return MyResult.ok(city);
+        return MyResult.ok(data);
     }
 }
