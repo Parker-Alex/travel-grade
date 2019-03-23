@@ -49,4 +49,16 @@ public class UserCityRelServiceImpl implements IUserCityRelService {
         userCityRel.setId(sid.nextShort());
         return userCityRelMapper.insertSelective(userCityRel);
     }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public int getCountByType(int type, String cityId) {
+        return userCityRelMapper.getCountByType(type, cityId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public double getAvgGrade(String cityId) {
+        return userCityRelMapper.getAvgGrade(cityId);
+    }
 }

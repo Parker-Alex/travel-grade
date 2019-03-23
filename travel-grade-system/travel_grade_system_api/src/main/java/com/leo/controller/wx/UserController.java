@@ -51,7 +51,6 @@ public class UserController {
             userCityRelNew.setIsGone(userCityRel.getIsGone());
             userCityRelNew.setIsLike(userCityRel.getIsLike());
             result = userCityRelService.updateRel(userCityRelNew);
-            System.out.println(userCityRelNew);
         }
 
         if (result <= 0) {

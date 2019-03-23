@@ -13,4 +13,28 @@
     <result column="is_like" property="isLike" jdbcType="BIT" />
     <result column="is_gone" property="isGone" jdbcType="BIT" />
   </resultMap>
+
+  <select id="getCountByType" resultType="java.lang.Integer">
+    SELECT count(a.id)
+    FROM leo_travel_system_user_city_rel AS a
+    WHERE a.city_id = #{cityId}
+    <if test="type == 0">
+      AND a.is_like = 1
+    </if>
+    <if test="type == 1">
+      AND a.is_favour = 1
+    </if>
+    <if test="type == 2">
+      AND a.is_gone = 1
+    </if>
+    <if test="type == 3">
+      AND a.grade > 0
+    </if>
+  </select>
+
+  <select id="getAvgGrade" parameterType="java.lang.String" resultType="java.lang.Double">
+    SELECT AVG(a.grade)
+    FROM leo_travel_system_user_city_rel AS a
+    WHERE a.city_id = #{cityId}
+  </select>
 </mapper>

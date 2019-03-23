@@ -53,7 +53,7 @@ public class SearchController {
     }
 
     /**
-     * 通过名字模糊查询城市接口
+     * 查询城市接口
      * @param name
      * @return
      */
@@ -62,7 +62,7 @@ public class SearchController {
                            @RequestParam("name") String name,
                            @RequestParam("id") String cityId) {
 
-        LOGGER.info("调用通过名字模糊查询城市接口");
+        LOGGER.info("------查询城市方法开始------");
 
         Map<String, Object> data = new HashMap<>();
 
@@ -98,12 +98,29 @@ public class SearchController {
         if (city == null) {
             return MyResult.errorMsg("无法找到匹配城市");
         }
+
+//        设置城市相关操作人数
+        int likeCount = userCityRelService.getCountByType(0, city.getId());
+        int favourCount = userCityRelService.getCountByType(1, city.getId());
+        int goneCount = userCityRelService.getCountByType(2, city.getId());
+        int gradeCount = userCityRelService.getCountByType(3, city.getId());
+//        获得城市评分
+        double grade = userCityRelService.getAvgGrade(city.getId());
+
+        city.setLikeCount(likeCount);
+        city.setFavourCount(favourCount);
+        city.setGoneCount(goneCount);
+        city.setGradeCount(gradeCount);
+        city.setGrade(grade);
+
         data.put("city", city);
 
 //        当通过名字查询时，才保存该搜索词
         if (!StringUtils.isEmpty(name)) {
             searchService.addHotKey(name);
         }
+
+        LOGGER.info("------查询城市方法结束------");
 
         return MyResult.ok(data);
     }
