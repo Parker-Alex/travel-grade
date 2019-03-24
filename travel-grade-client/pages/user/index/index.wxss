@@ -14,6 +14,7 @@ page {
 
 .profile-info {
   background-color: #ab956d;
+  /* background-color: #4EA3E7; */
   color: #f4f4f4;
   display: flex;
   align-items: center;

@@ -1,5 +1,6 @@
 package com.leo.pojo;
 
+import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "leo_travel_system_comment")
@@ -20,6 +21,15 @@ public class TravelComment {
 
     @Column(name = "favour_count")
     private Integer favourCount;
+
+    /**
+     * 根评论
+     */
+    @Column(name = "parent_comment_id")
+    private String parentCommentId;
+
+    @Column(name = "send_date")
+    private Date sendDate;
 
     /**
      * @return id
@@ -103,5 +113,37 @@ public class TravelComment {
      */
     public void setFavourCount(Integer favourCount) {
         this.favourCount = favourCount;
+    }
+
+    /**
+     * 获取根评论
+     *
+     * @return parent_comment_id - 根评论
+     */
+    public String getParentCommentId() {
+        return parentCommentId;
+    }
+
+    /**
+     * 设置根评论
+     *
+     * @param parentCommentId 根评论
+     */
+    public void setParentCommentId(String parentCommentId) {
+        this.parentCommentId = parentCommentId == null ? null : parentCommentId.trim();
+    }
+
+    /**
+     * @return send_date
+     */
+    public Date getSendDate() {
+        return sendDate;
+    }
+
+    /**
+     * @param sendDate
+     */
+    public void setSendDate(Date sendDate) {
+        this.sendDate = sendDate;
     }
 }

@@ -24,4 +24,6 @@ public class TravelCity {
 
     private String cover;
 
+    private Double grade;
+
 }

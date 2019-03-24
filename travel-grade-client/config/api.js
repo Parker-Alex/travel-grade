@@ -24,4 +24,8 @@ module.exports = {
     GetHotKeyAndName: WxApiRoot + 'search/hot_key',//得到搜索的热门词和所有城市名称
     GetCity: WxApiRoot + 'search/search',//得到城市信息
 
+    /**
+     * 评论相关API
+     */
+    SendComment: WxApiRoot + 'comment/send',//发表评论
 }

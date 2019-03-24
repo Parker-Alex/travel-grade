@@ -49,12 +49,12 @@ function request(url, data = {}, method = 'GET') {
                             showCancel: false
                         })
                         // 清除登录相关内容
-                        try {
-                            wx.removeStorageSync('userInfo');
-                            wx.removeStorageSync('token');
-                        } catch (e) {
-                            // Do something when catch error
-                        }
+                        // try {
+                        //     wx.removeStorageSync('userInfo');
+                        //     wx.removeStorageSync('token');
+                        // } catch (e) {
+                        //     // Do something when catch error
+                        // }
                         // 跳转到登录页面
                         wx.navigateTo({
                             url: '/pages/user/index/index',

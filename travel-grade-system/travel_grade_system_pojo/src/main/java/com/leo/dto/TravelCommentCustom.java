@@ -1,4 +1,4 @@
-package com.leo.pojo;
+package com.leo.dto;
 
 import lombok.Data;
 
@@ -8,32 +8,35 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Data
-@Table(name = "leo_travel_system_comment")
-public class TravelComment {
-    @Id
+public class TravelCommentCustom {
     private String id;
 
-    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "city_id")
     private String cityId;
 
     private String content;
 
-    @Column(name = "to_user_id")
     private String toUserId;
 
-    @Column(name = "favour_count")
     private Integer favourCount;
 
     /**
      * 根评论
      */
-    @Column(name = "parent_comment_id")
     private String parentCommentId;
 
-    @Column(name = "send_date")
     private Date sendDate;
+
+    /**
+     * 联表结果属性
+     */
+    private String nickName;
+
+    private String avatar;
+
+    private String toNickName;
+
+    private String toAvatar;
 
 }

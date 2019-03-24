@@ -11,5 +11,7 @@
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="to_user_id" property="toUserId" jdbcType="VARCHAR" />
     <result column="favour_count" property="favourCount" jdbcType="INTEGER" />
+    <result column="parent_comment_id" property="parentCommentId" jdbcType="VARCHAR" />
+    <result column="send_date" property="sendDate" jdbcType="TIMESTAMP" />
   </resultMap>
 </mapper>

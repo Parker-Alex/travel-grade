@@ -11,6 +11,7 @@
     <result column="commend_count" property="commendCount" jdbcType="INTEGER" />
     <result column="introduce" property="introduce" jdbcType="VARCHAR" />
     <result column="cover" property="cover" jdbcType="VARCHAR" />
+    <result column="grade" property="grade" jdbcType="DOUBLE" />
   </resultMap>
 
   <select id="getAllName" resultType="java.lang.String">

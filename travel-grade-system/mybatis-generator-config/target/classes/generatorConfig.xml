@@ -54,8 +54,8 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="leo_travel_system_city" domainObjectName="TravelCity"/>
-        <!--<table tableName="leo_travel_system_comment" domainObjectName="TravelComment"/>-->
+        <!--<table tableName="leo_travel_system_city" domainObjectName="TravelCity"/>-->
+        <table tableName="leo_travel_system_comment" domainObjectName="TravelComment"/>
         <!--<table tableName="leo_travel_system_image" domainObjectName="TravelImage"/>-->
         <!--<table tableName="leo_travel_system_other" domainObjectName="TravelOther"/>-->
         <!--<table tableName="leo_travel_system_province" domainObjectName="TravelProvince"/>-->

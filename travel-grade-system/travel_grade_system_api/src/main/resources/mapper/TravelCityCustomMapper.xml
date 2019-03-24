@@ -16,6 +16,7 @@
     <result column="grade" property="grade" jdbcType="DOUBLE" />
     <result column="introduce" property="introduce" jdbcType="VARCHAR" />
     <result column="cover" property="cover" jdbcType="VARCHAR" />
+
     <result column="province_name" property="provinceName" jdbcType="VARCHAR" />
   </resultMap>
 
