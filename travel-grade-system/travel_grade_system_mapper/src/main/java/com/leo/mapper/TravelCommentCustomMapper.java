@@ -5,6 +5,8 @@ import com.leo.dto.TravelCommentCustom;
 import com.leo.utils.MyMapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface TravelCommentCustomMapper extends MyMapper<TravelCommentCustom> {
 
     /**
@@ -13,4 +15,11 @@ public interface TravelCommentCustomMapper extends MyMapper<TravelCommentCustom>
      * @Date 23:02 2019/3/24
      */
     TravelCommentCustom getCommentByUnion(@Param("id") String commentId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 分页获得该城市下所有的评论
+     * @Date 20:18 2019/3/25
+     */
+    List<TravelCommentCustom> getAllComment(@Param("id") String cityId);
 }

@@ -33,12 +33,12 @@ Page({
             user.loginByWx(e.detail.userInfo).then(res => {
                 // 登录成功
                 app.globalData.hasLogin = true;               
-                // wx.navigateBack({
-                //     delta: 1
-                // });
-                wx.switchTab({
-                    url: '/pages/index/index',
-                })
+                wx.navigateBack({
+                    delta: 1
+                });
+                // wx.switchTab({
+                //     url: '/pages/index/index',
+                // })
             }).catch((err) => {
                 // 登录失败
                 app.globalData.hasLogin = false;

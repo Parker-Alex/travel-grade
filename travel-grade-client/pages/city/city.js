@@ -24,6 +24,7 @@ Page({
      */
     onLoad: function (options) {
         let id = options.id;
+        console.log(id);
         let value = options.value;
         let that = this;
 
@@ -40,7 +41,6 @@ Page({
         }
 
         util.request(api.GetCity, data).then((res) => {
-            console.log(res);
             if (res.status == 200) {
                 if (res.data.user_city_rel != null) {
                     that.setData({

@@ -1,10 +1,12 @@
 package com.leo.pojo;
 
 import lombok.Data;
+import org.joda.time.DateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Data

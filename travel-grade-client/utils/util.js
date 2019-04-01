@@ -4,7 +4,7 @@ var app = getApp();
 // 格式化日期
 function formatTime(date) {
     var year = date.getFullYear();
-    var month = date.getMouth() + 1;
+    var month = date.getMonth() + 1;
     var day = date.getDate();
 
     var hour = date.getHours();

@@ -58,7 +58,7 @@ public class UserCityRelServiceImpl implements IUserCityRelService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public double getAvgGrade(String cityId) {
+    public Double getAvgGrade(String cityId) {
         return userCityRelMapper.getAvgGrade(cityId);
     }
 }

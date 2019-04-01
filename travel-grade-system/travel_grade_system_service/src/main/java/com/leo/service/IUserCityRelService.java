@@ -24,5 +24,5 @@ public interface IUserCityRelService {
      */
     int getCountByType(int type, String cityId);
 
-    double getAvgGrade(String cityId);
+    Double getAvgGrade(String cityId);
 }

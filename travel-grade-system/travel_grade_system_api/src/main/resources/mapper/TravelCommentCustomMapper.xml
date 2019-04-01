@@ -29,4 +29,15 @@
     LEFT JOIN leo_travel_system_user u2 ON c.to_user_id = u2.id
     WHERE c.id = #{id}
   </select>
+
+  <select id="getAllComment" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT c.*,
+    u1.nickname, u1.avatar,
+    u2.nickname AS to_nickname, u2.avatar AS to_avatar
+    FROM leo_travel_system_comment c
+    LEFT JOIN leo_travel_system_user u1 ON c.user_id = u1.id
+    LEFT JOIN leo_travel_system_user u2 ON c.to_user_id = u2.id
+    WHERE c.city_id = #{id}
+    ORDER By c.id
+  </select>
 </mapper>

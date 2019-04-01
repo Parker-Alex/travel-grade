@@ -105,7 +105,10 @@ public class SearchController {
         int goneCount = userCityRelService.getCountByType(2, city.getId());
         int gradeCount = userCityRelService.getCountByType(3, city.getId());
 //        获得城市评分
-        double grade = userCityRelService.getAvgGrade(city.getId());
+        Double grade = userCityRelService.getAvgGrade(city.getId());
+        if (grade == null) {
+            grade = 0D;
+        }
 
         city.setLikeCount(likeCount);
         city.setFavourCount(favourCount);

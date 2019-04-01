@@ -13,5 +13,5 @@ public interface TravelUserCityRelMapper extends MyMapper<TravelUserCityRel> {
      */
     int getCountByType(@Param("type") int type, @Param("cityId") String cityId);
 
-    double getAvgGrade(@Param("cityId") String cityId);
+    Double getAvgGrade(@Param("cityId") String cityId);
 }

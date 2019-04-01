@@ -3,6 +3,8 @@ package com.leo.service;
 import com.leo.dto.TravelCommentCustom;
 import com.leo.pojo.TravelComment;
 
+import java.util.List;
+
 /**
  * @ClassName ICommentService
  * @Description TODO
@@ -12,7 +14,12 @@ import com.leo.pojo.TravelComment;
  */
 public interface ICommentService {
 
-    int insertComment(TravelComment comment);
+    // 添加评论，并且返回评论id
+    String insertComment(String request, String userId);
 
     TravelCommentCustom getCommentByUnion(String commentId);
+
+    List<TravelCommentCustom> getAllComment(String cityId, Integer pageIndex, Integer pageSize);
+
+    int deleteComment(String commentId, String userId);
 }

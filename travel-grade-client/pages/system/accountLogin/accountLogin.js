@@ -81,12 +81,12 @@ Page({
                         key: 'token',
                         data: res.data.data.token,
                         success(res) {
-                            // wx.navigateBack({
-                            //     delta: 2
-                            // });
-                            wx.switchTab({
-                                url: '/pages/index/index',
-                            })
+                            wx.navigateBack({
+                                delta: 2
+                            });
+                            // wx.switchTab({
+                            //     url: '/pages/index/index',
+                            // })
                         }
                     });
                 } else {

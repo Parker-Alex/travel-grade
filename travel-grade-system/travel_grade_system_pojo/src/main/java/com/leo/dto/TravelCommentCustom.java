@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Data
@@ -38,5 +40,11 @@ public class TravelCommentCustom {
     private String toNickName;
 
     private String toAvatar;
+
+    /**
+     * 不进行映射
+     */
+    @Transient
+    private String date;
 
 }

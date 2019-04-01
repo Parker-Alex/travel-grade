@@ -14,7 +14,15 @@ Page({
         scrollHeight: 0,
         cityId: '',
         list: [],
-        userId: ''
+        userId: '',
+        // 评论id
+        id: '',
+        // 用于记录最近的页码
+        currentPage: 0,
+
+        reply: false,
+        replyUserName: '',
+        toUserId: ''
     },
 
     /**
@@ -33,14 +41,54 @@ Page({
                 })
             },
         })
+
     },
 
+    onShow: function() {
+        this.setData({
+            list: []
+        })
+        // 开始获取城市评论
+        this.getComments(0);
+    },
+
+    // 分页获取评论方法
+    getComments: function(index) {
+        let cityId = this.data.cityId;
+        let that = this;
+        let list = this.data.list;
+ 
+        if (index == 0) {
+            index = 1;
+        }
+        util.request(api.AllComment + '/' + cityId + '/' + index).then((res) => {
+            // 判断是否还有评论
+            if (res.data.list.length <= 0) {
+                wx.showToast({
+                    title: '没有更多了......',
+                    duration: 1500,
+                    icon: 'none'
+                })
+            }
+            // 拼接评论
+            let list_new = list.concat(res.data.list);
+            // 进行数据绑定
+            that.setData({
+                list: list_new,
+                userId: res.data.userId,
+                currentPage: index
+            })
+        })
+    },
+    
+    // 发送评论方法
     submitForm: function(e) {
         let that = this;
 
-        user.checkLogin().then(() => {
+        if (app.globalData.hasLogin){
             let content = e.detail.value.content;
-            console.log(content);
+            let toUserId = '';
+            let id = '';
             if (content == '') {
                 wx.showToast({
                     mask: true,
@@ -50,10 +98,19 @@ Page({
                 return ;
             }
 
-            // 发送评论
+            // 如果是回复评论
+            if (this.data.reply) {
+                toUserId = this.data.toUserId;
+                id = this.data.id;
+            }
+
+            // -----发送评论开始-----
             let data = {
                 cityId: that.data.cityId,
-                content: content
+                content: content,
+                toUserId: toUserId,
+                id: id,
+                sendDate: util.formatTime(new Date)
             }
             console.log(data);
             util.request(api.SendComment, data, 'POST').then((res) => {
@@ -61,12 +118,17 @@ Page({
                 let list = that.data.list;
                 list.push(res.data.comment);
                 that.setData({
-                    list: list,
-                    userId: res.data.userId
+                    list: list
+                })
+                wx.showToast({
+                    title: '发送成功',
+                    icon: 'success',
+                    duration: 1500
                 })
             })
+            // -----发送评论结束-----
 
-        }).catch(() => {
+        } else {
             // util.showErrorToast("请先登录");
             wx.showModal({
                 title: '提示',
@@ -81,9 +143,88 @@ Page({
                     }
                 }
             })
-        })
+        }
         that.setData({
             clear: ''
+        })
+    },
+
+    // 滑到底部事件
+    bindDownLoad: function() {
+        let currentPage = this.data.currentPage;
+        this.getComments(currentPage + 1);
+    },
+
+    // 滑到顶部事件
+    refresh: function() {
+        this.setData({
+            list: []
+        })
+        this.getComments(0);
+    },
+
+    // 删除评论方法
+    deleteComment: function(e) {
+        let id = e.currentTarget.dataset.commentid;
+        let index = e.currentTarget.dataset.index;
+        let list = this.data.list;
+        let that = this;
+
+        wx.showModal({
+            title: '提示',
+            content: '确定删除该评论？',
+            success(res){
+                // 开始删除评论
+                if (res.confirm) {
+                    util.request(api.DeleteComment + '/' + id).then((res) => {
+                        if (res.status == 200) {
+                            list.splice(index, 1);// index表示起始位置，1表示删除几个元素
+                            that.setData({
+                                list: list
+                            })
+                        }
+                    })
+                } else if (res.cancel) {
+                    return ;
+                }
+            }
+
+        })
+    },
+
+    // 回复评论方法
+    bindReply: function(e) {
+        if (app.globalData.hasLogin) {
+            console.log(e);
+            this.setData({
+                reply: true,
+                replyUserName: e.currentTarget.dataset.commentusername,
+                toUserId: e.currentTarget.dataset.touserid,
+                id: e.currentTarget.dataset.commentid
+            })
+            console.log(this.data.id);
+        } else {
+            // util.showErrorToast("请先登录");
+            wx.showModal({
+                title: '提示',
+                content: '请先登录',
+                success(res) {
+                    if (res.confirm) {
+                        wx.navigateTo({
+                            url: '/pages/system/login/login',
+                        })
+                    } else if (res.cancel) {
+                        return;
+                    }
+                }
+            })
+        }  
+    },
+
+    // 取消回复评论方法
+    cancleReply: function() {
+        this.setData({
+            reply: false
         })
     }
 })
