@@ -42,13 +42,16 @@ public class SearchController {
     @GetMapping("/hot_key")
     public MyResult getHotKey() {
 
-        LOGGER.info("调用得到热搜词列表和所有城市名称接口");
+        LOGGER.info("------调用得到热搜词列表和所有城市名称方法开始------");
 
         List<String> hotkeys = searchService.getHotKeys();
         List<String> citiesName = cityService.getAllName();
+
         Map<String, Object> data = new HashMap<>();
         data.put("hotkeys", hotkeys);
         data.put("citiesName", citiesName);
+
+        LOGGER.info("------调用得到热搜词列表和所有城市名称方法结束------");
         return MyResult.ok(data);
     }
 
@@ -98,23 +101,6 @@ public class SearchController {
         if (city == null) {
             return MyResult.errorMsg("无法找到匹配城市");
         }
-
-//        设置城市相关操作人数
-        int likeCount = userCityRelService.getCountByType(0, city.getId());
-        int favourCount = userCityRelService.getCountByType(1, city.getId());
-        int goneCount = userCityRelService.getCountByType(2, city.getId());
-        int gradeCount = userCityRelService.getCountByType(3, city.getId());
-//        获得城市评分
-        Double grade = userCityRelService.getAvgGrade(city.getId());
-        if (grade == null) {
-            grade = 0D;
-        }
-
-        city.setLikeCount(likeCount);
-        city.setFavourCount(favourCount);
-        city.setGoneCount(goneCount);
-        city.setGradeCount(gradeCount);
-        city.setGrade(grade);
 
         data.put("city", city);
 

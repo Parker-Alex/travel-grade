@@ -51,7 +51,7 @@ public class SystemController {
      */
     @PostMapping("/login_by_wx")
     public MyResult loginByWx(@RequestBody WxUserInfo wxUserInfo, HttpServletRequest request) {
-        LOGGER.info("调用微信登录方法");
+        LOGGER.info("------调用微信登录方法开始------");
         LOGGER.info("请求参数为：" + wxUserInfo);
 
 //        获取微信登录码和微信用户信息

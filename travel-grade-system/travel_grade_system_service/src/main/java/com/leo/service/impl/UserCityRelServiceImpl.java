@@ -2,6 +2,7 @@ package com.leo.service.impl;
 
 import com.leo.mapper.TravelUserCityRelMapper;
 import com.leo.pojo.TravelUserCityRel;
+import com.leo.service.ICityService;
 import com.leo.service.IUserCityRelService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +61,24 @@ public class UserCityRelServiceImpl implements IUserCityRelService {
     @Override
     public Double getAvgGrade(String cityId) {
         return userCityRelMapper.getAvgGrade(cityId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public int judgeRel(TravelUserCityRel userCityRelNew, TravelUserCityRel userCityRel, String userId) {
+        int result = 0;
+//        用户第一次与城市建立关系，则新建关系
+        if (userCityRelNew == null) {
+            userCityRel.setUserId(userId);
+            result = this.insertRel(userCityRel);
+        } else {
+//            用户不是第一次建立关系，则在原来关系的基础上修改
+            userCityRelNew.setIsFavour(userCityRel.getIsFavour());
+            userCityRelNew.setIsGone(userCityRel.getIsGone());
+            userCityRelNew.setIsLike(userCityRel.getIsLike());
+            result = this.updateRel(userCityRelNew);
+        }
+
+        return result;
     }
 }

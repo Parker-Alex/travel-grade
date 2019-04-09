@@ -186,6 +186,12 @@
     padding-bottom: 20rpx;
 }
 
+/* 子评论的头部样式 */
+.pro-box .head-reply {
+    padding-left: 100rpx;
+    padding-bottom: 20rpx;
+}
+
 .pro-box .shead .name {
     font-size: 30rpx;
     line-height: 40rpx;
@@ -220,6 +226,17 @@
     font-size: 30rpx;
 }
 
+.pro-box .morebtn {
+    height: 48rpx;
+    background: #fff;
+    border-radius: 50rpx;
+    border: 1px solid #4ea3e7;
+    color: #4ea3e7;
+    text-align: center;
+    line-height: 50rpx;
+    font-size: 30rpx;
+}
+
 .pro-box .addr-info {
     align-items: center;
     justify-content: space-between;
@@ -228,6 +245,19 @@
     margin-bottom: 20rpx;
     padding-bottom: 20rpx;
     padding-left: 20rpx;
+    padding-right: 20rpx;
+    display: inline-block;
+}
+
+/* 子评论的内容样式 */
+.pro-box .addr-info-reply {
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px dashed #ccc;
+    margin: 0 -20rpx;
+    margin-bottom: 20rpx;
+    padding-bottom: 20rpx;
+    padding-left: 120rpx;
     padding-right: 20rpx;
     display: inline-block;
 }

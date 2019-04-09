@@ -143,4 +143,24 @@ public class CommentController {
 
         return MyResult.ok();
     }
+
+    /**
+     * @Author li.jiawei
+     * @Description 查看子评论接口
+     * @Date 17:44 2019/4/9
+     */
+    @PostMapping("/more")
+    public MyResult moreComment(@RequestBody String body, @LoginUser String userId) {
+
+        LOGGER.info("------查看子评论方法开始------");
+        LOGGER.info("请求参数：" + body);
+
+        if (StringUtils.isEmpty(userId)) {
+            return MyResult.errorMsg("没有登录");
+        }
+
+        List result = commentService.moreComment(body);
+
+        return MyResult.ok(result);
+    }
 }

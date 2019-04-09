@@ -8,8 +8,8 @@
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="province_id" property="provinceId" jdbcType="VARCHAR" />
-    <result column="favour_count" property="favourCount" jdbcType="INTEGER" />
     <result column="commend_count" property="commendCount" jdbcType="INTEGER" />
+    <result column="favour_count" property="favourCount" jdbcType="INTEGER" />
     <result column="like_count" property="likeCount" jdbcType="INTEGER" />
     <result column="gone_count" property="goneCount" jdbcType="INTEGER" />
     <result column="grade_count" property="gradeCount" jdbcType="INTEGER" />

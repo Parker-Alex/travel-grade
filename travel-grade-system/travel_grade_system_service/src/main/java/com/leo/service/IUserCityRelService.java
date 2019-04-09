@@ -25,4 +25,11 @@ public interface IUserCityRelService {
     int getCountByType(int type, String cityId);
 
     Double getAvgGrade(String cityId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 对用户城市关系进行判断，以便决定是插入关系还是更新关系
+     * @Date 11:32 2019/4/2
+     */
+    int judgeRel(TravelUserCityRel userCityRelNew, TravelUserCityRel userCityRel, String userId);
 }

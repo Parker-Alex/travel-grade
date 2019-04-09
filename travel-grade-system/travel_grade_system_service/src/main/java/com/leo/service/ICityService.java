@@ -19,4 +19,6 @@ public interface ICityService {
     TravelCityCustom getCity(String cityId, String name);
 
     List<String> getAllName();
+
+    int updateCity(String cityId);
 }

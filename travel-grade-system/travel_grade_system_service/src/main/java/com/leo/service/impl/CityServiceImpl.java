@@ -6,7 +6,9 @@ import com.leo.mapper.TravelCityCustomMapper;
 import com.leo.mapper.TravelCityMapper;
 import com.leo.pojo.TravelCity;
 import com.leo.service.ICityService;
+import com.leo.service.IUserCityRelService;
 import org.n3r.idworker.Sid;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -23,6 +25,9 @@ public class CityServiceImpl implements ICityService {
 
     @Autowired
     private TravelCityMapper cityMapper;
+
+    @Autowired
+    private IUserCityRelService userCityRelService;
 
     @Autowired
     private Sid sid;
@@ -84,12 +89,47 @@ public class CityServiceImpl implements ICityService {
         if (list.size() <= 0) {
             return null;
         }
-        return list.get(0);
+        TravelCityCustom city = list.get(0);
+        if (city == null) {
+            return null;
+        }
+        return city;
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<String> getAllName() {
         return cityMapper.getAllName();
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int updateCity(String cityId) {
+//        得到原有城市记录
+        TravelCity city = cityMapper.selectByPrimaryKey(cityId);
+        if (city == null) {
+            return 0;
+        }
+//        将原有城市数据复制到新的城市对象中
+        TravelCity cityNew = new TravelCity();
+        BeanUtils.copyProperties(city, cityNew);
+//        设置城市相关操作人数
+        int likeCount = userCityRelService.getCountByType(0, cityId);
+        int favourCount = userCityRelService.getCountByType(1, cityId);
+        int goneCount = userCityRelService.getCountByType(2, cityId);
+        int gradeCount = userCityRelService.getCountByType(3, cityId);
+//        获得城市评分
+        Double grade = userCityRelService.getAvgGrade(cityId);
+//        因为该属性是包装类，所以要进行判空
+        if (grade == null) {
+            grade = 0D;
+        }
+
+        cityNew.setLikeCount(likeCount);
+        cityNew.setFavourCount(favourCount);
+        cityNew.setGoneCount(goneCount);
+        cityNew.setGradeCount(gradeCount);
+        cityNew.setGrade(grade);
+        return cityMapper.updateByPrimaryKey(cityNew);
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.text.DateFormat;
@@ -89,6 +90,7 @@ public class CommentServiceImpl implements ICommentService {
         return commentList;
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int deleteComment(String commentId, String userId) {
         Example example = new Example(TravelComment.class);
@@ -96,5 +98,18 @@ public class CommentServiceImpl implements ICommentService {
         criteria.andEqualTo("id", commentId);
         criteria.andEqualTo("userId", userId);
         return commentMapper.deleteByExample(example);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelCommentCustom> moreComment(String body) {
+        String cityId = JacksonUtil.parseString(body, "cityId");
+        String commentId = JacksonUtil.parseString(body, "commentId");
+
+        if (StringUtils.isEmpty(cityId) || StringUtils.isEmpty(commentId)) {
+            return null;
+        }
+
+        return commentCustomMapper.moreComment(commentId, cityId);
     }
 }

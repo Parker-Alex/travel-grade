@@ -178,7 +178,7 @@ Page({
                 if (res.confirm) {
                     util.request(api.DeleteComment + '/' + id).then((res) => {
                         if (res.status == 200) {
-                            list.splice(index, 1);// index表示起始位置，1表示删除几个元素
+                            list.splice(index, 1);// index表示起始位置，1表示删除几个元素（0表示不删除元素）
                             that.setData({
                                 list: list
                             })
@@ -192,7 +192,7 @@ Page({
         })
     },
 
-    // 回复评论方法
+    // 点击回复按钮方法
     bindReply: function(e) {
         if (app.globalData.hasLogin) {
             console.log(e);
@@ -203,6 +203,50 @@ Page({
                 id: e.currentTarget.dataset.commentid
             })
             console.log(this.data.id);
+        } else {
+            // util.showErrorToast("请先登录");
+            wx.showModal({
+                title: '提示',
+                content: '请先登录',
+                success(res) {
+                    if (res.confirm) {
+                        wx.navigateTo({
+                            url: '/pages/system/login/login',
+                        })
+                    } else if (res.cancel) {
+                        return;
+                    }
+                }
+            })
+        }  
+    },
+
+    // 查看更多评论方法
+    moreBtn: function(e) {
+        if (app.globalData.hasLogin) {
+            let that = this;
+            let commentId = e.currentTarget.dataset.commentid;
+            let index = e.currentTarget.dataset.index + 1;
+            let cityId = this.data.cityId;
+            let list = this.data.list;
+
+            let data = {
+                commentId: commentId,
+                cityId: cityId
+            }
+            console.log(data);
+
+            util.request(api.MoreComment, data, 'POST').then((res) => {
+                if (res.status === 200) {
+                    let list_more = res.data;
+                    for (let i = 0; i < list_more.length; i++,index++) {
+                        list.splice(index, 0, list_more[i]);    
+                    }
+                    that.setData({
+                        list: list
+                    })
+                }
+            })
         } else {
             // util.showErrorToast("请先登录");
             wx.showModal({

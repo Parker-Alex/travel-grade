@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface ICommentService {
 
-    // 添加评论，并且返回评论id
+//    添加评论，并且返回评论id
     String insertComment(String request, String userId);
 
     TravelCommentCustom getCommentByUnion(String commentId);
@@ -22,4 +22,11 @@ public interface ICommentService {
     List<TravelCommentCustom> getAllComment(String cityId, Integer pageIndex, Integer pageSize);
 
     int deleteComment(String commentId, String userId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得子评论方法
+     * @Date 17:54 2019/4/9
+     */
+    List<TravelCommentCustom> moreComment(String body);
 }

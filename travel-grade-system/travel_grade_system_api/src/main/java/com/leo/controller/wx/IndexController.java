@@ -38,7 +38,7 @@ public class IndexController {
     @GetMapping("/index_data")
     public MyResult getCitiesAndProvinces() {
 
-        LOGGER.info("调用获取城市和省份列表接口");
+        LOGGER.info("------调用获取城市和省份列表方法开始------");
 
 //        获得城市列表
         List<TravelCity> cities = cityService.getHotCities();
@@ -49,6 +49,9 @@ public class IndexController {
         Map<String, Object> data = new HashMap<>();
         data.put("cities", cities);
         data.put("provinces", provinces);
+
+        LOGGER.info("------调用获取城市和省份列表方法结束------");
+
         return MyResult.ok(data);
     }
 
@@ -58,7 +61,8 @@ public class IndexController {
     @GetMapping("/get_provinces/{pageNum}")
     public MyResult getAllProvinces(@PathVariable("pageNum") Integer pageNum) {
 
-        LOGGER.info("调用获得所有省份接口");
+        LOGGER.info("------调用获得所有省份方法开始------");
+        LOGGER.info("参数pageNum：" + pageNum);
 
 //        初始化分页起始值
         if (StringUtils.isEmpty(pageNum) || pageNum == 0) {
@@ -66,6 +70,8 @@ public class IndexController {
         }
 
         List<TravelProvince> provinces = provinceService.getProvinces(pageNum, 0);
+
+        LOGGER.info("------调用获得所有省份方法结束------");
 
         return MyResult.ok(provinces);
     }
@@ -78,11 +84,17 @@ public class IndexController {
     @GetMapping("/get_cities/{provinceId}")
     public MyResult getCities(@PathVariable("provinceId") String provinceId) {
 
-        LOGGER.info("调用通过省份id获取所属城市列表接口");
+        LOGGER.info("------调用通过省份id获取所属城市列表方法开始------");
+        LOGGER.info("参数provinceId：" + provinceId);
+
         if (StringUtils.isEmpty(provinceId)) {
             return MyResult.errorMsg("参数为空");
         }
+
         List<TravelCity> cities = cityService.getCitiesByProvinceId(provinceId);
+
+        LOGGER.info("------调用通过省份id获取所属城市列表方法结束------");
+
         return MyResult.ok(cities);
 
     }
@@ -96,7 +108,7 @@ public class IndexController {
                                 @RequestParam("introduce") String introduce,
                                 @RequestParam("reason") String reason) {
 
-        LOGGER.info("添加省份请求参数：" + name);
+        LOGGER.info("------添加省份方法开始------");
 
         TravelProvince province = new TravelProvince();
         province.setName(name);
@@ -108,6 +120,9 @@ public class IndexController {
         if (result == 0) {
             return MyResult.errorMsg("插入失败");
         }
+
+        LOGGER.info("------添加省份方法结束------");
+
         return MyResult.ok();
     }
 
@@ -120,7 +135,7 @@ public class IndexController {
                             @RequestParam("introduce") String introduce,
                             @RequestParam("provinceId") String provinceId) {
 
-        LOGGER.info("添加省份请求参数：" + name);
+        LOGGER.info("------添加省份方法开始------");
 
         TravelCity city= new TravelCity();
         city.setName(name);
@@ -132,6 +147,8 @@ public class IndexController {
         if (result == 0) {
             return MyResult.errorMsg("插入失败");
         }
+
+        LOGGER.info("------添加省份方法结束------");
         return MyResult.ok();
     }
 }

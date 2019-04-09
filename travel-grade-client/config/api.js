@@ -30,4 +30,10 @@ module.exports = {
     SendComment: WxApiRoot + 'comment/send',//发表评论
     AllComment: WxApiRoot + 'comment/all',//获得所有评论
     DeleteComment: WxApiRoot + 'comment/delete',//删除评论
+    MoreComment: WxApiRoot + 'comment/more',//更多评论
+
+    /**
+     * 城市相关操作
+     */
+    
 }
