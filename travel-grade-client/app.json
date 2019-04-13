@@ -12,7 +12,14 @@
         "pages/system/accountLogin/accountLogin",
         "pages/category/category",
         "pages/search/search",
-        "pages/city/comment/comment"
+        "pages/city/comment/comment",
+        "pages/brand/brand",
+        "pages/newGoods/newGoods",
+        "pages/hotGoods/hotGoods",
+        "pages/topic/topic",
+        "pages/coupon/coupon",
+        "pages/goods/goods",
+        "pages/cityList/cityList"
     ],
     "window": {
         "backgroundTextStyle": "dark",

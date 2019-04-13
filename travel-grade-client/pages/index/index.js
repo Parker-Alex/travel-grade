@@ -4,7 +4,12 @@ const app = getApp();
 
 Page({
     data: {
-        cities: [],
+        hotCities: [],
+        commendCities: [],
+        favourCities: [],
+        goneCities: [],
+        gradeCities: [],
+        likeCities: [],
         provinces: []
     },
 
@@ -12,14 +17,7 @@ Page({
 
         this.getInitData();
 
-        wx.getSetting({
-            success(res) {
-                console.log(JSON.stringify(res));
-            },
-            fail(res) {
-                console.log("失败");
-            }
-        })
+        // TODO 获取本地位置信息
 
     },
 
@@ -35,8 +33,14 @@ Page({
     getInitData: function() {
         let that = this;
         util.request(api.IndexData).then((res) => {
+            console.log(res);
             that.setData({
-                cities: res.data.cities,
+                hotCities: res.data.hotCities,
+                commendCities: res.data.commendCities,
+                favourCities: res.data.favourCities,
+                goneCities: res.data.goneCities,
+                gradeCities: res.data.gradeCities,
+                likeCities: res.data.likeCities,
                 provinces: res.data.provinces
             })
         })

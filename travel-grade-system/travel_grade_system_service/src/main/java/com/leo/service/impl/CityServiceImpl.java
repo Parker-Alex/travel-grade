@@ -35,15 +35,64 @@ public class CityServiceImpl implements ICityService {
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<TravelCity> getHotCities() {
+        return pageByProperty("grade", "desc");
+    }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelCity> getCitiesByCommendCount() {
+        return pageByProperty("commend_count", "desc");
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelCity> getCitiesByFavourCount() {
+        return pageByProperty("favour_count", "desc");
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelCity> getCitiesByLikeCount() {
+        return pageByProperty("like_count", "desc");
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelCity> getCitiesByGoneCount() {
+        return pageByProperty("gone_count", "desc");
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelCity> getCitiesByGradeCount() {
+        return pageByProperty("grade_count", "desc");
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelCity> getCityList(Integer index, Integer pageNum) {
+
+        String str = "";
 //        设置分页参数
-        PageHelper.startPage(1, 10);
+        PageHelper.startPage(pageNum, 5);
 
+        if (index == 0) {
+            str = "grade";
+        }
         Example example = new Example(TravelCity.class);
-        example.setOrderByClause("grade desc");
+//        example.setOrderByClause("grade desc");
+        example.setOrderByClause(str + "  desc");
 
-        return cityMapper.selectByExample(example);
+        List<TravelCity> cs = cityMapper.selectByExample(example);
 
+//        将城市的简介进行简化
+        for (TravelCity c : cs) {
+            if (c.getIntroduce() != null && c.getIntroduce().length() > 18) {
+                String shortIntroduce = c.getIntroduce().substring(0, 18) + "...";
+                c.setIntroduce(shortIntroduce);
+            }
+        }
+        return cs;
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
@@ -132,4 +181,32 @@ public class CityServiceImpl implements ICityService {
         cityNew.setGrade(grade);
         return cityMapper.updateByPrimaryKey(cityNew);
     }
+
+    /**
+     * @Author li.jiawei
+     * @Description 按照城市的不同属性进行分页查询城市列表，
+     * @Param str1 进行排序的列名，str2 排序的方式
+     * @Date 14:19 2019/4/13
+     */
+    private List<TravelCity> pageByProperty(String str1, String str2) {
+
+//        设置分页参数
+        PageHelper.startPage(1, 10);
+
+        Example example = new Example(TravelCity.class);
+//        example.setOrderByClause("grade desc");
+        example.setOrderByClause(str1 + " " + str2);
+
+        List<TravelCity> cs = cityMapper.selectByExample(example);
+
+//        将城市的简介进行简化
+        for (TravelCity c : cs) {
+            if (c.getIntroduce() != null && c.getIntroduce().length() > 17) {
+                String shortIntroduce = c.getIntroduce().substring(0, 17) + "...";
+                c.setIntroduce(shortIntroduce);
+            }
+        }
+        return cs;
+    }
+
 }

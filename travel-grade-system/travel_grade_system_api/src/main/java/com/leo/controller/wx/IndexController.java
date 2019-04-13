@@ -40,14 +40,23 @@ public class IndexController {
 
         LOGGER.info("------调用获取城市和省份列表方法开始------");
 
-//        获得城市列表
-        List<TravelCity> cities = cityService.getHotCities();
-
+//        获得热门城市列表
+        List<TravelCity> hotCities = cityService.getHotCities();
+        List<TravelCity> commendCities = cityService.getCitiesByCommendCount();
+        List<TravelCity> favourCities = cityService.getCitiesByFavourCount();
+        List<TravelCity> goneCities = cityService.getCitiesByGoneCount();
+        List<TravelCity> gradeCities = cityService.getCitiesByGradeCount();
+        List<TravelCity> likeCities = cityService.getCitiesByLikeCount();
 //        获取省份列表
         List<TravelProvince> provinces = provinceService.getHotProvinces();
 
         Map<String, Object> data = new HashMap<>();
-        data.put("cities", cities);
+        data.put("hotCities", hotCities);
+        data.put("commendCities", commendCities);
+        data.put("favourCities", favourCities);
+        data.put("goneCities", goneCities);
+        data.put("gradeCities", gradeCities);
+        data.put("likeCities", likeCities);
         data.put("provinces", provinces);
 
         LOGGER.info("------调用获取城市和省份列表方法结束------");

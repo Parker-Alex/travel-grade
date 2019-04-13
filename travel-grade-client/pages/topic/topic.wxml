@@ -1,0 +1,16 @@
+<view class="container">
+  <scroll-view class="topic-list" scroll-y="true" scroll-top="{{scrollTop}}">
+    <!-- <navigator class="item" wx:for="{{topicList}}" wx:key="id" url="../topicDetail/topicDetail?id={{item.id}}"> -->
+      <image class="img" src="http://m.tuniucdn.com/fb2/t1/G5/M00/3D/D2/Cii-tFxAWxiIXvtnAAwrPGn38YYAATMtQEdKVAADCtU334_w500_h280_c1_t0.jpg"></image>
+      <view class="info">
+        <text class="title">标题</text>
+        <text class="desc">描述</text>
+        <text class="price">10元起</text>
+      </view>
+    <!-- </navigator> -->
+    <view class="page" wx:if="{{showPage}}">
+      <view class="prev {{ page <= 1 ? 'disabled' : ''}}" bindtap="prevPage">上一页</view>
+      <view class="next {{ (count / size) < page ? 'disabled' : ''}}" bindtap="nextPage">下一页</view>
+    </view>
+  </scroll-view>
+</view>

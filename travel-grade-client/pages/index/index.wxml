@@ -26,29 +26,29 @@
         </navigator>
     </view>
 
-    <view class="a-section a-coupon" wx:if="{{cities.length > 0}}">
+    <view class="a-section a-coupon" wx:if="{{favourCities.length > 0}}">
         <view class="h">
             <view class="title">
                 <view>
                     <navigator url="/pages/coupon/coupon">
-                        <text class="txt">优惠券</text>
+                        <text class="txt">人气推荐</text>
                     </navigator>
                 </view>
             </view>
         </view>
         <view class="b">
-            <view class="item" wx:for="{{cities}}" wx:for-index="index" wx:for-item="item" wx:key="id" bindtap="getCoupon" data-index="{{item.id}}">
+            <view class="item" wx:for="{{favourCities}}" wx:for-index="index" wx:for-item="item" wx:key="id" bindtap="getCoupon" data-index="{{item.id}}">
                 <view class="tag">{{item.name}}</view>
                 <view class="content">
                     <view class="left">
-                        <view class="discount">{{item.likeCount}}元</view>
-                        <view class="min"> 满{{item.favourCount}}元使用</view>
+                        <view class="discount">{{item.favourCount}}人</view>
+                        <view class="min">进行点赞</view>
                     </view>
                     <view class="right">
                         <view class="name">{{item.name}}</view>
-                        <view class="desc">{{item.name}}</view>
-                        <view class="time" wx:if="{{item.days != 0}}">有效期：{{item.likeCount}}天</view>
-                        <view class="time" wx:else> 有效期：{{item.grade}} - {{item.grade}}</view>
+                        <view class="desc">评分人数：{{item.gradeCount}}</view>
+                        <!-- <view class="time" wx:if="{{item.days != 0}}">有效期：{{item.likeCount}}天</view>
+                        <view class="time" wx:else> 有效期：{{item.grade}} - {{item.grade}}</view> -->
                     </view>
                 </view>
             </view>
@@ -56,19 +56,19 @@
     </view>
 
     <!-- 热门城市 -->
-    <view class="a-section a-groupon" wx:if="{{cities.length > 0}}">
+    <view class="a-section a-groupon" wx:if="{{hotCities.length > 0}}">
         <view class="h">
             <view class="title">
                 <view>
-                    <navigator url="/pages/groupon/grouponList/grouponList">
+                    <navigator url="/pages/cityList/cityList?index=0">
                         <text class="txt">热门城市</text>
                     </navigator>
                 </view>
             </view>
         </view>
         <view class="b">
-            <view class="item" wx:for="{{cities}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-                <navigator url="/pages/goods/goods?id={{item.goods.id}}">
+            <view class="item" wx:for="{{hotCities}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+                <navigator url="/pages/city/city?id={{item.id}}">
                     <image class="img" src="{{item.cover}}" mode='aspectFit'></image>
                     <view class="right">
                         <view class="text">
@@ -78,10 +78,10 @@
                                     <zan-capsule color="#a78845" leftText="评分" rightText="{{item.grade}}" />
                                 </view>
                             </view>
-                            <text class="desc">简介</text>
+                            <text class="desc">{{item.introduce}}</text>
                             <view class="price">
                                 <view class="likeCount">想去：{{item.likeCount}}人</view>
-                                <view class="favourCount">点赞：{{item.favourCount}}人</view>
+                                <view class="favourCount">去过：{{item.favourCount}}人</view>
                             </view>
                         </view>
                     </view>
@@ -90,14 +90,15 @@
         </view>
     </view>
 
+    <!-- 想去城市 -->
     <view class="a-section a-brand">
         <view class="h">
             <navigator url="../brand/brand">
-                <text class="txt">品牌制造商直供</text>
+                <text class="txt">梦寐以求的城市</text>
             </navigator>
         </view>
         <view class="b">
-            <view class="item item-1" wx:for="{{cities}}" wx:key="id">
+            <view class="item item-1" wx:for="{{likeCities}}" wx:key="id">
                 <navigator url="/pages/brandDetail/brandDetail?id={{item.id}}">
                     <view class="wrap">
                         <image class="img" src="{{item.cover}}" mode="aspectFill"></image>
@@ -112,16 +113,17 @@
         </view>
     </view>
 
-    <view class="a-section a-new" wx:if="{{cities.length > 0}}">
+    <!-- 去过城市 -->
+    <view class="a-section a-new" wx:if="{{goneCities.length > 0}}">
         <view class="h">
             <view>
                 <navigator url="../newGoods/newGoods">
-                    <text class="txt">周一周四 · 新品首发</text>
+                    <text class="txt">到此一游的城市</text>
                 </navigator>
             </view>
         </view>
         <view class="b">
-            <view class="item" wx:for="{{cities}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+            <view class="item" wx:for="{{goneCities}}" wx:for-index="index" wx:for-item="item" wx:key="id">
                 <navigator url="../goods/goods?id={{item.id}}">
                     <image class="img" src="{{item.cover}}" mode='aspectFill'></image>
                     <text class="name">{{item.name}}</text>
@@ -131,7 +133,8 @@
         </view>
     </view>
 
-    <view class="a-section a-popular" wx:if="{{cities.length > 0}}">
+    <!-- 点赞城市 -->
+    <view class="a-section a-popular" wx:if="{{favourCities.length > 0}}">
         <view class="h">
             <view>
                 <navigator url="../hotGoods/hotGoods">
@@ -140,14 +143,17 @@
             </view>
         </view>
         <view class="b">
-            <view class="item" wx:for="{{cities}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+            <view class="item" wx:for="{{favourCities}}" wx:for-index="index" wx:for-item="item" wx:key="id">
                 <navigator url="/pages/goods/goods?id={{item.id}}">
                     <image class="img" src="{{item.cover}}" mode='aspectFit'></image>
                     <view class="right">
                         <view class="text">
                             <text class="name">{{item.name}}</text>
-                            <text class="desc">{{item.likeCount}}</text>
-                            <text class="price">￥{{item.grade}}</text>
+                            <text class="desc">{{item.introduce}}</text>
+                            <view class="price">
+                                <view class="likeCount">评分：{{item.gradeCount}}人</view>
+                                <view class="favourCount">评论：{{item.commendCount}}人</view>
+                            </view>
                         </view>
                     </view>
                 </navigator>
@@ -155,6 +161,7 @@
         </view>
     </view>
 
+    <!-- 省份精选 -->
     <view class="a-section a-topic" wx:if="provinces.length > 0">
         <view class="h">
             <view>
@@ -179,7 +186,7 @@
         </view>
     </view>
 
-    <view class="good-grid" wx:for="{{cities}}" wx:key="id">
+    <view class="good-grid" wx:for="{{hotCities}}" wx:key="id">
         <view class="h">
             <text>{{item.name}}</text>
         </view>

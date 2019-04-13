@@ -35,5 +35,6 @@ module.exports = {
     /**
      * 城市相关操作
      */
+    CityList: WxApiRoot + 'city/city_list',//根据不同条件获得城市列表
     
 }
