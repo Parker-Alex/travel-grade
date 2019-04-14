@@ -1,5 +1,6 @@
 package com.leo.service;
 
+import com.github.pagehelper.PageInfo;
 import com.leo.pojo.TravelProvince;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public interface IProvinceService {
     List<TravelProvince> getHotProvinces();
 
 //    分页获得省份
-    List<TravelProvince> getProvinces(Integer pageNum, Integer pageSize);
+    PageInfo<TravelProvince> getProvinces(Integer pageNum, Integer pageSize);
 
     int addProvince(TravelProvince province);
 }

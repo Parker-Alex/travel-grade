@@ -78,7 +78,7 @@ public class IndexController {
             pageNum = 1;
         }
 
-        List<TravelProvince> provinces = provinceService.getProvinces(pageNum, 0);
+        PageInfo<TravelProvince> provinces = provinceService.getProvinces(pageNum, 5);
 
         LOGGER.info("------调用获得所有省份方法结束------");
 

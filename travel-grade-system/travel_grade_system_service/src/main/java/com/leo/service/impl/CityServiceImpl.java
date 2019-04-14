@@ -1,7 +1,9 @@
 package com.leo.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.leo.dto.TravelCityCustom;
+import com.leo.enums.CityCondition;
 import com.leo.mapper.TravelCityCustomMapper;
 import com.leo.mapper.TravelCityMapper;
 import com.leo.pojo.TravelCity;
@@ -70,18 +72,18 @@ public class CityServiceImpl implements ICityService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public List<TravelCity> getCityList(Integer index, Integer pageNum) {
+    public PageInfo<TravelCity> getCityList(Integer index, Integer pageNum) {
 
-        String str = "";
-//        设置分页参数
-        PageHelper.startPage(pageNum, 5);
-
-        if (index == 0) {
-            str = "grade";
+        if (pageNum == null || pageNum == 0) {
+            pageNum = 1;
         }
+
+//        设置分页参数
+        PageHelper.startPage(pageNum, 4);
+
         Example example = new Example(TravelCity.class);
 //        example.setOrderByClause("grade desc");
-        example.setOrderByClause(str + "  desc");
+        example.setOrderByClause(CityCondition.getProperty(index) + "  desc");
 
         List<TravelCity> cs = cityMapper.selectByExample(example);
 
@@ -92,7 +94,9 @@ public class CityServiceImpl implements ICityService {
                 c.setIntroduce(shortIntroduce);
             }
         }
-        return cs;
+//        使用PageInfo对城市列表进行封装
+        PageInfo<TravelCity> cities = new PageInfo<>(cs);
+        return cities;
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)

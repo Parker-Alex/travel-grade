@@ -31,8 +31,8 @@ Page({
  
         util.request(api.GetProvinces + '/' + pageNum).then(function(res) {
             that.setData({
-                provinces: res.data,
-                currentProvince: res.data[0]
+                provinces: res.data.list,
+                currentProvince: res.data.list[0]
             });
 
             that.getCities(that.data.currentProvince.id);

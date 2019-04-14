@@ -19,7 +19,8 @@
         "pages/topic/topic",
         "pages/coupon/coupon",
         "pages/goods/goods",
-        "pages/cityList/cityList"
+        "pages/cityList/cityList",
+        "pages/provinceList/provinceList"
     ],
     "window": {
         "backgroundTextStyle": "dark",

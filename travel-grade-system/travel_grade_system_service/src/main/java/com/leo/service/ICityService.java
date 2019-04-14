@@ -1,5 +1,6 @@
 package com.leo.service;
 
+import com.github.pagehelper.PageInfo;
 import com.leo.dto.TravelCityCustom;
 import com.leo.pojo.TravelCity;
 
@@ -50,7 +51,7 @@ public interface ICityService {
      * @Description 根据不同的条件分页获得城市列表，index代表查询的条件，0表示按评分查询
      * @Date 1:32 2019/4/14
      */
-    List<TravelCity> getCityList(Integer index, Integer pageNum);
+    PageInfo<TravelCity> getCityList(Integer index, Integer pageNum);
 
     List<TravelCity> getCities(Integer pageNum, Integer pageSize);
 

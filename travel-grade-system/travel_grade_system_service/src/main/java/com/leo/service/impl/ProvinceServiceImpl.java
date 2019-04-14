@@ -1,6 +1,7 @@
 package com.leo.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.leo.mapper.TravelProvinceMapper;
 import com.leo.pojo.TravelProvince;
 import com.leo.service.IProvinceService;
@@ -36,9 +37,24 @@ public class ProvinceServiceImpl implements IProvinceService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public List<TravelProvince> getProvinces(Integer pageNum, Integer pageSize) {
+    public PageInfo<TravelProvince> getProvinces(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        return provinceMapper.selectAll();
+
+//        按评分进行排序
+        Example example = new Example(TravelProvince.class);
+        example.setOrderByClause("grade desc");
+
+        List<TravelProvince> ps = provinceMapper.selectByExample(example);
+//        简化简介，方便展示美观
+        for (TravelProvince p : ps) {
+            if(p.getIntroduce().length() > 18) {
+                String shortIntroduce = p.getIntroduce().substring(0, 18) + "...";
+                p.setIntroduce(shortIntroduce);
+            }
+        }
+
+        PageInfo<TravelProvince> provinces = new PageInfo<>(ps);
+        return provinces;
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

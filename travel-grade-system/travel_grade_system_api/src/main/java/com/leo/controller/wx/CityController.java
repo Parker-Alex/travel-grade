@@ -1,5 +1,6 @@
 package com.leo.controller.wx;
 
+import com.github.pagehelper.PageInfo;
 import com.leo.annotation.LoginUser;
 import com.leo.pojo.TravelCity;
 import com.leo.service.ICityService;
@@ -38,8 +39,15 @@ public class CityController {
      */
     @GetMapping("/city_list/{index}/{pageNum}")
     public MyResult getCityList(@PathVariable("index") Integer index, @PathVariable("pageNum") Integer pageNum) {
+
         LOGGER.info("------调用获得分类城市列表方法开始------");
-        List<TravelCity> cities = cityService.getCityList(index, pageNum);
+
+        if (index == null) {
+            return MyResult.errorMsg("城市分类查询错误");
+        }
+
+        PageInfo<TravelCity> cities = cityService.getCityList(index, pageNum);
+
         LOGGER.info("------调用获得分类城市列表方法结束------");
         return MyResult.ok(cities);
     }

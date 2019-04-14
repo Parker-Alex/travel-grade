@@ -33,7 +33,7 @@ module.exports = {
     MoreComment: WxApiRoot + 'comment/more',//更多评论
 
     /**
-     * 城市相关操作
+     * 城市和省份相关操作
      */
     CityList: WxApiRoot + 'city/city_list',//根据不同条件获得城市列表
     

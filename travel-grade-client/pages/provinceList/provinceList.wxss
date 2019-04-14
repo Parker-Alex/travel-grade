@@ -1,14 +1,14 @@
 page, .container {
   width: 750rpx;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #f4f4f4;
 }
 
 .groupon-list {
   width: 750rpx;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #f4f4f4;
 }
 
@@ -80,7 +80,7 @@ page, .container {
   font-size: 33rpx;
 }
 
-.groupon-list .gone-count {
+.groupon-list .city-count {
   /* text-decoration: line-through; */
   font-size: 28rpx;
   /* color: #999; */
