@@ -3,11 +3,14 @@ package com.leo.controller.wx;
 import com.leo.annotation.LoginUser;
 import com.leo.dto.TravelCityCustom;
 import com.leo.pojo.TravelCity;
+import com.leo.pojo.TravelProvince;
 import com.leo.pojo.TravelSearch;
 import com.leo.pojo.TravelUserCityRel;
 import com.leo.service.ICityService;
+import com.leo.service.IProvinceService;
 import com.leo.service.ISearchService;
 import com.leo.service.IUserCityRelService;
+import com.leo.utils.JacksonUtil;
 import com.leo.utils.MyResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +39,9 @@ public class SearchController {
     @Autowired
     private IUserCityRelService userCityRelService;
 
+    @Autowired
+    private IProvinceService provinceService;
+
     /**
      * 得到热搜词列表和所有城市名称接口
      * @return
@@ -46,26 +53,33 @@ public class SearchController {
 
         List<String> hotkeys = searchService.getHotKeys();
         List<String> citiesName = cityService.getAllName();
+        List<String> provincesName = provinceService.getAllName();
+
+//        匹配关键字列表，包含所有城市和省份名称
+        List<String> matchList = new ArrayList<>();
+        matchList.addAll(citiesName);
+        matchList.addAll(provincesName);
 
         Map<String, Object> data = new HashMap<>();
         data.put("hotkeys", hotkeys);
-        data.put("citiesName", citiesName);
+        data.put("matchList", matchList);
+        data.put("provincesName", provincesName);
 
         LOGGER.info("------调用得到热搜词列表和所有城市名称方法结束------");
         return MyResult.ok(data);
     }
 
     /**
-     * 查询城市接口
+     * 查询城市或省份接口
      * @param name
      * @return
      */
-    @GetMapping("/search")
-    public MyResult search(@LoginUser String userId,
+    @GetMapping("/city")
+    public MyResult searchCity(@LoginUser String userId,
                            @RequestParam("name") String name,
                            @RequestParam("id") String cityId) {
 
-        LOGGER.info("------查询城市方法开始------");
+        LOGGER.info("------查询城市或省份方法开始------");
 
         Map<String, Object> data = new HashMap<>();
 
@@ -109,8 +123,44 @@ public class SearchController {
             searchService.addHotKey(name);
         }
 
-        LOGGER.info("------查询城市方法结束------");
+        LOGGER.info("------查询城市方法或省份结束------");
 
         return MyResult.ok(data);
     }
+
+    /**
+     * @Author li.jiawei
+     * @Description 查询单个省份对象接口
+     * @Date 15:04 2019/4/15
+     */
+    @PostMapping("/province")
+    public MyResult searchProvince(@RequestBody String body) {
+        LOGGER.info("------查询单个省份对象方法开始-----");
+        LOGGER.info("请求参数body：" + body);
+
+        Map<String, Object> data = new HashMap<>();
+
+        TravelProvince province = provinceService.getProvince(body);
+
+        if (province == null) {
+            return MyResult.errorMsg("没有找到匹配省份");
+        }
+
+//        添加搜索词
+        String name = JacksonUtil.parseString(body, "name");
+        if (!StringUtils.isEmpty(name)) {
+            searchService.addHotKey(name);
+        }
+
+//        得到该省份下的城市列表
+        List<TravelCity> cities = cityService.getCitiesByProvinceId(province.getId());
+        if (cities != null) {
+            data.put("cities", cities);
+        }
+        data.put("province", province);
+
+        LOGGER.info("------查询单个省份对象方法结束-----");
+        return MyResult.ok(data);
+    }
+
 }

@@ -1,0 +1,238 @@
+/* pages/movies/movies-detail/movies-detail.wxss */
+@import "/pages/city/stars/stars-template.wxss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #fff;
+}
+
+.head-img {
+    width: 100%;
+    height: 320rpx;
+    /* 使图片模糊 */
+    -webkit-filter: blur(20px);
+}
+
+.head-img-hover {
+    width: 100%;
+    height: 320rpx;
+    /* 使该组件脱离文档流 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+    font-size: 19px;
+    color: #000;
+    font-weight: bold;
+    margin-top: 150rpx;
+    margin-left: 40rpx;
+    letter-spacing: 2px;
+}
+
+.sub-title {
+    font-size: 28rpx;
+    color: #000;
+    margin-left: 40rpx;
+    margin-top: 30rpx;
+    width: 300rpx;
+}
+
+.like {
+    display: flex;
+    flex-direction: row;
+    margin-left: 40rpx;
+    margin-top: 30rpx;
+}
+
+.highlight-font {
+    /* color: #f21146 */
+    color: #fff;
+    font-size: 22rpx;
+    margin-right: 10rpx;
+}
+
+.plain-font {
+    /* color: #666; */
+    color: black;
+    font-size: 22rpx;
+    margin-right: 30rpx;
+}
+
+.province-img {
+    height: 225rpx;
+    width: 400rpx;
+    position: absolute;
+    top: 160rpx;
+    right: 30rpx;
+}
+
+.summary {
+    margin-left: 40rpx;
+    margin-top: 40rpx;
+    color: #777;
+}
+
+.original-title {
+    color: #1f3463;
+    font-size: 24rpx;
+    font-weight: bold;
+    margin-bottom: 40rpx;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10rpx;
+}
+
+.mark {
+    margin-right: 50rpx;
+    white-space: nowrap;
+    color: #999;
+}
+
+.hr {
+    margin-top: 45rpx;
+    height: 1px;
+    width: 100%;
+    background-color: #d9d9d9;
+}
+
+.synopsis {
+    margin-left: 40rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50rpx;
+}
+
+.synopsis-font {
+    color: #999;
+}
+
+.summary-content {
+    margin-top: 20rpx;
+    margin-left: 40rpx;
+    margin-right: 30rpx;
+    line-height: 40rpx;
+    letter-spacing: 1px;
+}
+
+.cast {
+    margin-left: 40rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50rpx;
+}
+
+.cast-font {
+    color: #999;
+    margin-bottom: 40rpx;
+}
+
+.cast-container {
+    display: inline-flex;
+    flex-direction: column;
+    margin-bottom: 50rpx;
+    margin-right: 40rpx;
+    width: 170rpx;
+    text-align: center;
+    white-space: normal;
+}
+
+.cast-imgs {
+    white-space: nowrap;
+}
+
+.cast-img {
+    width: 210rpx;
+    height: 170rpx;
+}
+
+.cast-name {
+    margin: 10rpx auto 0;
+}
+
+/* -------------------------------------------- 底部操作栏样式 ----------------------------------- */
+.answer-footer {
+    position: fixed;
+    bottom: 0;
+    height: 100rpx;
+    border-top: solid 1px #ebebeb;
+    background: #fff;
+    width: 100%;
+    padding: 20rpx 40rpx;
+}
+
+.answer-footer .good {
+    flex: 1;
+    /* border: solid 1px #d1d1d1; */
+    border-radius: 3px;
+    height: 50rpx;
+    width: 50rpx;
+    margin: 8rpx;
+}
+
+.answer-footer .good .good-bad {
+    display: inline-block;
+}
+
+.answer-footer .good image {
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+}
+
+.answer-footer .good .good-num {
+    display: inline-block;
+    padding: 10rpx 4rpx;
+    font-size: 24rpx;
+}
+
+.answer-footer .operation-wrp {
+    flex: 5;
+}
+
+.answer-footer .operation {
+    justify-content: space-between;
+    padding: 0 0 0 60rpx;
+}
+
+.answer-footer .operation-btn {
+    flex: 1;
+    text-align: center;
+}
+
+.answer-footer .operation image {
+    display: block;
+    margin: 0 auto;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.answer-footer .operation-btn text {
+    display: block;
+    font-size: 24rpx;
+    color: #bebebe;
+}
+
+.flex-wrp {
+    display: flex;
+}
+
+.flex-tab {
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.flex-item {
+    flex-grow: 1;
+    text-align: center;
+}

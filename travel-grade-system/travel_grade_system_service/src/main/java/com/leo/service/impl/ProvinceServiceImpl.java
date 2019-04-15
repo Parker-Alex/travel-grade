@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.leo.mapper.TravelProvinceMapper;
 import com.leo.pojo.TravelProvince;
 import com.leo.service.IProvinceService;
+import com.leo.utils.JacksonUtil;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,5 +63,27 @@ public class ProvinceServiceImpl implements IProvinceService {
     public int addProvince(TravelProvince province) {
         province.setId(sid.nextShort());
         return provinceMapper.insertSelective(province);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<String> getAllName() {
+        return provinceMapper.getAllName();
+    }
+
+    @Override
+    public TravelProvince getProvince(String body) {
+        String name = JacksonUtil.parseString(body, "name");
+        String id = JacksonUtil.parseString(body, "id");
+
+//        判空
+        if (id.equals("null")) {
+            id = null;
+        }
+        if (name.equals("null")) {
+            name = null;
+        }
+
+        return provinceMapper.getProvince(name, id);
     }
 }

@@ -402,7 +402,7 @@
 .a-topic .b .item {
   display: inline-block;
   height: 533rpx;
-  width: 680.5rpx;
+  width: 700rpx;
   margin-left: 30rpx;
   overflow: hidden;
 }

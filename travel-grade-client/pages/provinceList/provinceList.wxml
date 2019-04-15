@@ -2,7 +2,7 @@
     <!-- <scroll-view class="groupon-list" scroll-y="true" scroll-top="{{scrollTop}}"> -->
     <view class="groupon-list">
         <view class="item" wx:for="{{provinceList}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-            <navigator url="/pages/city/city?id={{item.id}}">
+            <navigator url="/pages/province/province?id={{item.id}}">
                 <image class="img" src="{{item.cover}}" mode='aspectFit'></image>
                 <view class="right">
                     <view class="text">

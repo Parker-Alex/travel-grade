@@ -1,0 +1,67 @@
+<!--pages/movies/movies-detail/movies-detail.wxml-->
+<import src='/pages/city/stars/stars-template.wxml' />
+<view class="container">
+
+    <image class="head-img" src="{{province.cover}}" mode="aspectFill" />
+
+    <view class="head-img-hover" data-src="{{province.cover}}" catchtap="viewMoviePostImg">
+        <text class="main-title">{{province.name}}</text>
+        <text class="sub-title">{{province.reason}}</text>
+        <!-- <view class="like">
+            <text class="highlight-font">0</text>
+            <text class="plain-font">人评分</text>
+            <text class="highlight-font">0</text>
+            <text class="plain-font">人想去</text>
+        </view> -->
+    </view>
+
+    <image class="province-img" src="{{province.cover}}" data-src="{{province.cover}}" catchtap="viewMoviePostImg" />
+
+    <view class="summary">
+        <view class="original-title">
+            <text>{{province.name}}</text>
+        </view>
+        <view class="flex-row">
+            <text class="mark">评分</text>
+            <template is="starsTemplate" data="{{stars:stars, score:province.grade}}" />
+        </view>
+        <view class="flex-row">
+            <text class="mark">城市数</text>
+            <text>{{province.cityCount}}</text>
+        </view>
+        <view class="flex-row">
+            <text class="mark">省会</text>
+            <text>***</text>
+        </view>
+        <!-- <view class="flex-row">
+            <text class="mark">评论数</text>
+            <text>0</text>
+        </view> -->
+    </view>
+
+    <!-- 分割线 -->
+    <view class="hr"></view>
+
+    <view class="synopsis">
+        <text class="synopsis-font">省份简介</text>
+        <text class="summary-content">{{province.introduce}}</text>
+    </view>
+
+    <!-- 分割线 -->
+    <view class="hr"></view>
+
+    <view class="cast">
+        <text class="cast-font">城市列表</text>
+        <scroll-view class="cast-imgs" scroll-x="true" style="width:100%">
+            <block wx:for="{{cities}}" wx:for-item="item" wx:key='{{index}}'>
+                <view class="cast-container">
+                    <navigator url='/pages/city/city?id={{item.id}}'>
+                        <image class="cast-img" src="{{item.cover}}"></image>
+                        <text class="cast-name">{{item.name}}</text>
+                    </navigator>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+
+</view>

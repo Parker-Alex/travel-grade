@@ -48,14 +48,15 @@ Page({
             confirmColor: '#b4282d',
             success(res) {
                 if (res.confirm) {
-                    util.request(api.LoginOut, {}, 'POST');
-                    app.globalData.hasLogin = false;
-                    // 清缓存
-                    wx.removeStorageSync('userInfo');
-                    wx.removeStorageSync('token');
-                    // 重新启动
-                    wx.reLaunch({
-                        url: '/pages/index/index'
+                    util.request(api.LoginOut, {}, 'POST').then((res) => {
+                        app.globalData.hasLogin = false;
+                        // 清缓存
+                        wx.removeStorageSync('userInfo');
+                        wx.removeStorageSync('token');
+                        // 重新启动
+                        wx.reLaunch({
+                            url: '/pages/index/index'
+                        });
                     });
                 } else {
                     return;

@@ -46,7 +46,14 @@ function request(url, data = {}, method = 'GET') {
                         wx.showModal({
                             title: '错误信息',
                             content: res.data.msg + ',请重试',
-                            showCancel: false
+                            showCancel: false,
+                            success(res) {
+                                if (res.confirm) {
+                                    wx.navigateBack({
+                                        delta: 1
+                                    })
+                                }
+                            }
                         })
                         // 清除登录相关内容
                         // try {
@@ -103,6 +110,9 @@ function showErrorToast(msg) {
 
 // 将星星数转化为数组
 function converStars(stars) {
+    if (stars == null) {
+        stars = 0;
+    }
     // 获取评分的第一个数
     var num = stars.toString().substring(0, 1);
     var array = [];

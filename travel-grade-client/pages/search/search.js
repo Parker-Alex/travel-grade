@@ -8,19 +8,23 @@ Page({
      */
     data: {
         hotList: [],
-        citiesName: []
+        matchList: [],
+        provincesName: []
     },
 
     onLoad: function(options) {
         let that = this;
         util.request(api.GetHotKeyAndName).then((res) => {
             console.log(res);
+            that.setData({
+                provincesName: res.data.provincesName
+            })
             let hotList = res.data.hotkeys;
-            let citiesName = res.data.citiesName;
+            let matchList = res.data.matchList;
             WxSearch.init(
                 that,//本页面的引用
                 hotList,//热词列表，[]表示为空
-                citiesName,//搜索匹配列表，[]表示为空
+                matchList,//搜索匹配列表，[]表示为空
                 that.mySearchFunction,//搜索回调函数
                 that.myGobackFunction//返回回调函数
             )
@@ -35,6 +39,15 @@ Page({
     wxSearchClear: WxSearch.wxSearchClear,  // 清空函数
 
     mySearchFunction: function (value) {
+        let provincesName = this.data.provincesName;
+        for (let i = 0; i < provincesName.length; i++) {
+            if (value == provincesName[i]) {
+                wx.redirectTo({
+                    url: '/pages/province/province?value=' + value,
+                })
+                return ;
+            }
+        }
        wx.redirectTo({
            url: '/pages/city/city?value=' + value,
        })

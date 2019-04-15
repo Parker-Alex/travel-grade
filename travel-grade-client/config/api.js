@@ -21,8 +21,12 @@ module.exports = {
     GetProvinces: WxApiRoot + 'index/get_provinces',//获取省份列表
     GetCitiesByProId: WxApiRoot + 'index/get_cities',//通过省份id获得城市列表
 
+    /**
+     * 搜索相关操作API
+     */
     GetHotKeyAndName: WxApiRoot + 'search/hot_key',//得到搜索的热门词和所有城市名称
-    GetCity: WxApiRoot + 'search/search',//得到城市信息
+    GetCity: WxApiRoot + 'search/city',//得到单个城市对象信息
+    GetProvince: WxApiRoot + 'search/province',//得到单个省份对象信息
 
     /**
      * 评论相关API
@@ -36,5 +40,5 @@ module.exports = {
      * 城市和省份相关操作
      */
     CityList: WxApiRoot + 'city/city_list',//根据不同条件获得城市列表
-    
+
 }

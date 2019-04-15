@@ -4,6 +4,7 @@
         "pages/user/index/index",
         "pages/catalog/catalog",
         "pages/city/city",
+        "pages/province/province",
         "pages/groupon/grouponDetail/grouponDetail",
         "pages/groupon/myGroupon/myGroupon",
         "pages/groupon/grouponList/grouponList",

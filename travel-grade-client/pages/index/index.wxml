@@ -105,7 +105,7 @@
                         <view class="mt">
                             <text class="brand">{{item.name}}</text>
                             <text class="price">{{item.likeCount}}</text>
-                            <text class="unit">元起</text>
+                            <text class="unit">人想去</text>
                         </view>
                     </view>
                 </navigator>
@@ -127,7 +127,7 @@
                 <navigator url="../city/city?id={{item.id}}">
                     <image class="img" src="{{item.cover}}" mode='aspectFill'></image>
                     <text class="name">{{item.name}}</text>
-                    <text class="price">￥{{item.grade}}</text>
+                    <text class="price">去过人数：{{item.grade}}</text>
                 </navigator>
             </view>
         </view>
@@ -173,13 +173,13 @@
         <view class="b">
             <scroll-view scroll-x class="list">
                 <view class="item" wx:for="{{provinces}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-                    <navigator url="../topicDetail/topicDetail?id={{item.id}}">
+                    <navigator url="../province/province?id={{item.id}}">
                         <image class="img" src="{{item.cover}}" mode='scaleToFill'></image>
                         <view class="np">
                             <text class="name">{{item.name}}</text>
-                            <text class="price">￥{{item.grade}}元起</text>
+                            <text class="price">{{item.grade}}分</text>
                         </view>
-                        <text class="desc">{{item.garde}}</text>
+                        <text class="desc">{{item.introduce}}</text>
                     </navigator>
                 </view>
             </scroll-view>
