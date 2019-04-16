@@ -27,7 +27,35 @@ Page({
         // 城市id
         id: '',
         // 城市名称
-        name: ''
+        name: '',
+        // 评分选择范围
+        array: [1,2,3,4,5,6,7,8,9,10],
+        index: -1,
+        // 自己的评分
+        myGrade: 0
+    },
+
+    bindPickerChange(e) {
+        user.checkLogin().then(() => {
+            this.setData({
+                index: e.detail.value
+            })
+        }).catch(() => {
+            wx.showModal({
+                title: '提示',
+                content: '请先登录',
+                success(res) {
+                    if (res.confirm) {
+                        wx.navigateTo({
+                            url: '/pages/system/login/login',
+                        })
+                    } else if (res.cancel) {
+                        return;
+                    }
+                }
+            })
+        })
+        
     },
 
     /**
@@ -69,11 +97,13 @@ Page({
         }
 
         util.request(api.GetCity, data).then((res) => {
+            console.log(res);
             if (res.data.user_city_rel != null) {
                 that.setData({
                     isFavour: res.data.user_city_rel.isFavour,
                     isLike: res.data.user_city_rel.isLike,
                     isGone: res.data.user_city_rel.isGone,
+                    myGrade: res.data.user_city_rel.grade
                 })
             }
             that.setData({
@@ -135,13 +165,15 @@ Page({
     // 更新城市方法
     updateCity: function() {
         let that = this;
+        let grade = this.data.array[this.data.index];
         let data = {};
 
         data = {
             isFavour: that.data.isFavour,
             isLike: that.data.isLike,
             isGone: that.data.isGone,
-            cityId: that.data.city.id
+            cityId: that.data.city.id,
+            grade: grade
         }
         console.log(data);
 
@@ -157,7 +189,7 @@ Page({
      */
     onUnload: function() {
         // 如果用户进行了操作才更新
-        if (this.data.isChange) {
+        if (this.data.isChange || this.data.index > -1) {
             this.updateCity();
         }
     },

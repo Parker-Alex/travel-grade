@@ -72,10 +72,24 @@
 
     <!-- 用户操作栏 -->
     <view class="answer-footer flex-wrp">
-        <view class="good flex-item">
-            <view class="good-bad">
-                <!-- <image src="../../images/icon/good-bad.png"></image> -->
-            </view>
+        <view class="flex-item {{index > -1 ? 'good-grade': 'good'}}">
+            <picker mode='selector' value='{{index}}' range='{{array}}' bindchange="bindPickerChange">
+                <view wx:if='{{myGrade > 0}}'>
+                    <view class="my-grade">
+                        以评分：
+                        <text class='grade'>{{myGrade}}分</text>
+                    </view>
+                </view>
+                <view wx:else>
+                    <view wx:if='{{index < 0}}' class="good-bad">
+                        评分
+                    </view>
+                    <view wx:else class="good-bad-grade">
+                        以评分：
+                        <text class='grade'>{{array[index]}}分</text>
+                    </view>
+                </view>
+            </picker>
             <view class="good-num"></view>
         </view>
         <view class="operation-wrp flex-item">

@@ -36,5 +36,6 @@
     SELECT AVG(a.grade)
     FROM leo_travel_system_user_city_rel AS a
     WHERE a.city_id = #{cityId}
+    AND a.grade > 0
   </select>
 </mapper>

@@ -168,18 +168,52 @@
     padding: 20rpx 40rpx;
 }
 
+/* ---------------------------------------评分栏样式----------------------------------------- */
 .answer-footer .good {
-    flex: 1;
-    /* border: solid 1px #d1d1d1; */
+    /* flex: 1; */
+    border: solid 1px #4EA3E7;
     border-radius: 3px;
-    height: 50rpx;
-    width: 50rpx;
-    margin: 8rpx;
+    height: 60rpx;
+    width: 200rpx;
+    margin: 1rpx;
+}
+
+.answer-footer .good-grade {
+    /* flex: 1; */
+    border: solid 1px #bebebe;
+    border-radius: 3px;
+    height: 60rpx;
+    width: 200rpx;
+    margin: 1rpx;
 }
 
 .answer-footer .good .good-bad {
     display: inline-block;
+    font-size: 40rpx;
+    color: #4EA3E7;
 }
+
+.answer-footer .good-grade .good-bad-grade {
+    display: inline-block;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.my-grade {
+    display: inline-block;
+    font-size: 30rpx;
+    color: #333;
+}
+.my-grade .grade {
+    font-size: 40rpx;
+    color: #a78845;
+}
+
+.answer-footer .good-grade .good-bad-grade .grade {
+    font-size: 40rpx;
+    color: #a78845;
+}
+/* ---------------------------------------评分栏样式----------------------------------------- */
 
 .answer-footer .good image {
     display: inline-block;
@@ -200,7 +234,7 @@
 
 .answer-footer .operation {
     justify-content: space-between;
-    padding: 0 0 0 60rpx;
+    padding: 0 0 0 20rpx;
 }
 
 .answer-footer .operation-btn {

@@ -76,6 +76,7 @@ public class UserCityRelServiceImpl implements IUserCityRelService {
             userCityRelNew.setIsFavour(userCityRel.getIsFavour());
             userCityRelNew.setIsGone(userCityRel.getIsGone());
             userCityRelNew.setIsLike(userCityRel.getIsLike());
+            userCityRelNew.setGrade(userCityRel.getGrade());
             result = this.updateRel(userCityRelNew);
         }
 

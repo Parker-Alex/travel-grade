@@ -13,5 +13,10 @@ public interface TravelUserCityRelMapper extends MyMapper<TravelUserCityRel> {
      */
     int getCountByType(@Param("type") int type, @Param("cityId") String cityId);
 
+    /**
+     * @Author li.jiawei
+     * @Description 通过用户不为0的评分，计算城市的平均评分
+     * @Date 1:42 2019/4/17
+     */
     Double getAvgGrade(@Param("cityId") String cityId);
 }
