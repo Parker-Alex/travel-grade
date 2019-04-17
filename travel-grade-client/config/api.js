@@ -41,4 +41,9 @@ module.exports = {
      */
     CityList: WxApiRoot + 'city/city_list',//根据不同条件获得城市列表
 
+    /**
+     * 用户相关API
+     */
+    GetOtherUser: WxApiRoot + 'user/get_other_user',//获取提起用户信息
+
 }

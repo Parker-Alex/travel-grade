@@ -16,4 +16,5 @@ public interface IUserService {
 
     List<TravelUser> getUsersByMobile(String mobile);
 
+    TravelUser getUserByUserId(String userId);
 }

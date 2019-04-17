@@ -160,7 +160,9 @@ public class CommentController {
         }
 
         List result = commentService.moreComment(body);
+        System.out.println(result);
 
+        LOGGER.info("------查看子评论方法结束------");
         return MyResult.ok(result);
     }
 }

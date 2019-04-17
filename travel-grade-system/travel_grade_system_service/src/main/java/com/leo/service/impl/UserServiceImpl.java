@@ -63,4 +63,10 @@ public class UserServiceImpl implements IUserService {
         criteria.andEqualTo("mobile", mobile);
         return userMapper.selectByExample(example);
     }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public TravelUser getUserByUserId(String userId) {
+        return userMapper.selectByPrimaryKey(userId);
+    }
 }

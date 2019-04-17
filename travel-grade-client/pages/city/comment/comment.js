@@ -28,7 +28,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function(options) {
         let cityId = options.id;
         let that = this;
 
@@ -52,12 +52,44 @@ Page({
         this.getComments(0);
     },
 
+    // 点击用户头像进入用户信息界面
+    showUser: function(e) {
+        let id = e.currentTarget.dataset.id;
+        // 如果没有登录，先进行登录
+        if (!app.globalData.hasLogin) {
+            wx.showModal({
+                title: '提示',
+                content: '请先登录',
+                success(res) {
+                    if (res.confirm) {
+                        wx.navigateTo({
+                            url: '/pages/system/login/login',
+                        })
+                    } else if (res.cancel) {
+                        return;
+                    }
+                }
+            })
+        } else {
+            // 如果不是自己
+            if (id != this.data.userId) {
+                wx.navigateTo({
+                    url: '/pages/user/other/other?userId=' + id,
+                })
+            } else {
+                wx.navigateTo({
+                    url: '/pages/user/index/index',
+                })
+            }
+        }
+    },
+
     // 分页获取评论方法
     getComments: function(index) {
         let cityId = this.data.cityId;
         let that = this;
         let list = this.data.list;
- 
+
         if (index == 0) {
             index = 1;
         }
@@ -80,12 +112,12 @@ Page({
             })
         })
     },
-    
+
     // 发送评论方法
     submitForm: function(e) {
         let that = this;
 
-        if (app.globalData.hasLogin){
+        if (app.globalData.hasLogin) {
             let content = e.detail.value.content;
             let toUserId = '';
             let id = '';
@@ -95,7 +127,7 @@ Page({
                     icon: 'none',
                     title: '请输入评论',
                 })
-                return ;
+                return;
             }
 
             // 如果是回复评论
@@ -139,7 +171,7 @@ Page({
                             url: '/pages/system/login/login',
                         })
                     } else if (res.cancel) {
-                        return ;
+                        return;
                     }
                 }
             })
@@ -173,19 +205,19 @@ Page({
         wx.showModal({
             title: '提示',
             content: '确定删除该评论？',
-            success(res){
+            success(res) {
                 // 开始删除评论
                 if (res.confirm) {
                     util.request(api.DeleteComment + '/' + id).then((res) => {
                         if (res.status == 200) {
-                            list.splice(index, 1);// index表示起始位置，1表示删除几个元素（0表示不删除元素）
+                            list.splice(index, 1); // index表示起始位置，1表示删除几个元素（0表示不删除元素）
                             that.setData({
                                 list: list
                             })
                         }
                     })
                 } else if (res.cancel) {
-                    return ;
+                    return;
                 }
             }
 
@@ -218,7 +250,7 @@ Page({
                     }
                 }
             })
-        }  
+        }
     },
 
     // 查看更多评论方法
@@ -237,15 +269,21 @@ Page({
             console.log(data);
 
             util.request(api.MoreComment, data, 'POST').then((res) => {
-                if (res.status === 200) {
-                    let list_more = res.data;
-                    for (let i = 0; i < list_more.length; i++,index++) {
-                        list.splice(index, 0, list_more[i]);    
-                    }
-                    that.setData({
-                        list: list
+                let list_more = res.data;
+                if (list_more == null || list_more.length < 1) {
+                    wx.showToast({
+                        title: '暂时没有评论',
+                        duration: 1000,
+                        icon: 'none'
                     })
+                    return ;
                 }
+                for (let i = 0; i < list_more.length; i++, index++) {
+                    list.splice(index, 0, list_more[i]);
+                }
+                that.setData({
+                    list: list
+                })
             })
         } else {
             // util.showErrorToast("请先登录");
@@ -262,7 +300,7 @@ Page({
                     }
                 }
             })
-        }  
+        }
     },
 
     // 取消回复评论方法

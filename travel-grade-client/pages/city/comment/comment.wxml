@@ -4,7 +4,7 @@
             <view class="pro-box">
                 <!-- <view class="head"> -->
                 <view class='{{item.parentCommentId == null ? "head" : "head-reply"}}'>
-                    <image class="img" src="{{item.avatar}}" mode="aspectFit"></image>
+                    <image class="img" src="{{item.avatar}}" mode="aspectFit" bindtap='showUser' data-id='{{item.userId}}'></image>
                     <view class="box">
                         <view class="shead">
                             <view class="names fl">{{item.nickName}}
@@ -31,7 +31,7 @@
                         <button class="sharebtn" data-commentId="{{item.id}}" data-commentUserName="{{item.nickName}}" data-toUserId="{{item.userId}}" bindtap="bindReply">回复</button>
                     </view>
                     <view wx:else class="text fr">
-                        <button class="deleteBtn" decode="true" bindtap='deleteComment' data-CommentId="{{item.id}}" data-index="{{index}}">删除</button> 
+                        <button class="deleteBtn" decode="true" bindtap='deleteComment' data-CommentId="{{item.id}}" data-index="{{index}}">删除</button>
                     </view>
                 </view>
             </view>
