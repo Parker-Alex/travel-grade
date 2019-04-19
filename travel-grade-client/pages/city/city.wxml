@@ -59,7 +59,7 @@
     <view class="hr"></view>
 
     <view class="cast">
-        <text class="cast-font">主演</text>
+        <text class="cast-font">相关图片</text>
         <scroll-view class="cast-imgs" scroll-x="true" style="width:100%">
             <block wx:for="{{movie.castsInfo}}" wx:for-item="item" wx:key='{{index}}'>
                 <view class="cast-container">
@@ -76,7 +76,7 @@
             <picker mode='selector' value='{{index}}' range='{{array}}' bindchange="bindPickerChange">
                 <view wx:if='{{myGrade > 0}}'>
                     <view class="my-grade">
-                        以评分：
+                        已评分：
                         <text class='grade'>{{myGrade}}分</text>
                     </view>
                 </view>
@@ -85,7 +85,7 @@
                         评分
                     </view>
                     <view wx:else class="good-bad-grade">
-                        以评分：
+                        已评分：
                         <text class='grade'>{{array[index]}}分</text>
                     </view>
                 </view>

@@ -10,4 +10,11 @@
     <result column="attention_user_id" property="attentionUserId" jdbcType="VARCHAR" />
     <result column="attention_date" property="attentionDate" jdbcType="TIMESTAMP" />
   </resultMap>
+
+  <select id="getFans" resultMap="BaseResultMap">
+    SELECT r.*
+    FROM leo_travel_system_user_rel r
+    WHERE r.attention_user_id = #{id}
+    ORDER BY r.attention_date DESC
+  </select>
 </mapper>

@@ -64,4 +64,18 @@ public interface ICityService {
     List<String> getAllName();
 
     int updateCity(String cityId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户去过城市列表
+     * @Date 0:15 2019/4/19
+     */
+    List<TravelCity> userGoneCities(String userId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户想去城市列表
+     * @Date 0:15 2019/4/19
+     */
+    List<TravelCity> userLikeCities(String userId);
 }

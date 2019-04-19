@@ -29,4 +29,11 @@ public interface ICommentService {
      * @Date 17:54 2019/4/9
      */
     List<TravelCommentCustom> moreComment(String body);
+
+    /**
+     * @Author li.jiawei
+     * @Description 得到用户的所有评论信息
+     * @Date 15:45 2019/4/18
+     */
+    List<TravelCommentCustom> getUserComments(String userId);
 }

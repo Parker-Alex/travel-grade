@@ -1,0 +1,73 @@
+<view class="add-address">
+    <view class="add-form">
+        <view class="form-item">
+            <!-- <input class="input" bindinput="bindinputName" placeholder="姓名" value="{{address.name}}" auto-focus/> -->
+            <view class="input">选择城市</view>
+        </view>
+        <view class="form-item">
+            <!-- <input class="input" bindinput="bindinputMobile" value="{{address.mobile}}" placeholder="手机号码" /> -->
+            <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                <view class="picker">
+                    当前选择：{{region[0]}}，{{region[1]}}
+                </view>
+            </picker>
+        </view>
+        <view class="form-item">
+            <view class="input">推荐理由:</view>
+        </view>
+        <view class='post-comment'>
+            <view class="input-box">
+                <textarea class="content" focus="true" bindinput="bindInputValue" maxlength="140" placeholder="留言经过筛选后，对所有人可见" />
+                <text class="count">{{140 - content.length}}</text>
+            </view>
+            <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                    <view class="weui-uploader__title">图片上传</view>
+                    <view class="weui-uploader__info">{{picUrls.length}}/{{files.length}}</view>
+                </view>
+                <view class="weui-uploader__bd">
+                    <view class="weui-uploader__files" id="uploaderFiles">
+                        <block wx:for="{{files}}" wx:key="*this">
+                            <!-- <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                            </view> -->
+                            <view class="weui-uploader__file weui-uploader__file_status" bindtap="previewImage" id="{{item}}">
+              <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+              <view class="weui-uploader__file-content">50%</view>
+            </view>
+                        </block>
+                        <view class="weui-uploader__input-box">
+                            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- <view class="form-item">
+            <input class="input" bindinput="bindinputAddress" value="{{address.address}}" placeholder="详细地址, 如街道、楼盘号等" />
+        </view>
+        <view class="form-default">
+            <text bindtap="bindIsDefault" class="default-input {{address.isDefault == 1 ? 'selected' : ''}}">设为默认地址</text>
+        </view> -->
+    </view>
+
+    <view class="btns">
+        <button class="cannel" bindtap="cancelAddress">取消</button>
+        <button class="save" bindtap="saveAddress">提交</button>
+    </view>
+
+    <!-- <view class="region-select" wx:if="{{openSelectRegion}}">
+        <view class="hd">
+            <view class="region-selected">
+                <view class="item {{item.id == 0 ? 'disabled' : ''}} {{(regionType -1) === index ? 'selected' : ''}}" bindtap="selectRegionType" data-region-type-index="{{index}}" wx:for="{{selectRegionList}}" wx:key="id">{{item.name}}</view>
+            </view>
+            <view class="done {{selectRegionDone ? '' : 'disabled'}}" bindtap="doneSelectRegion">确定</view>
+        </view>
+        <view class="bd">
+            <scroll-view scroll-y class="region-list">
+                <view class="item {{item.selected ? 'selected' : ''}}" bindtap="selectRegion" data-region-index="{{index}}" wx:for="{{regionList}}" wx:key="id">{{item.name}}</view>
+            </scroll-view>
+        </view>
+    </view> -->
+</view>
+<view class="bg-mask" bindtap="cancelSelectRegion" wx:if="{{openSelectRegion}}"></view>

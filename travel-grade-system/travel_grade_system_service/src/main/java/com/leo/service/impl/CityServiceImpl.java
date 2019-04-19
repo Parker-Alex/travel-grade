@@ -186,6 +186,32 @@ public class CityServiceImpl implements ICityService {
         return cityMapper.updateByPrimaryKey(cityNew);
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelCity> userGoneCities(String userId) {
+        List<TravelCity> cs = cityMapper.userGoneCities(userId);
+        for (TravelCity c : cs) {
+            if (c.getIntroduce() != null && c.getIntroduce().length() > 17) {
+                String shortIntroduce = c.getIntroduce().substring(0, 17) + "...";
+                c.setIntroduce(shortIntroduce);
+            }
+        }
+        return cs;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelCity> userLikeCities(String userId) {
+        List<TravelCity> cs = cityMapper.userLikeCities(userId);
+        for (TravelCity c : cs) {
+            if (c.getIntroduce() != null && c.getIntroduce().length() > 17) {
+                String shortIntroduce = c.getIntroduce().substring(0, 17) + "...";
+                c.setIntroduce(shortIntroduce);
+            }
+        }
+        return cs;
+    }
+
     /**
      * @Author li.jiawei
      * @Description 按照城市的不同属性进行分页查询城市列表，

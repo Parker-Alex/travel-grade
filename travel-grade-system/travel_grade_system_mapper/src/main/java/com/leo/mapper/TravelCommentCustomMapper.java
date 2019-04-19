@@ -29,4 +29,11 @@ public interface TravelCommentCustomMapper extends MyMapper<TravelCommentCustom>
      * @Date 17:59 2019/4/9
      */
     List<TravelCommentCustom> moreComment(@Param("id") String commentId, @Param("cityId") String cityId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户的所有评论
+     * @Date 15:50 2019/4/18
+     */
+    List<TravelCommentCustom> getUserComments(@Param("userId") String userId);
 }

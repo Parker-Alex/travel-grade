@@ -17,11 +17,11 @@ Page({
         hasLogin: false
     },
 
-    onLoad: function (options) {
+    onLoad: function(options) {
 
     },
 
-    onShow: function (options) {
+    onShow: function(options) {
         if (app.globalData.hasLogin) {
             let userInfo = wx.getStorageSync('userInfo');
             this.setData({
@@ -31,6 +31,20 @@ Page({
         }
     },
 
+    // 跳转我的推荐页面
+    goRecommend: function(e) {
+        // if (this.data.hasLogin) {
+            wx.navigateTo({
+                url: '/pages/user/recommendList/recommendList',
+            })
+        // } else {
+        //     wx.navigateTo({
+        //         url: '/pages/system/login/login',
+        //     })
+        // }
+    },
+
+    // 跳转登录界面
     goLogin() {
         if (!this.data.hasLogin) {
             wx.navigateTo({
@@ -39,6 +53,7 @@ Page({
         }
     },
 
+    // 注销
     loginout() {
         let that = this;
 
@@ -63,7 +78,11 @@ Page({
                 }
             }
         })
+    },
 
-        
-    }    
+    goOrder() {
+        wx.navigateTo({
+            url: "/pages/user/order/order"
+        });
+    }
 })

@@ -77,7 +77,7 @@ Page({
                     url: '/pages/user/other/other?userId=' + id,
                 })
             } else {
-                wx.navigateTo({
+                wx.switchTab({
                     url: '/pages/user/index/index',
                 })
             }

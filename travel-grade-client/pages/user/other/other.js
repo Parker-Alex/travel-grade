@@ -9,24 +9,104 @@ Page({
      * 页面的初始数据
      */
     data: {
-        isMe: true
+        isMe: true,
+        isFollow: false,
+        user: {},
+        fans: [],
+        comments: [],
+        recommends: [],
+        like_cities: [],
+        gone_cities: [],
+        cities: [],
+
+        isSelectdGone: "video-info-selected",
+        isSelectdLike: "",
+        isSelectdRecommend: "",
+        //列表展示
+        myGoneFalg: false,
+        myLikeFalg: true,
+        myRecommendFalg: true
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let userId = options.userId;
+        // let userId = options.userId;
+        // this.getOtherUser(userId);
 
-        this.getOtherUser(userId);
+        this.getOtherUser('190221865XWCADWH');
     },
 
     // 得到用户信息方法
     getOtherUser: function(id) {
+        let that =  this;
         util.request(api.GetOtherUser + '/' + id).then((res) => {
             console.log(res);
+            that.setData({
+                user: res.data.user,
+                fans: res.data.fans,
+                comments: res.data.comments,
+                recommends: res.data.recommends,
+                like_cities: res.data.like_cities,
+                gone_cities: res.data.gone_cities
+            })
         })
     },
+
+    // 查看去过城市列表
+    doSelectGone: function(e) {
+        console.log(this.data.gone_cities);
+        this.setData({
+            myGoneFalg: false,
+            myLikeFalg: true,
+            myRecommendFalg: true,
+            isSelectdGone: "video-info-selected",
+            isSelectdLike: "",
+            isSelectdRecommend: "",
+            cities: this.data.gone_cities
+        })
+    },
+
+    // 查看想去城市列表
+    doSelectLike: function(e) {
+        console.log(this.data.like_cities);
+        this.setData({
+            myGoneFalg: true,
+            myLikeFalg: false,
+            myRecommendFalg: true,
+            isSelectdGone: "",
+            isSelectdLike: "video-info-selected",
+            isSelectdRecommend: "",
+            cities: this.data.like_cities
+        })
+    },
+
+    // 查看推荐城市列表
+    doSelectdRecommend: function(e) {
+        this.setData({
+            myGoneFalg: true,
+            myLikeFalg: true,
+            myRecommendFalg: false,
+            isSelectdGone: "",
+            isSelectdLike: "",
+            isSelectdRecommend: "video-info-selected"
+        })
+    },
+
+    // onShow: function(e) {
+    //     let that = this;
+    //     if (this.data.myGoneFalg) {
+    //         this.setData({
+    //             cities: that.data.gone_cities
+    //         })
+    //     }
+    //     if (this.data.myLikeFalg) {
+    //         this.setData({
+    //             cities: that.data.like_cities
+    //         })
+    //     }
+    // },
 
     // 更换头像
     changeFace: function () {

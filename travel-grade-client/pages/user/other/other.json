@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "用户详情",
+    "usingComponents": {
+        "zan-capsule": "../../lib/zanui-weapp/capsule/index"
+    }
 }

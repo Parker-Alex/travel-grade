@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "新品首发"
+  "navigationBarTitleText": "新品首发",
+  "usingComponents": {
+    "zan-capsule": "../lib/zanui-weapp/capsule/index"
+}
 }

@@ -1,11 +1,9 @@
 package com.leo.controller.wx;
 
 import com.leo.annotation.LoginUser;
-import com.leo.pojo.TravelUser;
-import com.leo.pojo.TravelUserCityRel;
-import com.leo.service.ICityService;
-import com.leo.service.IUserCityRelService;
-import com.leo.service.IUserService;
+import com.leo.dto.TravelCommentCustom;
+import com.leo.pojo.*;
+import com.leo.service.*;
 import com.leo.utils.MyResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +13,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,6 +35,15 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private IUserRelService userRelService;
+
+    @Autowired
+    private ICommentService commentService;
+
+    @Autowired
+    private IRecommendService recommendService;
 
     /**
      * @Author li.jiawei
@@ -87,13 +95,33 @@ public class UserController {
             return MyResult.errorMsg("无法匹配用户");
         }
 
+//        获得用户信息
         TravelUser user = userService.getUserByUserId(id);
-
         if (user == null) {
             return MyResult.errorMsg("无法匹配用户");
         }
 
+//        获得用户粉丝信息
+        List<TravelUserRel> fans = userRelService.getFans(id);
+
+//        获得用户评论信息
+        List<TravelCommentCustom> comments = commentService.getUserComments(id);
+
+//        获得用户推荐信息
+        List<TravelRecommend> recommends = recommendService.getUserRecommends(id);
+
+//        获得用户去过城市信息
+        List<TravelCity> gone_cities = cityService.userGoneCities(id);
+
+//        获得用户想去城市信息
+        List<TravelCity> like_cities = cityService.userLikeCities(id);
+
         data.put("user", user);
+        data.put("fans", fans);
+        data.put("comments", comments);
+        data.put("recommends", recommends);
+        data.put("gone_cities", gone_cities);
+        data.put("like_cities", like_cities);
 
         LOGGER.info("------根据用户id获取用户信息方法结束------");
         return MyResult.ok(data);

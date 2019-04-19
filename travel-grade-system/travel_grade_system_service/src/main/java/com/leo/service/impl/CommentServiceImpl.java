@@ -85,7 +85,7 @@ public class CommentServiceImpl implements ICommentService {
         for(TravelCommentCustom cc : commentList) {
             // 格式化日期
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            cc.setDate(format.format(new Date()));
+            cc.setDate(format.format(cc.getSendDate()));
         }
         return commentList;
     }
@@ -111,5 +111,17 @@ public class CommentServiceImpl implements ICommentService {
         }
 
         return commentCustomMapper.moreComment(commentId, cityId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<TravelCommentCustom> getUserComments(String userId) {
+        List<TravelCommentCustom> commentList = commentCustomMapper.getUserComments(userId);
+        for(TravelCommentCustom cc : commentList) {
+            // 格式化日期
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            cc.setDate(format.format(cc.getSendDate()));
+        }
+        return commentList;
     }
 }

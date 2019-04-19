@@ -135,7 +135,7 @@ page {
 .separate {
   background: #e0e3da;
   width: 100%;
-  height: 6rpx;
+  height: 2rpx;
 }
 
 .user_column_item_phone {

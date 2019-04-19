@@ -14,4 +14,11 @@
     <result column="grade" property="grade" jdbcType="DOUBLE" />
     <result column="grade_count" property="gradeCount" jdbcType="INTEGER" />
   </resultMap>
+
+  <select id="getUserRecommends" resultMap="BaseResultMap">
+    SELECT r.*
+    FROM leo_travel_system_recommend r
+    WHERE r.user_id = #{userId}
+    ORDER BY r.grade DESC
+  </select>
 </mapper>

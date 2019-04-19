@@ -22,5 +22,23 @@
     SELECT c.name FROM leo_travel_system_city c
   </select>
 
+  <select id="userGoneCities" resultMap="BaseResultMap">
+    SELECT c.*
+    FROM leo_travel_system_city c
+    LEFT JOIN leo_travel_system_user_city_rel uc ON c.id = uc.city_id
+    LEFT JOIN leo_travel_system_user u ON u.id = uc.user_id
+    WHERE u.id = #{userId}
+    AND uc.is_gone = 1
+    ORDER BY c.grade DESC
+  </select>
 
+  <select id="userLikeCities" resultMap="BaseResultMap">
+    SELECT c.*
+    FROM leo_travel_system_city c
+    LEFT JOIN leo_travel_system_user_city_rel uc ON c.id = uc.city_id
+    LEFT JOIN leo_travel_system_user u ON u.id = uc.user_id
+    WHERE u.id = #{userId}
+    AND uc.is_like = 1
+    ORDER BY c.grade DESC
+  </select>
 </mapper>
