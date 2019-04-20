@@ -1201,8 +1201,8 @@
     </column>
     <column id="312" parent="295" name="grade">
       <Position>6</Position>
-      <DataType>double(4,2 digit)|0s</DataType>
-      <DefaultExpression>0.00</DefaultExpression>
+      <DataType>double(4,1 digit)|0s</DataType>
+      <DefaultExpression>0.0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="313" parent="295" name="commend_count">
@@ -1512,241 +1512,231 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="301" name="province_id">
+    <column id="365" parent="301" name="province_name">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="301" name="grade">
-      <Position>7</Position>
-      <DataType>double|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="367" parent="301" name="grade_count">
-      <Position>8</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="368" parent="301" name="PRIMARY">
+    <key id="366" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="369" parent="302" name="id">
+    <column id="367" parent="302" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="370" parent="302" name="content">
+    <column id="368" parent="302" name="content">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="371" parent="302" name="PRIMARY">
+    <key id="369" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="372" parent="303" name="id">
+    <column id="370" parent="303" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="303" name="username">
+    <column id="371" parent="303" name="username">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="303" name="password">
+    <column id="372" parent="303" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="303" name="nickname">
+    <column id="373" parent="303" name="nickname">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="303" name="avatar">
+    <column id="374" parent="303" name="avatar">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="303" name="title_name">
+    <column id="375" parent="303" name="title_name">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="378" parent="303" name="follow_count">
+    <column id="376" parent="303" name="follow_count">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="379" parent="303" name="recommend_count">
+    <column id="377" parent="303" name="recommend_count">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="380" parent="303" name="commend_count">
+    <column id="378" parent="303" name="commend_count">
       <Position>9</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="381" parent="303" name="open_id">
+    <column id="379" parent="303" name="open_id">
       <Position>10</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="382" parent="303" name="level">
+    <column id="380" parent="303" name="level">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="383" parent="303" name="deleted">
+    <column id="381" parent="303" name="deleted">
       <Position>12</Position>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="384" parent="303" name="add_time">
+    <column id="382" parent="303" name="add_time">
       <Position>13</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="385" parent="303" name="update_time">
+    <column id="383" parent="303" name="update_time">
       <Position>14</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="386" parent="303" name="mobile">
+    <column id="384" parent="303" name="mobile">
       <Position>15</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="387" parent="303" name="gender">
+    <column id="385" parent="303" name="gender">
       <Position>16</Position>
       <DataType>tinyint(4)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="388" parent="303" name="PRIMARY">
+    <key id="386" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="389" parent="304" name="id">
+    <column id="387" parent="304" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="390" parent="304" name="user_id">
+    <column id="388" parent="304" name="user_id">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="391" parent="304" name="city_id">
+    <column id="389" parent="304" name="city_id">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="392" parent="304" name="grade">
+    <column id="390" parent="304" name="grade">
       <Position>4</Position>
       <DataType>double|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="304" name="is_favour">
+    <column id="391" parent="304" name="is_favour">
       <Position>5</Position>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="394" parent="304" name="is_like">
+    <column id="392" parent="304" name="is_like">
       <Position>6</Position>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="395" parent="304" name="is_gone">
+    <column id="393" parent="304" name="is_gone">
       <Position>7</Position>
       <Comment>是否去过</Comment>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="396" parent="304" name="PRIMARY">
+    <key id="394" parent="304" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="397" parent="305" name="id">
+    <column id="395" parent="305" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="398" parent="305" name="user_id">
+    <column id="396" parent="305" name="user_id">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="399" parent="305" name="favour_comment_id">
+    <column id="397" parent="305" name="favour_comment_id">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="400" parent="305" name="favour_date">
+    <column id="398" parent="305" name="favour_date">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <key id="401" parent="305" name="PRIMARY">
+    <key id="399" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="402" parent="306" name="id">
+    <column id="400" parent="306" name="id">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="403" parent="306" name="user_id">
+    <column id="401" parent="306" name="user_id">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="404" parent="306" name="attention_user_id">
+    <column id="402" parent="306" name="attention_user_id">
       <Position>3</Position>
       <Comment>关注的用户id</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="405" parent="306" name="attention_date">
+    <column id="403" parent="306" name="attention_date">
       <Position>4</Position>
       <Comment>关注日期</Comment>
       <DataType>datetime|0s</DataType>
@@ -1754,7 +1744,7 @@
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <key id="406" parent="306" name="PRIMARY">
+    <key id="404" parent="306" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

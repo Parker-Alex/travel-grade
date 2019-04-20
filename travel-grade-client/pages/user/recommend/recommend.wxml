@@ -17,24 +17,24 @@
         </view>
         <view class='post-comment'>
             <view class="input-box">
-                <textarea class="content" focus="true" bindinput="bindInputValue" maxlength="140" placeholder="留言经过筛选后，对所有人可见" />
-                <text class="count">{{140 - content.length}}</text>
+                <textarea class="content" focus="true" bindinput="bindInputValue" maxlength="250" placeholder="留言经过筛选后，对所有人可见" />
+                <text class="count">{{250 - content.length}}</text>
             </view>
             <view class="weui-uploader">
                 <view class="weui-uploader__hd">
                     <view class="weui-uploader__title">图片上传</view>
-                    <view class="weui-uploader__info">{{picUrls.length}}/{{files.length}}</view>
+                    <view class="weui-uploader__info">{{files.length}}/{{maxSize}}</view>
                 </view>
                 <view class="weui-uploader__bd">
                     <view class="weui-uploader__files" id="uploaderFiles">
                         <block wx:for="{{files}}" wx:key="*this">
-                            <!-- <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                            <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
                                 <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                            </view>
+                            <!-- <view class="weui-uploader__file weui-uploader__file_status" bindtap="previewImage" id="{{item}}">
+                                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                <view class="weui-uploader__file-content">50%</view>
                             </view> -->
-                            <view class="weui-uploader__file weui-uploader__file_status" bindtap="previewImage" id="{{item}}">
-              <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-              <view class="weui-uploader__file-content">50%</view>
-            </view>
                         </block>
                         <view class="weui-uploader__input-box">
                             <view class="weui-uploader__input" bindtap="chooseImage"></view>
@@ -53,7 +53,7 @@
 
     <view class="btns">
         <button class="cannel" bindtap="cancelAddress">取消</button>
-        <button class="save" bindtap="saveAddress">提交</button>
+        <button class="save" bindtap="doPost">提交</button>
     </view>
 
     <!-- <view class="region-select" wx:if="{{openSelectRegion}}">

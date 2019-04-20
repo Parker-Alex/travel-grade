@@ -10,9 +10,7 @@
     <result column="city_name" property="cityName" jdbcType="VARCHAR" />
     <result column="city_image" property="cityImage" jdbcType="VARCHAR" />
     <result column="reason" property="reason" jdbcType="VARCHAR" />
-    <result column="province_id" property="provinceId" jdbcType="VARCHAR" />
-    <result column="grade" property="grade" jdbcType="DOUBLE" />
-    <result column="grade_count" property="gradeCount" jdbcType="INTEGER" />
+    <result column="province_name" property="provinceName" jdbcType="VARCHAR" />
   </resultMap>
 
   <select id="getUserRecommends" resultMap="BaseResultMap">

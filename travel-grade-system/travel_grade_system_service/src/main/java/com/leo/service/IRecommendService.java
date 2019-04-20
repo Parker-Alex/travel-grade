@@ -19,4 +19,11 @@ public interface IRecommendService {
      * @Date 15:56 2019/4/18
      */
     List<TravelRecommend> getUserRecommends(String userId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 添加推荐城市
+     * @Date 0:47 2019/4/21
+     */
+    int addRecommend(String userId, String reason, String provinceName, String cityName, String httpPath);
 }

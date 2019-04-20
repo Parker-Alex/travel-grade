@@ -12,6 +12,8 @@ module.exports = {
     LoginOut: WxApiRoot + 'system/loginout',//注销
     RegisterCaptcha: WxApiRoot + 'system/captcha',//注册验证码
     UpdateUserCityRel: WxApiRoot + 'user/update_user_city_rel',//更新用户与城市之间关系
+    UploadImage: WxApiRoot + 'user/upload_image',//上传推荐城市图片
+    AddRecommendCity: WxApiRoot + 'user/add_recommend',//添加推荐城市
 
     /**
      * 首页相关操作API
