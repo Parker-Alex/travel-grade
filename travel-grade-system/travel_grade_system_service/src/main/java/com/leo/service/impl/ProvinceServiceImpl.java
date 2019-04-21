@@ -2,7 +2,9 @@ package com.leo.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.leo.mapper.TravelCityMapper;
 import com.leo.mapper.TravelProvinceMapper;
+import com.leo.pojo.TravelCity;
 import com.leo.pojo.TravelProvince;
 import com.leo.service.IProvinceService;
 import com.leo.utils.JacksonUtil;
@@ -23,6 +25,9 @@ public class ProvinceServiceImpl implements IProvinceService {
 
     @Autowired
     private Sid sid;
+
+    @Autowired
+    private TravelCityMapper cityMapper;
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -85,5 +90,29 @@ public class ProvinceServiceImpl implements IProvinceService {
         }
 
         return provinceMapper.getProvince(name, id);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int updateProvinceByCityId(String cityId) {
+        TravelCity city = cityMapper.selectByPrimaryKey(cityId);
+        TravelProvince province = provinceMapper.selectByPrimaryKey(city.getProvinceId());
+        Double grade = this.getAvgGrade(city.getProvinceId());
+        if (grade == null) {
+            grade = 0D;
+        }
+        province.setGrade(grade);
+        int result = provinceMapper.updateByPrimaryKey(province);
+
+        if (result <= 0) {
+            throw new RuntimeException("更新省份评分失败");
+        }
+        return result;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public Double getAvgGrade(String provinceId) {
+        return provinceMapper.getAvgGrade(provinceId);
     }
 }

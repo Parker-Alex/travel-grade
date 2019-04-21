@@ -7,11 +7,11 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface TravelRecommendMapper extends MyMapper<TravelRecommend> {
-
+    
     /**
      * @Author li.jiawei
-     * @Description 获得用户的所有推荐信息
-     * @Date 15:58 2019/4/18
+     * @Description 得到用户的推荐城市数
+     * @Date 13:29 2019/4/21
      */
-    List<TravelRecommend> getUserRecommends(@Param("userId") String userId);
+    int getRecommendCount(@Param("userId") String userId);
 }

@@ -40,8 +40,13 @@ Page({
 
     // 选择需要上传的图片
     chooseImage: function(e) {
-        if (this.data.files.length > this.data.maxSize) {
-            util.showErrorToast('只能上传一张图片')
+        if (this.data.files.length >= this.data.maxSize) {
+            // util.showErrorToast('只能上传一张图')
+            wx.showToast({
+                title: '目前只支持上传一张图',
+                duration: 1000,
+                icon: 'none'
+            })
             return false;
         }
 
@@ -82,6 +87,11 @@ Page({
             return false;
         }
 
+        wx.showLoading({
+            title: '请稍等...',
+            mask: true
+        })
+
         wx.uploadFile({
             url: api.AddRecommendCity,
             formData: {
@@ -97,6 +107,7 @@ Page({
                 'X-Leo-Token': wx.getStorageSync('token')
             },
             success(res) {
+                wx.hideLoading();
                 console.log(res);
             }
         })       

@@ -41,4 +41,18 @@
     AND uc.is_like = 1
     ORDER BY c.grade DESC
   </select>
+
+  <select id="userRecommendCities" resultMap="BaseResultMap">
+    SELECT c.*
+    FROM leo_travel_system_city c
+    WHERE c.id
+    IN (
+	  SELECT c.id
+      FROM leo_travel_system_recommend r
+      LEFT JOIN leo_travel_system_city c ON r.city_name = c.name
+      WHERE r.user_id = #{userId}
+    )
+    ORDER BY c.grade DESC
+  </select>
+
 </mapper>

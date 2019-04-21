@@ -25,4 +25,11 @@ public interface TravelCityMapper extends MyMapper<TravelCity> {
      * @Date 0:16 2019/4/19
      */
     List<TravelCity> userLikeCities(@Param("userId") String userId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户推荐城市列表
+     * @Date 15:26 2019/4/21
+     */
+    List<TravelCity> userRecommendCities(@Param("userId") String userId);
 }

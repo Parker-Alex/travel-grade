@@ -80,6 +80,9 @@ public class UserCityRelServiceImpl implements IUserCityRelService {
             result = this.updateRel(userCityRelNew);
         }
 
+        if (result <= 0) {
+            throw new RuntimeException();
+        }
         return result;
     }
 }

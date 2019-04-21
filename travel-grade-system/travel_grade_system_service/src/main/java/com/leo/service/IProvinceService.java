@@ -19,4 +19,8 @@ public interface IProvinceService {
     List<String> getAllName();
 
     TravelProvince getProvince(String body);
+
+    int updateProvinceByCityId(String cityId);
+
+    Double getAvgGrade(String provinceId);
 }

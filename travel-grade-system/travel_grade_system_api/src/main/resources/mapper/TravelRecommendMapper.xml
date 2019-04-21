@@ -11,12 +11,12 @@
     <result column="city_image" property="cityImage" jdbcType="VARCHAR" />
     <result column="reason" property="reason" jdbcType="VARCHAR" />
     <result column="province_name" property="provinceName" jdbcType="VARCHAR" />
+
   </resultMap>
 
-  <select id="getUserRecommends" resultMap="BaseResultMap">
-    SELECT r.*
+  <select id="getRecommendCount" resultType="java.lang.Integer">
+    SELECT count(*)
     FROM leo_travel_system_recommend r
     WHERE r.user_id = #{userId}
-    ORDER BY r.grade DESC
   </select>
 </mapper>

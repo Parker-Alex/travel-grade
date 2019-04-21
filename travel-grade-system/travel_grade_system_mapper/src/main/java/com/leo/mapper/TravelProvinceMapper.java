@@ -18,4 +18,11 @@ public interface TravelProvinceMapper extends MyMapper<TravelProvince> {
      * @Date 16:13 2019/4/15
      */
     TravelProvince getProvince(@Param("name") String name, @Param("id") String id);
+
+    /**
+     * @Author li.jiawei
+     * @Description 通过省份拥有的城市的评分，计算省份的评分
+     * @Date 1:16 2019/4/22
+     */
+    Double getAvgGrade(@Param("provinceId") String provinceId);
 }

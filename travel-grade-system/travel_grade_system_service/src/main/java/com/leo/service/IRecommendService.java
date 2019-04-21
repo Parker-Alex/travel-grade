@@ -1,5 +1,6 @@
 package com.leo.service;
 
+import com.leo.pojo.TravelCity;
 import com.leo.pojo.TravelRecommend;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface IRecommendService {
      * @Description 获得用户的所有推荐信息
      * @Date 15:56 2019/4/18
      */
-    List<TravelRecommend> getUserRecommends(String userId);
+    List<TravelCity> getUserRecommends(String userId);
 
     /**
      * @Author li.jiawei
@@ -26,4 +27,11 @@ public interface IRecommendService {
      * @Date 0:47 2019/4/21
      */
     int addRecommend(String userId, String reason, String provinceName, String cityName, String httpPath);
+
+    /**
+     * @Author li.jiawei
+     * @Description 计算用户的推荐城市数
+     * @Date 13:26 2019/4/21
+     */
+    int getRecommendCount(String userId);
 }

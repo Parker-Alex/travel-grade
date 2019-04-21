@@ -53,6 +53,9 @@ public class UserController {
     @Autowired
     private IRecommendService recommendService;
 
+    @Autowired
+    private IProvinceService provinceService;
+
     /**
      * @Author li.jiawei
      * @Description 更新用户与城市之间关系接口
@@ -78,6 +81,12 @@ public class UserController {
         }
 
         result = cityService.updateCity(userCityRel.getCityId());
+        if (result <= 0) {
+            return MyResult.errorMsg("操作失败");
+        }
+
+//        更新省份评分
+        result = provinceService.updateProvinceByCityId(userCityRel.getCityId());
         if (result <= 0) {
             return MyResult.errorMsg("操作失败");
         }
@@ -116,7 +125,7 @@ public class UserController {
         List<TravelCommentCustom> comments = commentService.getUserComments(id);
 
 //        获得用户推荐信息
-        List<TravelRecommend> recommends = recommendService.getUserRecommends(id);
+        List<TravelCity> recommends = recommendService.getUserRecommends(id);
 
 //        获得用户去过城市信息
         List<TravelCity> gone_cities = cityService.userGoneCities(id);
@@ -185,6 +194,25 @@ public class UserController {
 
         LOGGER.info("------添加推荐城市结束------");
         return MyResult.ok();
+    }
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户推荐城市列表接口
+     * @Date 14:13 2019/4/21
+     */
+    @GetMapping("/recommend_cities")
+    public MyResult getUserRecommendCities(@LoginUser String userId) {
+        LOGGER.info("------获得用户推荐城市列表开始------");
+
+        if (StringUtils.isEmpty(userId)) {
+            return MyResult.errorMsg("用户没有登录");
+        }
+
+        List<TravelCity> recommends = recommendService.getUserRecommends(userId);
+
+        LOGGER.info("------获得用户推荐城市列表开始------");
+        return MyResult.ok(recommends);
     }
 
     /**

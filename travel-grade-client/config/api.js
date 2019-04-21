@@ -14,6 +14,8 @@ module.exports = {
     UpdateUserCityRel: WxApiRoot + 'user/update_user_city_rel',//更新用户与城市之间关系
     UploadImage: WxApiRoot + 'user/upload_image',//上传推荐城市图片
     AddRecommendCity: WxApiRoot + 'user/add_recommend',//添加推荐城市
+    GetOtherUser: WxApiRoot + 'user/get_other_user',//获取提起用户信息
+    UserRecommendCities: WxApiRoot + 'user/recommend_cities',//获得用户推荐城市列表
 
     /**
      * 首页相关操作API
@@ -42,10 +44,5 @@ module.exports = {
      * 城市和省份相关操作
      */
     CityList: WxApiRoot + 'city/city_list',//根据不同条件获得城市列表
-
-    /**
-     * 用户相关API
-     */
-    GetOtherUser: WxApiRoot + 'user/get_other_user',//获取提起用户信息
 
 }

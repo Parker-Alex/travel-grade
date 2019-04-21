@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.leo.mapper.TravelRecommendMapper" >
-  <resultMap id="BaseResultMap" type="com.leo.pojo.TravelRecommend" >
+<mapper namespace="com.leo.mapper.TravelRecommendCustomMapper" >
+  <resultMap id="BaseResultMap" type="com.leo.dto.TravelRecommendCustom" >
     <!--
       WARNING - @mbg.generated
     -->
@@ -12,11 +12,15 @@
     <result column="reason" property="reason" jdbcType="VARCHAR" />
     <result column="province_name" property="provinceName" jdbcType="VARCHAR" />
 
+    <result column="city_id" property="cityId" jdbcType="VARCHAR" />
+
   </resultMap>
 
-  <select id="getRecommendCount" resultType="java.lang.Integer">
-    SELECT count(*)
+  <select id="getUserRecommends" resultMap="BaseResultMap">
+    SELECT r.*, c.id AS city_id
     FROM leo_travel_system_recommend r
+    LEFT JOIN leo_travel_system_city c ON r.city_name = c.name
     WHERE r.user_id = #{userId}
   </select>
+
 </mapper>

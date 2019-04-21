@@ -1,4 +1,4 @@
-package com.leo.pojo;
+package com.leo.dto;
 
 import lombok.Data;
 
@@ -8,23 +8,19 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Data
-@Table(name = "leo_travel_system_recommend")
-public class TravelRecommend {
-    @Id
+public class TravelRecommendCustom {
     private String id;
 
-    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "city_name")
     private String cityName;
 
-    @Column(name = "city_image")
     private String cityImage;
 
     private String reason;
 
-    @Column(name = "province_name")
     private String provinceName;
+
+    private String cityId;
 
 }
