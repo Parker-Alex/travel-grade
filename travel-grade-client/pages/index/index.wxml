@@ -18,13 +18,13 @@
         </swiper-item>
     </swiper>
     
-    <view class="m-menu">
-        <navigator class="item" url="/pages/category/category">
-         <!-- wx:for="{{channel}}" wx:key="id"> -->
+    <!-- 城市其他服务评分 -->
+    <!-- <view class="m-menu">
+        <navigator class="item" url="/pages/category/category" wx:for="{{types}}" wx:key="id">
             <image src="http://m.tuniucdn.com/fb2/t1/G5/M00/3D/D2/Cii-tFxAWxiIXvtnAAwrPGn38YYAATMtQEdKVAADCtU334_w500_h280_c1_t0.jpg" background-size="cover"></image>
-            <text>名字</text>
+            <text>{{item}}</text>
         </navigator>
-    </view>
+    </view> -->
 
     <view class="a-section a-coupon" wx:if="{{favourCities.length > 0}}">
         <view class="h">
@@ -127,7 +127,7 @@
                 <navigator url="../city/city?id={{item.id}}">
                     <image class="img" src="{{item.cover}}" mode='aspectFill'></image>
                     <text class="name">{{item.name}}</text>
-                    <text class="price">去过人数：{{item.grade}}</text>
+                    <text class="price">去过人数：{{item.goneCount}}</text>
                 </navigator>
             </view>
         </view>

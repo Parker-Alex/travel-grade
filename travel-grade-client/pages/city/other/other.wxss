@@ -1,0 +1,131 @@
+@import "/pages/city/stars/stars-template.wxss";
+
+page, .container {
+  width: 750rpx;
+  height: 100%;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+
+.groupon-list {
+  width: 750rpx;
+  height: 100%;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+
+.groupon-list .item {
+  height: 244rpx;
+  width: 100%;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.groupon-list .img {
+  margin-top: 12rpx;
+  margin-right: 12rpx;
+  float: left;
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.groupon-list .right {
+  float: left;
+  height: 244rpx;
+  width: 476rpx;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.groupon-list .text {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  height: 244rpx;
+  width: 476rpx;
+}
+
+.groupon-list .name {
+  float: left;
+  width: 100rpx;
+  display: block;
+  color: #333;
+  line-height: 50rpx;
+  font-size: 40rpx;
+}
+
+.groupon-list .capsule-tag {
+  float: right;
+  padding-right: 0rpx;
+  padding-top: 8rpx;
+}
+
+.groupon-list .zan-capsule + .zan-capsule {
+  margin-left: 10px;
+}
+
+.groupon-list .desc {
+  width: 476rpx;
+  display: block;
+  color: #999;
+  line-height: 50rpx;
+  font-size: 25rpx;
+  margin-top: 20rpx;
+}
+
+.groupon-list .price {
+  width: 476rpx;
+  display: flex;
+  color: #ab956d;
+  line-height: 50rpx;
+  font-size: 33rpx;
+}
+
+.groupon-list .gone-count {
+  /* text-decoration: line-through; */
+  font-size: 28rpx;
+  /* color: #999; */
+  color: #a78845;
+}
+
+.groupon-list .favour-count {
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  color: #a78845;
+}
+
+.groupon-list .like-count {
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  color: #a78845;
+}
+
+/*----------------------------- 评分样式 ----------------------------*/
+.my-grade {
+    display: inline-block;
+    font-size: 30rpx;
+    color: #333;
+}
+.my-grade .grade {
+    font-size: 35rpx;
+    color: #a78845;
+}
+
+.good-bad {
+    display: inline-block;
+    font-size: 40rpx;
+    color: #4EA3E7;
+}
+
+.good-bad-grade {
+    display: inline-block;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.good-bad-grade .grade {
+    font-size: 35rpx;
+    color: #a78845;
+}

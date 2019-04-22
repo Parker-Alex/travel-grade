@@ -1,9 +1,10 @@
 {
     "pages": [
+        "pages/index/index",
+        "pages/city/other/other",
         "pages/user/index/index",
         "pages/user/recommend/recommend",
         "pages/user/test/test",
-        "pages/index/index",
         "pages/user/other/other",
         "pages/catalog/catalog",
         "pages/city/city",

@@ -2,6 +2,7 @@ package com.leo.controller.wx;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.leo.enums.TravelOtherEnum;
 import com.leo.pojo.TravelCity;
 import com.leo.pojo.TravelProvince;
 import com.leo.service.ICityService;
@@ -49,6 +50,8 @@ public class IndexController {
         List<TravelCity> likeCities = cityService.getCitiesByLikeCount();
 //        获取省份列表
         List<TravelProvince> provinces = provinceService.getHotProvinces();
+//        获得其他评分项
+        List<String> types = TravelOtherEnum.getAllType();
 
         Map<String, Object> data = new HashMap<>();
         data.put("hotCities", hotCities);
@@ -58,6 +61,7 @@ public class IndexController {
         data.put("gradeCities", gradeCities);
         data.put("likeCities", likeCities);
         data.put("provinces", provinces);
+        data.put("types", types);
 
         LOGGER.info("------调用获取城市和省份列表方法结束------");
 

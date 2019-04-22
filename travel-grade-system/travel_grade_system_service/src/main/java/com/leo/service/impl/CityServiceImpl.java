@@ -36,6 +36,15 @@ public class CityServiceImpl implements ICityService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
+    public TravelCity getCityByName(String name) {
+        Example example = new Example(TravelCity.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("name", name);
+        return cityMapper.selectOneByExample(example);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
     public List<TravelCity> getHotCities() {
         return pageByProperty("grade", "desc");
     }

@@ -182,6 +182,11 @@ public class UserController {
             return MyResult.errorMsg("用户没有登录");
         }
 
+        TravelCity city = cityService.getCityByName(cityName);
+        if (city == null) {
+            return MyResult.errorMsg("暂时不能推荐该城市");
+        }
+
         String httpPath = saveFile(file, userId);
         if (StringUtils.isEmpty(httpPath)) {
             return MyResult.errorMsg("上传图片错误");
@@ -213,6 +218,19 @@ public class UserController {
 
         LOGGER.info("------获得用户推荐城市列表开始------");
         return MyResult.ok(recommends);
+    }
+
+    /**
+     * @Author li.jiawei
+     * @Description 更新其他服务评分接口
+     * @Date 1:25 2019/4/23
+     */
+    @PostMapping("/update_other")
+    public MyResult updateOther(@RequestBody String body) {
+        LOGGER.info("------更新其他服务评分开始------");
+        LOGGER.info("请求参数body：" + body);
+        LOGGER.info("------更新其他服务评分结束------");
+        return MyResult.ok();
     }
 
     /**
@@ -255,4 +273,5 @@ public class UserController {
         String httpPath = "http://localhost:8888/" + dbPath;
         return httpPath;
     }
+
 }

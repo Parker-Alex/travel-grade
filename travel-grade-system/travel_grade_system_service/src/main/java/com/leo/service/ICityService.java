@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface ICityService {
 
-//    通过评分获得热门城市
+    TravelCity getCityByName(String name);
+
+    //    通过评分获得热门城市
     List<TravelCity> getHotCities();
     
     /**
@@ -78,4 +80,5 @@ public interface ICityService {
      * @Date 0:15 2019/4/19
      */
     List<TravelCity> userLikeCities(String userId);
+
 }

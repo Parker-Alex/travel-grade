@@ -10,5 +10,6 @@
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
     <result column="city_id" property="cityId" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="grade" property="grade" jdbcType="DOUBLE" />
   </resultMap>
 </mapper>

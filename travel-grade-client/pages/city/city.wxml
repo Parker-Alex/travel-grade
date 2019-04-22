@@ -94,6 +94,10 @@
         </view>
         <view class="operation-wrp flex-item">
             <view class="operation flex-wrp flex-tab">
+                <navigator class="operation-btn flex-item" url='/pages/city/other/other'>
+                    <image src="../../images/icon/other.png"></image>
+                    <text>其他</text>
+                </navigator> 
                 <view class="operation-btn flex-item" bindtap='likeBtn'>
                     <image wx:if="{{isLike==false}}" src="../../images/icon/flag.png"></image>
                     <image wx:else src="../../images/icon/flag-ok.png"></image>

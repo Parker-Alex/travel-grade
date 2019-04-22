@@ -30,4 +30,11 @@
       AND p.id = #{id}
     </if>
   </select>
+
+  <select id="getAvgGrade" resultType="java.lang.Double">
+    SELECT AVG(c.grade)
+    FROM leo_travel_system_city c
+    WHERE c.province_id = #{provinceId}
+    AND c.grade > 0
+  </select>
 </mapper>

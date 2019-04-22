@@ -10,7 +10,8 @@ Page({
         goneCities: [],
         gradeCities: [],
         likeCities: [],
-        provinces: []
+        provinces: [],
+        types: []
     },
 
     onLoad: function() {
@@ -41,7 +42,8 @@ Page({
                 goneCities: res.data.goneCities,
                 gradeCities: res.data.gradeCities,
                 likeCities: res.data.likeCities,
-                provinces: res.data.provinces
+                provinces: res.data.provinces,
+                types: res.data.types
             })
         })
     }

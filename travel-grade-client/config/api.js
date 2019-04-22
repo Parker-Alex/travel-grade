@@ -16,6 +16,7 @@ module.exports = {
     AddRecommendCity: WxApiRoot + 'user/add_recommend',//添加推荐城市
     GetOtherUser: WxApiRoot + 'user/get_other_user',//获取提起用户信息
     UserRecommendCities: WxApiRoot + 'user/recommend_cities',//获得用户推荐城市列表
+    UpdateOtherGrade: WxApiRoot + 'user/update_other',//更新其他服务评分
 
     /**
      * 首页相关操作API
