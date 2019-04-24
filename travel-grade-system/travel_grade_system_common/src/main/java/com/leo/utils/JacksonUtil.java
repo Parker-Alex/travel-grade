@@ -57,6 +57,20 @@ public class JacksonUtil {
         return null;
     }
 
+    public static Double parseDouble(String body, String field) {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode node = null;
+        try {
+            node = mapper.readTree(body);
+            JsonNode leaf = node.get(field);
+            if (leaf != null)
+                return leaf.asDouble();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static List<Integer> parseIntegerList(String body, String field) {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode node = null;

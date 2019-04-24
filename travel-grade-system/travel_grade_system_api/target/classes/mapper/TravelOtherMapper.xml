@@ -12,4 +12,11 @@
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="grade" property="grade" jdbcType="DOUBLE" />
   </resultMap>
+
+  <select id="getOtherGrade" resultType="java.lang.Double">
+    SELECT AVG(o.grade)
+    FROM leo_travel_system_other o
+    WHERE o.city_id = #{cityId}
+    AND o.type = #{type}
+  </select>
 </mapper>

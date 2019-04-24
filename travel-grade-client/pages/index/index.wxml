@@ -1,23 +1,23 @@
 <!--index.wxml-->
 <view class="container">
-    <!-- <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000"> -->
-    <!-- <swiper-item wx:for="{{banner}}" wx:key="id"> -->
-    <!-- <navigator url="{{item.link}}"> -->
-    <!-- <image src="{{item.url}}" background-size="cover"></image> -->
-    <!-- </navigator> -->
-    <!-- </swiper-item> -->
-    <!-- </swiper> -->
     <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+        <swiper-item wx:for="{{hotCities}}" wx:key="id">
+            <navigator url="/pages/city/city?id={{item.id}}">
+                <image src="{{item.cover}}" background-size="cover"></image>
+            </navigator>
+        </swiper-item>
+    </swiper>
+    <!-- <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
         <swiper-item>
-            <!-- <navigator url="{{item.link}}"> -->
+            <navigator url="{{item.link}}">
             <image src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" background-size="cover"></image>
-            <!-- </navigator> -->
+            </navigator>
         </swiper-item>
         <swiper-item>
             <image src="http://m.tuniucdn.com/fb2/t1/G5/M00/3D/D2/Cii-tFxAWxiIXvtnAAwrPGn38YYAATMtQEdKVAADCtU334_w500_h280_c1_t0.jpg" background-size="cover"></image>
         </swiper-item>
-    </swiper>
-    
+    </swiper> -->
+
     <!-- 城市其他服务评分 -->
     <!-- <view class="m-menu">
         <navigator class="item" url="/pages/category/category" wx:for="{{types}}" wx:key="id">

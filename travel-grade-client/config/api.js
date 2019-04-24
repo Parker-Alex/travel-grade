@@ -17,6 +17,7 @@ module.exports = {
     GetOtherUser: WxApiRoot + 'user/get_other_user',//获取提起用户信息
     UserRecommendCities: WxApiRoot + 'user/recommend_cities',//获得用户推荐城市列表
     UpdateOtherGrade: WxApiRoot + 'user/update_other',//更新其他服务评分
+    GetOthersGrade: WxApiRoot + 'user/others_grade',//得到其他服务评分信息
 
     /**
      * 首页相关操作API

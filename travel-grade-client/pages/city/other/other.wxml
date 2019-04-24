@@ -1,7 +1,7 @@
 <import src='/pages/city/stars/stars-template.wxml' />
 <view class="container">
     <scroll-view class="groupon-list" scroll-y="true" scroll-top="{{scrollTop}}">
-        <!-- 水果 -->
+        <!-- ----------------------------------------------- 水果 ----------------------------------------------->
         <view class='item'>
             <image class="img" src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
             <view class="right">
@@ -29,12 +29,12 @@
                         </view>
                     </view>
                     <view class="desc">
-                        <template is="starsTemplate" data="{{stars:[1,0,0,0,1], score:8}}" />
+                        <template is="starsTemplate" data="{{stars:starts0, score:grade0}}" />
                     </view>
                 </view>
             </view>
         </view>
-        <!-- 交通 -->
+        <!-- ----------------------------------------------- 交通 ----------------------------------------------->
         <view class='item'>
             <image class="img" src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
             <view class="right">
@@ -62,7 +62,106 @@
                         </view>
                     </view>
                     <view class="desc">
-                        <template is="starsTemplate" data="{{stars:[1,0,0,0,1], score:8}}" />
+                        <template is="starsTemplate" data="{{stars:starts1, score:grade1}}" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- ----------------------------------------------- 天气 ----------------------------------------------->
+        <view class='item'>
+            <image class="img" src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+            <view class="right">
+                <view class="text">
+                    <view class="header">
+                        <text class="name">天气</text>
+                        <view class="capsule-tag">
+                            <picker mode='selector' value='{{index2}}' range='{{array2}}' bindchange="bindPickerChange" data-type='2'>
+                                <view wx:if='{{myGrade2 > 0}}'>
+                                    <view class="my-grade">
+                                        已评分：
+                                        <text class='grade'>{{myGrade2}}分</text>
+                                    </view>
+                                </view>
+                                <view wx:else>
+                                    <view wx:if='{{index2 < 0}}' class="good-bad">
+                                        评分
+                                    </view>
+                                    <view wx:else class="good-bad-grade">
+                                        已评分：
+                                        <text class='grade'>{{array2[index2]}}分</text>
+                                    </view>
+                                </view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="desc">
+                        <template is="starsTemplate" data="{{stars:starts2, score:grade2}}" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- ----------------------------------------------- 交通 ----------------------------------------------->
+        <view class='item'>
+            <image class="img" src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+            <view class="right">
+                <view class="text">
+                    <view class="header">
+                        <text class="name">交通</text>
+                        <view class="capsule-tag">
+                            <picker mode='selector' value='{{index3}}' range='{{array3}}' bindchange="bindPickerChange" data-type='3'>
+                                <view wx:if='{{myGrade3 > 0}}'>
+                                    <view class="my-grade">
+                                        已评分：
+                                        <text class='grade'>{{myGrade3}}分</text>
+                                    </view>
+                                </view>
+                                <view wx:else>
+                                    <view wx:if='{{index3 < 0}}' class="good-bad">
+                                        评分
+                                    </view>
+                                    <view wx:else class="good-bad-grade">
+                                        已评分：
+                                        <text class='grade'>{{array3[index3]}}分</text>
+                                    </view>
+                                </view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="desc">
+                        <template is="starsTemplate" data="{{stars:starts3, score:grade3}}" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- ----------------------------------------------- 住宿 ----------------------------------------------->
+        <view class='item'>
+            <image class="img" src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+            <view class="right">
+                <view class="text">
+                    <view class="header">
+                        <text class="name">住宿</text>
+                        <view class="capsule-tag">
+                            <picker mode='selector' value='{{index4}}' range='{{array4}}' bindchange="bindPickerChange" data-type='4'>
+                                <view wx:if='{{myGrade4 > 0}}'>
+                                    <view class="my-grade">
+                                        已评分：
+                                        <text class='grade'>{{myGrade4}}分</text>
+                                    </view>
+                                </view>
+                                <view wx:else>
+                                    <view wx:if='{{index4 < 0}}' class="good-bad">
+                                        评分
+                                    </view>
+                                    <view wx:else class="good-bad-grade">
+                                        已评分：
+                                        <text class='grade'>{{array4[index4]}}分</text>
+                                    </view>
+                                </view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="desc">
+                        <template is="starsTemplate" data="{{stars:starts4, score:grade4}}" />
                     </view>
                 </view>
             </view>

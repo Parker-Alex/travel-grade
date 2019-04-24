@@ -94,7 +94,7 @@
         </view>
         <view class="operation-wrp flex-item">
             <view class="operation flex-wrp flex-tab">
-                <navigator class="operation-btn flex-item" url='/pages/city/other/other'>
+                <navigator class="operation-btn flex-item" url='/pages/city/other/other?cityId={{id}}'>
                     <image src="../../images/icon/other.png"></image>
                     <text>其他</text>
                 </navigator> 

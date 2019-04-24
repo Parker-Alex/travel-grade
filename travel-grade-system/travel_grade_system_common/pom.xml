@@ -82,10 +82,11 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
+        <!--thymeleaf模板-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+        <!--</dependency>-->
 
         <!--数据源-->
         <dependency>
@@ -177,8 +178,6 @@
             <artifactId>weixin-java-pay</artifactId>
             <version>3.3.4.B</version>
         </dependency>
-
-
 
         <!--redis-->
         <dependency>

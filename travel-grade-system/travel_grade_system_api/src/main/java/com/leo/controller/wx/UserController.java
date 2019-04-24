@@ -56,6 +56,9 @@ public class UserController {
     @Autowired
     private IProvinceService provinceService;
 
+    @Autowired
+    private IOtherService otherService;
+
     /**
      * @Author li.jiawei
      * @Description 更新用户与城市之间关系接口
@@ -225,12 +228,49 @@ public class UserController {
      * @Description 更新其他服务评分接口
      * @Date 1:25 2019/4/23
      */
-    @PostMapping("/update_other")
-    public MyResult updateOther(@RequestBody String body) {
+    @PostMapping("/update_other/{cityId}")
+    public MyResult updateOther(@RequestBody String body,
+                                @PathVariable("cityId") String cityId,
+                                @LoginUser String userId) {
         LOGGER.info("------更新其他服务评分开始------");
         LOGGER.info("请求参数body：" + body);
+
+        if (StringUtils.isEmpty(userId)) {
+            return MyResult.errorMsg("用户没有登录");
+        }
+
+        otherService.updateOther(cityId, userId, body);
+
         LOGGER.info("------更新其他服务评分结束------");
         return MyResult.ok();
+    }
+
+    /**
+     * @Author li.jiawei
+     * @Description 得到其他服务评分信息接口
+     * @Date 19:27 2019/4/23
+     */
+    @GetMapping("/others_grade/{cityId}")
+    public MyResult getOthers(@PathVariable("cityId") String cityId, @LoginUser String userId) {
+        LOGGER.info("------得到其他服务评分信息开始------");
+        Map<String, Object> data = new HashMap<>();
+
+//        得到城市其他服务评分信息
+        List<Double> other_grade = otherService.getOthersGrade(cityId);
+
+//        如果有用户登录，得到用户对其他服务评分
+        if (!StringUtils.isEmpty(userId)) {
+            List<TravelOther> user_grade = otherService.getOtherUserGrade(cityId, userId);
+            data.put("user_grade", user_grade);
+        } else {
+            data.put("user_grade", null);
+        }
+
+        data.put("other_grade", other_grade);
+
+        LOGGER.info("------得到其他服务评分信息结束------");
+
+        return MyResult.ok(data);
     }
 
     /**

@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="travel_grade_system_api:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/travel_grade_system_api_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="travel_grade_system_api/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="travel_grade_system_api" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

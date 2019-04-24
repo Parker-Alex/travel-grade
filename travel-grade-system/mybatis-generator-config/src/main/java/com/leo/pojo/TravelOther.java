@@ -17,6 +17,8 @@ public class TravelOther {
 
     private Integer type;
 
+    private Double grade;
+
     /**
      * @return id
      */
@@ -85,5 +87,13 @@ public class TravelOther {
      */
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public Double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Double grade) {
+        this.grade = grade;
     }
 }
