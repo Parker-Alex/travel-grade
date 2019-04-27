@@ -1,9 +1,8 @@
 package com.leo.controller.admin;
 
+import com.leo.utils.MyResult;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -17,14 +16,22 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/admin")
 public class AdminController {
 
-//    @RequestMapping("/test")
-//    public ModelAndView test() {
-//        return new ModelAndView("index", "hi", "hello");
-//    }
+    @GetMapping(value = "/login")
+    public ModelAndView login() {
+        return new ModelAndView("login");
+    }
 
-    @RequestMapping("/test")
-    public String test() {
-        System.out.println("111");
+    @PostMapping("/login")
+    @ResponseBody
+    public MyResult doLogin(@RequestParam("username") String userName, @RequestParam("password") String password) {
+        System.out.println(userName);
+        System.out.println(password);
+        return MyResult.ok();
+
+    }
+
+    @GetMapping("/index")
+    public String index() {
         return "index";
     }
 }

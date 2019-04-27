@@ -22,7 +22,7 @@ public class WxWebMvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 //        将本地文件夹设为服务器资源
-        registry.addResourceHandler("/**")
+        registry.addResourceHandler("/wx")
                 .addResourceLocations("file:E:/File/travel-grade/");
     }
 }

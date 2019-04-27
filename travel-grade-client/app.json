@@ -60,7 +60,7 @@
                 "pagePath": "pages/user/index/index",
                 "iconPath": "images/my.png",
                 "selectedIconPath": "images/my@selected.png",
-                "text": "个人"
+                "text": "我"
             }
         ]
     },
