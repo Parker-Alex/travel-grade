@@ -36,4 +36,11 @@ public interface TravelCommentCustomMapper extends MyMapper<TravelCommentCustom>
      * @Date 15:50 2019/4/18
      */
     List<TravelCommentCustom> getUserComments(@Param("userId") String userId);
+    
+    /**
+     * @Author li.jiawei
+     * @Description 后台获取系统所有评论
+     * @Date 1:09 2019/5/2
+     */
+    List<TravelCommentCustom> getAllCommentsByAdmin();
 }

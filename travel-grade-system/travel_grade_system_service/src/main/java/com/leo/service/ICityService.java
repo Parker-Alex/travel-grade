@@ -81,4 +81,19 @@ public interface ICityService {
      */
     List<TravelCity> userLikeCities(String userId);
 
+    /**
+     * @Author li.jiawei
+     * @Description 通过城市标识得到城市对象
+     * @Date 1:24 2019/4/30
+     */
+    TravelCity getCityByCityId(String cityId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 后台更新城市
+     * @Date 2:48 2019/4/30
+     */
+    int updateCityByAdmin(TravelCity newCity);
+
+    int deleteCityByCityId(String cityId);
 }

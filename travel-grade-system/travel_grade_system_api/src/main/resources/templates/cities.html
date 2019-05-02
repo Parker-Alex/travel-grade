@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='文章管理',active='article'">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='城市管理',active='city'">
 <header th:replace="/header::headerFragment"></header>
 <body class="fixed-left">
 <div id="wrapper">
@@ -9,14 +9,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h4 class="page-title">城市管理</h4>
+                        <h4 class="page-title" th:text="${title}"></h4>
                     </div>
                     <div class="col-md-12">
                         <table class="table table-striped table-bordered">
                             <thead>
                             <tr>
                                 <th >城市名称</th>
-                                <!--<th >城市封面</th>-->
+                                <th >城市封面</th>
                                 <th >评分</th>
                                 <th width="35%">简介</th>
                                 <th >去过人数</th>
@@ -31,10 +31,17 @@
                             <th:block th:each="c : ${cities.list}">
                                 <tr th:cid="${c.id}">
                                     <td>
-                                        <a th:href="@{'/admin/article/'+${c.id}}" th:text="${c.name}"></a>
+                                        <a th:href="@{'/admin/city/'+${c.id}}" th:text="${c.name}"></a>
                                     </td>
                                     <!--<td><th:block th:text="${commons.fmtdate(post.created, 'yyyy-MM-dd HH:mm:ss')}"/></td>-->
-                                    <!--<td><th:block th:text="${c.cover}"/></td>-->
+                                    <td>
+                                        <th:block th:if="${null == c.cover or '' == c.cover}">
+                                            暂无
+                                        </th:block>
+                                        <th:block th:unless="${null == c.cover or '' == c.cover}">
+                                            <a th:href="${c.cover}">查看</a>
+                                        </th:block>
+                                    </td>
                                     <td><th:block th:text="${c.grade}"/></td>
                                     <td><th:block th:text="${c.introduce}"/></td>
                                     <td><th:block th:text="${c.goneCount}"/></td>
@@ -43,7 +50,7 @@
                                     <td><th:block th:text="${c.favourCount}"/></td>
                                     <td><th:block th:text="${c.commendCount}"/></td>
                                     <td>
-                                        <a th:href="@{'/admin/article/'+${c.id}}"
+                                        <a th:href="@{'/admin/city/'+${c.id}}"
                                            class="btn btn-primary btn-sm waves-effect waves-light m-b-5"><i
                                                 class="fa fa-edit"></i> <span>编辑</span></a>
                                         <a href="javascript:void(0)" th:onclick="delPost([[${c.id}]]);"
@@ -72,7 +79,7 @@
     var tale = new $.tale();
     function delPost(cid) {
         tale.alertConfirm({
-            title:'确定删除该文章吗?',
+            title:'确定删除该城市吗?',
             then: function () {
                 tale.post({
                     url : '/admin/city/delete',

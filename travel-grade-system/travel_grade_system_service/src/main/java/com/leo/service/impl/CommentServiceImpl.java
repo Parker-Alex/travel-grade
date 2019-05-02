@@ -124,4 +124,27 @@ public class CommentServiceImpl implements ICommentService {
         }
         return commentList;
     }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public PageInfo<TravelCommentCustom> getAllCommentsByAdmin(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<TravelCommentCustom> list = commentCustomMapper.getAllCommentsByAdmin();
+        for(TravelCommentCustom cc : list) {
+            // 格式化日期
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            cc.setDate(format.format(cc.getSendDate()));
+        }
+        return new PageInfo<>(list);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int deleteCommentById(String commentId) {
+        int result = commentMapper.deleteByPrimaryKey(commentId);
+        if (result <= 0) {
+            throw new RuntimeException("后台删除评论失败");
+        }
+        return result;
+    }
 }

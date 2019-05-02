@@ -1,5 +1,6 @@
 package com.leo.service;
 
+import com.github.pagehelper.PageInfo;
 import com.leo.dto.TravelCommentCustom;
 import com.leo.pojo.TravelComment;
 
@@ -36,4 +37,13 @@ public interface ICommentService {
      * @Date 15:45 2019/4/18
      */
     List<TravelCommentCustom> getUserComments(String userId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 后台获取所有评论
+     * @Date 1:10 2019/5/2
+     */
+    PageInfo<TravelCommentCustom> getAllCommentsByAdmin(Integer pageNum, Integer pageSize);
+
+    int deleteCommentById(String commentId);
 }

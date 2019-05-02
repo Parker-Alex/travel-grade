@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='省份管理',active='province'">
+<header th:replace="/header::headerFragment"></header>
+<body class="fixed-left">
+<div id="wrapper">
+    <div th:replace="/header::header-body"></div>
+    <div class="content-page">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="page-title" th:text="${title}"></h4>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th >省份名称</th>
+                                <th >省份封面</th>
+                                <th >评分</th>
+                                <th width="35%">简介</th>
+                                <th >名字由来</th>
+                                <th >城市数</th>
+                                <th >操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <th:block th:each="p : ${provinces.list}">
+                                <tr th:cid="${p.id}">
+                                    <td>
+                                        <a th:href="@{'/admin/province/'+${p.id}}" th:text="${p.name}"></a>
+                                    </td>
+                                    <!--<td><th:block th:text="${commons.fmtdate(post.created, 'yyyy-MM-dd HH:mm:ss')}"/></td>-->
+                                    <td>
+                                        <th:block th:if="${null == p.cover or '' == p.cover}">
+                                            暂无
+                                        </th:block>
+                                        <th:block th:unless="${null == p.cover or '' == p.cover}">
+                                            <a th:href="${p.cover}">查看</a>
+                                        </th:block>
+                                    </td>
+                                    <td><th:block th:text="${p.grade}"/></td>
+                                    <td><th:block th:text="${p.introduce}"/></td>
+                                    <td><th:block th:text="${p.reason}"/></td>
+                                    <td><th:block th:text="${p.cityCount}"/></td>
+                                    <td>
+                                        <a th:href="@{'/admin/province/'+${p.id}}"
+                                           class="btn btn-primary btn-sm waves-effect waves-light m-b-5"><i
+                                                class="fa fa-edit"></i> <span>编辑</span></a>
+                                        <a href="javascript:void(0)" th:onclick="delPost([[${p.id}]]);"
+                                           class="btn btn-danger btn-sm waves-effect waves-light m-b-5"><i
+                                                class="fa fa-trash-o"></i> <span>删除</span></a>
+                                        <!--<a class="btn btn-warning btn-sm waves-effect waves-light m-b-5" th:href="${commons.permalink(c)}+'/preview'"-->
+                                           <!--target="_blank"><i-->
+                                                <!--class="fa fa-rocket"></i> <span>预览</span></a>-->
+                                    </td>
+                                </tr>
+                            </th:block>
+
+                            </tbody>
+                        </table>
+                        <div th:replace="comm/macros :: pageAdminNav(${provinces})"></div>
+                    </div>
+                </div>
+                <div th:replace="/footer :: footer-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="/footer :: footer"></div>
+<script type="text/javascript">
+    /*<![CDATA[*/
+    var tale = new $.tale();
+    function delPost(pid) {
+        tale.alertConfirm({
+            title:'确定删除该文章吗?',
+            then: function () {
+                tale.post({
+                    url : '/admin/province/delete',
+                    data: {pid: pid},
+                    success: function (result) {
+                        if(result && result.status === 200){
+                            tale.alertOkAndReload('省份删除成功');
+                        } else {
+                            tale.alertError(result.msg || '省份删除失败');
+                        }
+                    }
+                });
+            }
+        });
+    }
+    /*]]>*/
+</script>
+</body>
+</html>

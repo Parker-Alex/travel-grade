@@ -109,6 +109,11 @@ public class SystemController {
             LOGGER.info("添加用户成功");
         }
 
+//        判断用户是否有效
+        if (!user.getDeleted()) {
+            return MyResult.errorMsg("该用户已失效");
+        }
+
 //        添加用户令牌
         UserToken userToken = TokenManager.generateToken(user.getId());
         userToken.setSessionKey(sessionKey);
@@ -174,6 +179,11 @@ public class SystemController {
 //        校验密码
         if (!user.getPassword().equals(password)) {
             return MyResult.errorMsg("密码不正确");
+        }
+
+//        判断用户是否有效
+        if (!user.getDeleted()) {
+            return MyResult.errorMsg("该用户已失效");
         }
 
 //        判断用户是否正在登录

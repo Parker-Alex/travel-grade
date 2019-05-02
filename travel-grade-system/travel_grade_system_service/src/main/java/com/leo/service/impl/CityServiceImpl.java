@@ -6,8 +6,11 @@ import com.leo.dto.TravelCityCustom;
 import com.leo.enums.CityCondition;
 import com.leo.mapper.TravelCityCustomMapper;
 import com.leo.mapper.TravelCityMapper;
+import com.leo.mapper.TravelProvinceMapper;
 import com.leo.pojo.TravelCity;
+import com.leo.pojo.TravelProvince;
 import com.leo.service.ICityService;
+import com.leo.service.IProvinceService;
 import com.leo.service.IUserCityRelService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.BeanUtils;
@@ -33,6 +36,9 @@ public class CityServiceImpl implements ICityService {
 
     @Autowired
     private Sid sid;
+
+    @Autowired
+    private TravelProvinceMapper provinceMapper;
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -123,7 +129,15 @@ public class CityServiceImpl implements ICityService {
     @Override
     public int addCity(TravelCity city) {
         city.setId(sid.nextShort());
-        return cityMapper.insertSelective(city);
+        int result = cityMapper.insertSelective(city);
+        if (result <= 0) {
+            throw new RuntimeException("添加城市失败");
+        }
+
+//        更新省份所拥有城市数
+        increaseCount(city.getProvinceId());
+
+        return result;
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
@@ -221,6 +235,71 @@ public class CityServiceImpl implements ICityService {
         return cs;
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public TravelCity getCityByCityId(String cityId) {
+        return cityMapper.selectByPrimaryKey(cityId);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int updateCityByAdmin(TravelCity newCity) {
+        TravelCity city = cityMapper.selectByPrimaryKey(newCity.getId());
+        boolean flag = false;
+//        如果名字被修改
+        if (!city.getName().equals(newCity.getName())) {
+            city.setName(newCity.getName());
+            flag = true;
+        }
+//        如果所属省份被修改
+        if (!city.getProvinceId().equals(newCity.getProvinceId())) {
+            city.setProvinceId(newCity.getProvinceId());
+            flag = true;
+
+            /**
+             * 如果所属省份id修改了，那么要将原来省份的城市数-1，新省份城市数+1
+             */
+            String oldPId = city.getProvinceId();
+            String newPId = newCity.getProvinceId();
+
+            decreaseCount(oldPId);
+            increaseCount(newPId);
+
+        }
+//        如果封面被修改
+        if (!city.getCover().equals(newCity.getCover())) {
+            city.setCover(newCity.getCover());
+            flag = true;
+        }
+//        如果简介被修改
+        if (!city.getIntroduce().equals(newCity.getIntroduce())) {
+            city.setIntroduce(newCity.getIntroduce());
+            flag = true;
+        }
+
+        if (flag) {
+            return cityMapper.updateByPrimaryKey(city);
+        }
+        return 0;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int deleteCityByCityId(String cityId) {
+        TravelCity city = cityMapper.selectByPrimaryKey(cityId);
+        String provinceId = city.getProvinceId();
+
+        int result = cityMapper.deleteByPrimaryKey(cityId);
+
+        if (result <= 0) {
+            throw new RuntimeException("删除城市失败");
+        }
+
+//        更新省份所拥有城市数
+        decreaseCount(provinceId);
+        return result;
+    }
+
     /**
      * @Author li.jiawei
      * @Description 按照城市的不同属性进行分页查询城市列表，
@@ -246,6 +325,38 @@ public class CityServiceImpl implements ICityService {
             }
         }
         return cs;
+    }
+
+    /**
+     * @Author li.jiawei
+     * @Description 减少省份拥有城市数
+     * @Date 17:09 2019/5/1
+     */
+    private void decreaseCount(String provinceId) {
+        TravelProvince province = provinceMapper.selectByPrimaryKey(provinceId);
+        int oldCityCount = province.getCityCount();
+        province.setCityCount(oldCityCount - 1);
+        int result = provinceMapper.updateByPrimaryKey(province);
+
+        if (result <= 0) {
+            throw new RuntimeException("减少省份拥有城市数失败");
+        }
+    }
+
+    /**
+     * @Author li.jiawei
+     * @Description 增加省份拥有城市数
+     * @Date 17:14 2019/5/1
+     */
+    private void increaseCount(String provinceId) {
+        TravelProvince province = provinceMapper.selectByPrimaryKey(provinceId);
+        int oldCityCount = province.getCityCount();
+        province.setCityCount(oldCityCount + 1);
+        int result = provinceMapper.updateByPrimaryKey(province);
+
+        if (result <= 0) {
+            throw new RuntimeException("增加省份拥有城市数失败");
+        }
     }
 
 }

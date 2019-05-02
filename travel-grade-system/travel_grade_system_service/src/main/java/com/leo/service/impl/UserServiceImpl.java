@@ -1,5 +1,7 @@
 package com.leo.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.leo.mapper.TravelUserMapper;
 import com.leo.pojo.TravelUser;
 import com.leo.service.IUserService;
@@ -68,5 +70,37 @@ public class UserServiceImpl implements IUserService {
     @Override
     public TravelUser getUserByUserId(String userId) {
         return userMapper.selectByPrimaryKey(userId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public PageInfo<TravelUser> getAllUsersByAdmin(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<TravelUser> list = userMapper.selectAll();
+        return new PageInfo<>(list);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int stopUser(String userId) {
+        TravelUser user = userMapper.selectByPrimaryKey(userId);
+        user.setDeleted(false);
+        int result = userMapper.updateByPrimaryKey(user);
+        if (result <= 0) {
+            throw new RuntimeException("后台停用用户失败");
+        }
+        return result;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int resumeUser(String userId) {
+        TravelUser user = userMapper.selectByPrimaryKey(userId);
+        user.setDeleted(true);
+        int result = userMapper.updateByPrimaryKey(user);
+        if (result <= 0) {
+            throw new RuntimeException("后台恢复用户失败");
+        }
+        return result;
     }
 }

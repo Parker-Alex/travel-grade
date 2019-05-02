@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "城市列表",
+  "navigationBarTitleText": "省份列表",
   "usingComponents": {
     "zan-capsule": "../lib/zanui-weapp/capsule/index"
   }

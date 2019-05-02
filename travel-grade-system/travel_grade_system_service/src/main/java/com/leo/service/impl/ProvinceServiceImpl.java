@@ -63,6 +63,18 @@ public class ProvinceServiceImpl implements IProvinceService {
         return provinces;
     }
 
+    @Override
+    public PageInfo<TravelProvince> getProvincesByAdmin(Integer pageNum, Integer pageSize) {
+//        按评分进行排序
+        Example example = new Example(TravelProvince.class);
+        example.setOrderByClause("grade desc");
+
+        PageHelper.startPage(pageNum, pageSize);
+
+        List<TravelProvince> ps = provinceMapper.selectByExample(example);
+        return new PageInfo<>(ps);
+    }
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int addProvince(TravelProvince province) {
@@ -114,5 +126,66 @@ public class ProvinceServiceImpl implements IProvinceService {
     @Override
     public Double getAvgGrade(String provinceId) {
         return provinceMapper.getAvgGrade(provinceId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public TravelProvince getProvinceById(String id) {
+        return provinceMapper.selectByPrimaryKey(id);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int addProvinceByAdmin(TravelProvince province) {
+        province.setId(sid.nextShort());
+        int result = provinceMapper.insertSelective(province);
+
+        if (result <= 0) {
+            throw new RuntimeException("后台添加省份失败");
+        }
+
+        return result;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int updateProvinceByAdmin(TravelProvince newProvince) {
+        TravelProvince province = provinceMapper.selectByPrimaryKey(newProvince.getId());
+        boolean flag = false;
+        int result = 0;
+//        如果名称被修改
+        if (!province.getName().equals(newProvince.getName())) {
+            province.setName(newProvince.getName());
+            flag = true;
+        }
+//        如果名称由来被修改
+        if (!province.getReason().equals(newProvince.getReason())) {
+            province.setReason(newProvince.getReason());
+            flag = true;
+        }
+//        如果简介被修改
+        if (!province.getIntroduce().equals(newProvince.getIntroduce())) {
+            province.setIntroduce(newProvince.getIntroduce());
+            flag = true;
+        }
+//        如果进行了修改操作
+        if (flag) {
+            result = provinceMapper.updateByPrimaryKey(province);
+        }
+
+        if (result <= 0) {
+            throw new RuntimeException("后台修改省份失败");
+        }
+        return result;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int deleteProvinceById(String provinceId) {
+        int result = provinceMapper.deleteByPrimaryKey(provinceId);
+        if (result <= 0) {
+            throw new RuntimeException("删除省份失败");
+        }
+        return result;
     }
 }
