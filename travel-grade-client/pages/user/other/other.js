@@ -13,6 +13,7 @@ Page({
         isFollow: false,
         user: {},
         fans: [],
+        follow: 0,
         comments: [],
         recommends: [],
         like_cities: [],
@@ -32,10 +33,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        // let userId = options.userId;
-        // this.getOtherUser(userId);
-
-        this.getOtherUser('190221865XWCADWH');
+        let userId = options.userId;
+        this.getOtherUser(userId);
+        // this.getOtherUser('190221865XWCADWH');
     },
 
     // 得到用户信息方法
@@ -46,17 +46,18 @@ Page({
             that.setData({
                 user: res.data.user,
                 fans: res.data.fans,
+                follow: res.data.follow,
                 comments: res.data.comments,
                 recommends: res.data.recommends,
                 like_cities: res.data.like_cities,
-                gone_cities: res.data.gone_cities
+                gone_cities: res.data.gone_cities,
+                cities: res.data.gone_cities
             })
         })
     },
 
     // 查看去过城市列表
     doSelectGone: function(e) {
-        console.log(this.data.gone_cities);
         this.setData({
             myGoneFalg: false,
             myLikeFalg: true,
@@ -70,7 +71,6 @@ Page({
 
     // 查看想去城市列表
     doSelectLike: function(e) {
-        console.log(this.data.like_cities);
         this.setData({
             myGoneFalg: true,
             myLikeFalg: false,
@@ -90,7 +90,8 @@ Page({
             myRecommendFalg: false,
             isSelectdGone: "",
             isSelectdLike: "",
-            isSelectdRecommend: "video-info-selected"
+            isSelectdRecommend: "video-info-selected",
+            cities: this.data.recommends
         })
     },
 

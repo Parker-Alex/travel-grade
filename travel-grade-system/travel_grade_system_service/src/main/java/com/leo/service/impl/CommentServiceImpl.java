@@ -110,7 +110,13 @@ public class CommentServiceImpl implements ICommentService {
             return null;
         }
 
-        return commentCustomMapper.moreComment(commentId, cityId);
+        List<TravelCommentCustom> comments = commentCustomMapper.moreComment(commentId, cityId);
+        for(TravelCommentCustom cc : comments) {
+            // 格式化日期
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            cc.setDate(format.format(cc.getSendDate()));
+        }
+        return comments;
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)

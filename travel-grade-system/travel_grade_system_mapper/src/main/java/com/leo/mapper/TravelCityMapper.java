@@ -28,6 +28,13 @@ public interface TravelCityMapper extends MyMapper<TravelCity> {
 
     /**
      * @Author li.jiawei
+     * @Description 获得用户点赞城市列表
+     * @Date 2:14 2019/5/4
+     */
+    List<TravelCity> userFavourCities(@Param("userId") String userId);
+
+    /**
+     * @Author li.jiawei
      * @Description 获得用户推荐城市列表
      * @Date 15:26 2019/4/21
      */

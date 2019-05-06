@@ -14,4 +14,11 @@ public interface TravelUserRelMapper extends MyMapper<TravelUserRel> {
      * @Date 15:39 2019/4/18
      */
     List<TravelUserRel> getFans(@Param("id") String userId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户的关注用户数
+     * @Date 2:59 2019/5/4
+     */
+    int getFollow(@Param("id") String userId);
 }

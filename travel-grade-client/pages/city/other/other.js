@@ -71,7 +71,9 @@ Page({
 
         util.request(api.GetOthersGrade + '/' + cityId).then((res) => {
             console.log(res);
-            if (res.data.user_grade != null) {
+            console.log(res.data.user_grade);
+            console.log(res.data.user_grade.length);
+            if (res.data.user_grade.length > 0) {
                 console.log(111);
                 console.log(res.data.user_grade[0]);
                 that.setData({

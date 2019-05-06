@@ -17,4 +17,11 @@
     WHERE r.attention_user_id = #{id}
     ORDER BY r.attention_date DESC
   </select>
+  
+  <select id="getFollow" resultType="java.lang.Integer">
+    SELECT count(*)
+    FROM leo_travel_system_user_rel r
+    WHERE r.user_id = #{id}
+  </select>
+
 </mapper>

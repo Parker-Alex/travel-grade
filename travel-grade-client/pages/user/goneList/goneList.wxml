@@ -1,0 +1,39 @@
+<view class="container">
+    <!-- <scroll-view class="groupon-list" scroll-y="true" scroll-top="{{scrollTop}}"> -->
+    <view class='groupon-list'>
+        <view class="item" wx:for="{{cities}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+            <navigator url="/pages/city/city?id={{item.id}}">
+                <image class="img" src="{{item.cover}}" mode='aspectFit'></image>
+                <view class="right">
+                    <view class="text">
+                        <view class="header">
+                            <text class="name">{{item.name}}</text>
+                            <view class="capsule-tag">
+                                <zan-capsule color="#a78845" leftText="评分" rightText="{{item.grade}}" />
+                            </view>
+                        </view>
+                        <text class="desc">{{item.introduce}}</text>
+                        <view class="price">
+                            <view class="gone-count">去过：{{item.goneCount}}人</view>
+                            <view class="favour-count">点赞：{{item.favourCount}}人</view>
+                            <view class="like-count">想去：{{item.likeCount}}人</view>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <view class="no-order" wx:if="{{cities.length <= 0}}">
+            <view class="c">
+                <!-- <button size='mini' type='primary' bindtap='recommendCity'>推荐城市</button> -->
+                <!-- <image src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/noCart-a8fe3f12e5.png" /> -->
+                <text>还没有去过任何城市呢</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- <view class="page" wx:if="{{showPage}}">
+        <view class="prev {{ hasPreviousPage ? '' : 'disabled'}}" bindtap="prevPage">上一页</view>
+        <view class="next {{ hasNextPage ? '' : 'disabled'}}" bindtap="nextPage">下一页</view>
+    </view>
+    </scroll-view> -->
+</view>

@@ -42,6 +42,16 @@
     ORDER BY c.grade DESC
   </select>
 
+  <select id="userFavourCities" resultMap="BaseResultMap">
+    SELECT c.*
+    FROM leo_travel_system_city c
+    LEFT JOIN leo_travel_system_user_city_rel uc ON c.id = uc.city_id
+    LEFT JOIN leo_travel_system_user u ON u.id = uc.user_id
+    WHERE u.id = #{userId}
+    AND uc.is_favour = 1
+    ORDER BY c.grade DESC
+  </select>
+
   <select id="userRecommendCities" resultMap="BaseResultMap">
     SELECT c.*
     FROM leo_travel_system_city c

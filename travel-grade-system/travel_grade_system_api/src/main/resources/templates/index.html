@@ -17,7 +17,7 @@
                             <div class="mini-stat clearfix bx-shadow bg-info">
                                 <span class="mini-stat-icon"><i class="fa fa-quote-right" aria-hidden="true"></i></span>
                                 <div class="mini-stat-info text-right">
-                                    发表了<span class="counter" th:text="4"></span>篇文章
+                                    目前拥有<span class="counter" th:text="${cities.total}"></span>座城市
                                 </div>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                             <div class="mini-stat clearfix bg-purple bx-shadow">
                                 <span class="mini-stat-icon"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
                                 <div class="mini-stat-info text-right">
-                                    收到了<span class="counter" th:text="5"></span>条留言
+                                    目前拥有<span class="counter" th:text="${comments.total}"></span>条评论
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <span class="mini-stat-icon"><i class="fa fa-cloud-upload"
                                                                 aria-hidden="true"></i></span>
                                 <div class="mini-stat-info text-right">
-                                    上传了<span class="counter" th:text="${6}"></span>个附件
+                                    目前拥有<span class="counter" th:text="${provinces.total}"></span>个省份
                                 </div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             <div class="mini-stat clearfix bg-primary bx-shadow">
                                 <span class="mini-stat-icon"><i class="fa fa-link" aria-hidden="true"></i></span>
                                 <div class="mini-stat-info text-right">
-                                    友链了<span class="counter" th:text="${7}"></span>个好友
+                                    目前拥有<span class="counter" th:text="${users.total}"></span>个用户
                                 </div>
                             </div>
                         </div>
@@ -54,16 +54,34 @@
                         <div class="col-md-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title">最新文章</h4>
+                                    <h4 class="panel-title">热门城市</h4>
                                 </div>
                                 <div class="panel-body">
                                     <ul class="list-group">
-                                        <!--<li class="list-group-item" th:each="article : ${articles}">-->
-                            <!--<span class="badge badge-primary"-->
-                                  <!--th:title="${article.commentsNum}+'条评论'" th:text="${article.commentsNum}"></span>-->
-                                            <!--<a target="_blank" th:href="${commons.site_url('/article/')}+${article.cid}"-->
-                                               <!--th:text="${article.title}"></a>-->
-                                        <!--</li>-->
+                                        <li class="list-group-item" th:each="c : ${hotCities}">
+                            <span class="badge badge-primary" th:text="${c.grade}"></span>
+                                            <a target="_blank" th:href="${c.cover}"
+                                               th:text="${c.name}">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">热门省份</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item" th:each="p : ${hotProvinces}">
+                            <span class="badge badge-primary" th:text="${p.grade}"></span>
+                                            <a target="_blank" th:href="${p.cover}"
+                                               th:text="${p.name}">
+
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -73,42 +91,42 @@
                                 <div class="panel-heading">
                                     <h4 class="panel-title">最新留言</h4>
                                 </div>
-                                <!--<div class="panel-body">-->
-                                    <!--<div th:if="${comments}== null and ${#lists.size(comments)}==0">-->
-                                        <!--<div class="alert alert-warning">-->
-                                            <!--还没有收到留言.-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<ul class="list-group"-->
-                                        <!--th:unless="${comments}==null and ${#lists.size(comments)}==0">-->
-                                        <!--<li class="list-group-item" th:each="comment : ${comments}">-->
-                                            <!--<div th:if="${comment.url}!=null and ${comment.url}!=''">-->
-                                                <!--<a th:href="@{${comment.url}}" target="_blank"-->
-                                                   <!--th:text="${comment.author}"></a>-->
-                                            <!--</div>-->
-                                            <!--<th:block th:unless="${comment.url}!=null and ${comment.url}!=''" th:text="${comment.author}"/>-->
-                                            <!--于<th:block th:text="${commons.fmtdate(comment.created,'MM月dd日HH:mm')}"/>：<a-->
-                                                <!--th:href="${commons.site_url('/article/')}+${comment.cid}+'#comments'"-->
-                                                <!--target="_blank" th:utext="${commons.article(comment.content)}"></a>-->
-                                        <!--</li>-->
-                                    <!--</ul>-->
-                                <!--</div>-->
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">系统日志</h4>
-                                </div>
                                 <div class="panel-body">
-                                    <ul class="list-group" >
-                                        <!--<li class="list-group-item" th:each="log : ${logs}">-->
-                                            <!--<span th:text="} +' => '+ ${log.action}"></span>-->
-                                        <!--</li>-->
+                                    <div th:if="${newComments}== null and ${#lists.size(newComments)}==0">
+                                        <div class="alert alert-warning">
+                                            目前还没有任何留言.
+                                        </div>
+                                    </div>
+                                    <ul class="list-group"
+                                        th:unless="${newComments}==null and ${#lists.size(newComments)}==0">
+                                        <li class="list-group-item" th:each="comment : ${newComments}">
+                                            <div th:if="${comment.avatar}!=null and ${comment.avatar}!=''">
+                                                <a th:href="@{${comment.avatar}}" target="_blank"
+                                                   th:text="${comment.nickName}"></a>
+                                            </div>
+                                            <div th:unless="${comment.avatar}!=null and ${comment.avatar}!=''"
+                                                      th:text="${comment.nickName}"></div>
+                                            <div th:text="${comment.content}"></div>
+                                            <th:block th:text="${comment.date} + 发表"/>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        <!--<div class="col-md-4">-->
+                            <!--<div class="panel panel-default">-->
+                                <!--<div class="panel-heading">-->
+                                    <!--<h4 class="panel-title">系统日志</h4>-->
+                                <!--</div>-->
+                                <!--<div class="panel-body">-->
+                                    <!--<ul class="list-group" >-->
+                                        <!--<li class="list-group-item" th:each="log : ${logs}">-->
+                                            <!--<span th:text="} +' => '+ ${log.action}"></span>-->
+                                        <!--</li>-->
+                                    <!--</ul>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
                     </div>
                 </div>
                 <div th:replace="/footer :: footer-content"></div>

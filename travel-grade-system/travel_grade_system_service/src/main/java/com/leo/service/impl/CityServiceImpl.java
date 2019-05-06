@@ -237,6 +237,19 @@ public class CityServiceImpl implements ICityService {
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
+    public List<TravelCity> userFavourCities(String userId) {
+        List<TravelCity> cs = cityMapper.userFavourCities(userId);
+        for (TravelCity c : cs) {
+            if (c.getIntroduce() != null && c.getIntroduce().length() > 17) {
+                String shortIntroduce = c.getIntroduce().substring(0, 17) + "...";
+                c.setIntroduce(shortIntroduce);
+            }
+        }
+        return cs;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
     public TravelCity getCityByCityId(String cityId) {
         return cityMapper.selectByPrimaryKey(cityId);
     }
@@ -309,7 +322,7 @@ public class CityServiceImpl implements ICityService {
     private List<TravelCity> pageByProperty(String str1, String str2) {
 
 //        设置分页参数
-        PageHelper.startPage(1, 10);
+        PageHelper.startPage(1, 5);
 
         Example example = new Example(TravelCity.class);
 //        example.setOrderByClause("grade desc");

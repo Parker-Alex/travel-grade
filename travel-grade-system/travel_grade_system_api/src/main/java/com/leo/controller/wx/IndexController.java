@@ -41,6 +41,13 @@ public class IndexController {
 
         LOGGER.info("------调用获取城市和省份列表方法开始------");
 
+//        防止用户对城市进行相关操作后，首页无法读取最新的城市信息
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 //        获得热门城市列表
         List<TravelCity> hotCities = cityService.getHotCities();
         List<TravelCity> commendCities = cityService.getCitiesByCommendCount();

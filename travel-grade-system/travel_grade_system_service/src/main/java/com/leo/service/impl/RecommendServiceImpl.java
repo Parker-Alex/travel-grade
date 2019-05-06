@@ -75,7 +75,7 @@ public class RecommendServiceImpl implements IRecommendService {
 
 //        根据推荐城市的内容为用户添加称号
         int count = getRecommendCount(userId);
-        if (count > 10) {
+        if (count > 20) {
             TravelUser user = userMapper.selectByPrimaryKey(userId);
             /**
              * TODO 可以将用户称号用枚举类实现

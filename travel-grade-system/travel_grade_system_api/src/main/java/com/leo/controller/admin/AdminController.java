@@ -1,6 +1,13 @@
 package com.leo.controller.admin;
 
+import com.leo.dto.TravelCommentCustom;
+import com.leo.pojo.TravelCity;
+import com.leo.pojo.TravelComment;
+import com.leo.pojo.TravelProvince;
 import com.leo.pojo.TravelUser;
+import com.leo.service.ICityService;
+import com.leo.service.ICommentService;
+import com.leo.service.IProvinceService;
 import com.leo.service.IUserService;
 import com.leo.utils.MyResult;
 import org.slf4j.Logger;
@@ -29,6 +36,15 @@ public class AdminController {
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private ICityService cityService;
+
+    @Autowired
+    private IProvinceService provinceService;
+
+    @Autowired
+    private ICommentService commentService;
 
     @GetMapping(value = "/login")
     public ModelAndView login() {
@@ -67,8 +83,33 @@ public class AdminController {
 
     }
 
+    /**
+     * @Author li.jiawei
+     * @Description 进入后台首页接口
+     * @Date 16:20 2019/5/4
+     */
     @GetMapping("/index")
-    public String index() {
+    public String index(HttpServletRequest request) {
+        LOGGER.info("------成功登录后台首页------");
+
+        List<TravelUser> users = userService.getAllUsersByAdmin(1, 0).getList();
+        List<TravelCity> cities = cityService.getCities(1, 0);
+        List<TravelProvince> provinces = provinceService.getProvincesByAdmin(1, 0).getList();
+        List<TravelCommentCustom> comments = commentService.getAllCommentsByAdmin(1, 0).getList();
+
+        List<TravelCity> hotCities = cityService.getHotCities();
+        List<TravelProvince> hotProvinces = provinceService.getHotProvinces();
+        List<TravelCommentCustom> newComments = commentService.getAllCommentsByAdmin(1, 5).getList();
+
+        request.setAttribute("users", users);
+        request.setAttribute("cities", cities);
+        request.setAttribute("provinces", provinces);
+        request.setAttribute("comments", comments);
+
+        request.setAttribute("hotCities", hotCities);
+        request.setAttribute("hotProvinces", hotProvinces);
+        request.setAttribute("newComments", newComments);
+
         return "index";
     }
 }

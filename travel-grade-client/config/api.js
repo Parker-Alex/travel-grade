@@ -18,6 +18,12 @@ module.exports = {
     UserRecommendCities: WxApiRoot + 'user/recommend_cities',//获得用户推荐城市列表
     UpdateOtherGrade: WxApiRoot + 'user/update_other',//更新其他服务评分
     GetOthersGrade: WxApiRoot + 'user/others_grade',//得到其他服务评分信息
+    UserGoneCities: WxApiRoot + 'user/gone_cities',//获得用户去过城市列表
+    UserLikeCities: WxApiRoot + 'user/like_cities',//获得用户想去城市列表
+    UserFavourCities: WxApiRoot + 'user/favour_cities',//获得用户点赞城市列表
+    UserComments: WxApiRoot + 'user/comments',//获得用户评论列表
+    UserFans: WxApiRoot + 'user/fans',//获得用户粉丝用户列表
+    UserFollows: WxApiRoot + 'user/follows',//获得用户关注用户列表 
 
     /**
      * 首页相关操作API

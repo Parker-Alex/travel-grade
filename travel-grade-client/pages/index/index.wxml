@@ -81,7 +81,7 @@
                             <text class="desc">{{item.introduce}}</text>
                             <view class="price">
                                 <view class="likeCount">想去：{{item.likeCount}}人</view>
-                                <view class="favourCount">去过：{{item.favourCount}}人</view>
+                                <view class="favourCount">去过：{{item.goneCount}}人</view>
                             </view>
                         </view>
                     </view>
@@ -133,7 +133,7 @@
         </view>
     </view>
 
-    <!-- 点赞城市 -->
+    <!-- 城市 -->
     <view class="a-section a-popular" wx:if="{{commendCities.length > 0}}">
         <view class="h">
             <view>

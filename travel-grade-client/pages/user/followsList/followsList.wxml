@@ -1,0 +1,30 @@
+<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight - 60}}px;" class="list" bindscrolltolower="bindDownLoad" bindscrolltoupper="refresh">
+    <view class="pro-con">
+        <block wx:for="{{follows}}" wx:key="{{index}}">
+            <view class="pro-box">
+                <!-- <view class="head"> -->
+                <!-- <view class='{{item.parentCommentId == null ? "head" : "head-reply"}}'> -->
+                <view class='head'>
+                    <image class="img" src="{{item.avatar}}" mode="aspectFit" bindtap='showUser' data-id='{{item.userId}}'></image>
+                    <view class="box">
+                        <view class="shead">
+                            <view class="names fl">{{item.name}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="info">
+                    <view class="text">
+                        <text decode="true">关注时间：{{item.date}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</scroll-view>
+<view class="no-order" wx:if="{{follows.length <= 0}}">
+    <view class="c">
+        <!-- <button size='mini' type='primary' bindtap='recommendCity'>推荐城市</button> -->
+        <!-- <image src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/noCart-a8fe3f12e5.png" /> -->
+        <text>还没有关注任何用户呢</text>
+    </view>
+</view>

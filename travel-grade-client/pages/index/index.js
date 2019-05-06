@@ -15,11 +15,16 @@ Page({
     },
 
     onLoad: function() {
-
-        this.getInitData();
+        console.log("onLoad");
+        
 
         // TODO 获取本地位置信息
 
+    },
+
+    onShow: function() {
+        console.log("onshow");
+        this.getInitData();
     },
 
     // 下拉刷新

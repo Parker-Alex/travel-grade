@@ -2,6 +2,7 @@ package com.leo.controller.wx;
 
 import com.leo.annotation.LoginUser;
 import com.leo.dto.TravelCommentCustom;
+import com.leo.dto.TravelUserRelCustom;
 import com.leo.manager.TokenManager;
 import com.leo.pojo.*;
 import com.leo.service.*;
@@ -83,16 +84,16 @@ public class UserController {
             return MyResult.errorMsg("操作失败");
         }
 
-        result = cityService.updateCity(userCityRel.getCityId());
-        if (result <= 0) {
-            return MyResult.errorMsg("操作失败");
-        }
+//        result = cityService.updateCity(userCityRel.getCityId());
+//        if (result <= 0) {
+//            return MyResult.errorMsg("操作失败");
+//        }
 
 //        更新省份评分
-        result = provinceService.updateProvinceByCityId(userCityRel.getCityId());
-        if (result <= 0) {
-            return MyResult.errorMsg("操作失败");
-        }
+//        result = provinceService.updateProvinceByCityId(userCityRel.getCityId());
+//        if (result <= 0) {
+//            return MyResult.errorMsg("操作失败");
+//        }
 
         LOGGER.info("------更新用户与城市之间关系方法结束------");
 
@@ -124,6 +125,9 @@ public class UserController {
 //        获得用户粉丝信息
         List<TravelUserRel> fans = userRelService.getFans(id);
 
+//        获得用户关注用户数
+        int follow = userRelService.getFollow(id);
+
 //        获得用户评论信息
         List<TravelCommentCustom> comments = commentService.getUserComments(id);
 
@@ -138,6 +142,7 @@ public class UserController {
 
         data.put("user", user);
         data.put("fans", fans);
+        data.put("follow", follow);
         data.put("comments", comments);
         data.put("recommends", recommends);
         data.put("gone_cities", gone_cities);
@@ -271,6 +276,121 @@ public class UserController {
         LOGGER.info("------得到其他服务评分信息结束------");
 
         return MyResult.ok(data);
+    }
+
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户去过城市列表接口
+     * @Date 0:21 2019/5/4
+     */
+    @GetMapping("/gone_cities")
+    public MyResult getUserGoneCities(@LoginUser String userId) {
+        LOGGER.info("------获得用户去过城市列表方法开始------");
+
+        if (StringUtils.isEmpty(userId)) {
+            return MyResult.errorMsg("用户没有登录");
+        }
+
+        List<TravelCity> cities = cityService.userGoneCities(userId);
+
+        LOGGER.info("------获得用户去过城市列表方法开始------");
+        return MyResult.ok(cities);
+    }
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户想去城市列表接口
+     * @Date 1:52 2019/5/4
+     */
+    @GetMapping("/like_cities")
+    public MyResult getUserLikeCities(@LoginUser String userId) {
+        LOGGER.info("------获得用户想去城市列表方法开始------");
+
+        if (StringUtils.isEmpty(userId)) {
+            return MyResult.errorMsg("用户没有登录");
+        }
+
+        List<TravelCity> cities = cityService.userLikeCities(userId);
+
+        LOGGER.info("------获得用户想去城市列表方法开始------");
+        return MyResult.ok(cities);
+    }
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户点赞城市列表接口
+     * @Date 2:12 2019/5/4
+     */
+    @GetMapping("/favour_cities")
+    public MyResult getUserFavourCities(@LoginUser String userId) {
+        LOGGER.info("------获得用户点赞城市列表方法开始------");
+
+        if (StringUtils.isEmpty(userId)) {
+            return MyResult.errorMsg("用户没有登录");
+        }
+
+        List<TravelCity> cities = cityService.userFavourCities(userId);
+
+        LOGGER.info("------获得用户点赞城市列表方法开始------");
+        return MyResult.ok(cities);
+    }
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户所有评论列表接口
+     * @Date 3:30 2019/5/4
+     */
+    @GetMapping("/comments")
+    public MyResult getUserComments(@LoginUser String userId) {
+        LOGGER.info("------获得用户评论列表方法开始------");
+
+        if (StringUtils.isEmpty(userId)) {
+            return MyResult.errorMsg("用户没有登录");
+        }
+
+        List<TravelCommentCustom> comments = commentService.getUserComments(userId);
+
+        LOGGER.info("------获得用户评论列表方法开始------");
+        return MyResult.ok(comments);
+    }
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户关注用户列表接口
+     * @Date 15:26 2019/5/4
+     */
+    @GetMapping("/follows")
+    public MyResult getUserFollows(@LoginUser String userId) {
+        LOGGER.info("------获得用户关注用户列表方法开始------");
+
+        if (StringUtils.isEmpty(userId)) {
+            return MyResult.errorMsg("用户没有登录");
+        }
+
+        List<TravelUserRelCustom> follows = userRelService.getMyFollows(userId);
+
+        LOGGER.info("------获得用户关注用户列表方法开始------");
+        return MyResult.ok(follows);
+    }
+
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户粉丝用户列表接口
+     * @Date 15:27 2019/5/4
+     */
+    @GetMapping("/fans")
+    public MyResult getUserFans(@LoginUser String userId) {
+        LOGGER.info("------获得用户用户粉丝用户列表方法开始------");
+
+        if (StringUtils.isEmpty(userId)) {
+            return MyResult.errorMsg("用户没有登录");
+        }
+
+        List<TravelUserRelCustom> fans = userRelService.getMyFans(userId);
+
+        LOGGER.info("------获得用户粉丝用户列表方法开始------");
+        return MyResult.ok(fans);
     }
 
     /**

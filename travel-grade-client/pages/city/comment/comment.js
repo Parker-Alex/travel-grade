@@ -72,6 +72,8 @@ Page({
             })
         } else {
             // 如果不是自己
+            console.log(id);
+            console.log(this.data.userId);
             if (id != this.data.userId) {
                 wx.navigateTo({
                     url: '/pages/user/other/other?userId=' + id,

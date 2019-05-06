@@ -3,6 +3,7 @@ package com.leo.service.impl;
 import com.leo.mapper.TravelUserCityRelMapper;
 import com.leo.pojo.TravelUserCityRel;
 import com.leo.service.ICityService;
+import com.leo.service.IProvinceService;
 import com.leo.service.IUserCityRelService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,12 @@ public class UserCityRelServiceImpl implements IUserCityRelService {
 
     @Autowired
     private TravelUserCityRelMapper userCityRelMapper;
+
+    @Autowired
+    private ICityService cityService;
+
+    @Autowired
+    private IProvinceService provinceService;
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -63,7 +70,7 @@ public class UserCityRelServiceImpl implements IUserCityRelService {
         return userCityRelMapper.getAvgGrade(cityId);
     }
 
-    @Transactional(propagation = Propagation.SUPPORTS)
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int judgeRel(TravelUserCityRel userCityRelNew, TravelUserCityRel userCityRel, String userId) {
         int result = 0;
@@ -79,10 +86,18 @@ public class UserCityRelServiceImpl implements IUserCityRelService {
             userCityRelNew.setGrade(userCityRel.getGrade());
             result = this.updateRel(userCityRelNew);
         }
-
         if (result <= 0) {
             throw new RuntimeException();
         }
+
+//        更新城市信息
+        result = cityService.updateCity(userCityRel.getCityId());
+        if (result <= 0) {
+            throw new RuntimeException();
+        }
+
+//        更新省份信息
+        result = provinceService.updateProvinceByCityId(userCityRel.getCityId());
         return result;
     }
 }

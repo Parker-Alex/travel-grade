@@ -29,10 +29,10 @@
             <text class="mark">城市数</text>
             <text>{{province.cityCount}}</text>
         </view>
-        <view class="flex-row">
+        <!-- <view class="flex-row">
             <text class="mark">省会</text>
             <text>***</text>
-        </view>
+        </view> -->
         <!-- <view class="flex-row">
             <text class="mark">评论数</text>
             <text>0</text>

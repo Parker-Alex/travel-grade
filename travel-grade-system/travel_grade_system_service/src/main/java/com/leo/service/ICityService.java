@@ -80,6 +80,13 @@ public interface ICityService {
      * @Date 0:15 2019/4/19
      */
     List<TravelCity> userLikeCities(String userId);
+    
+    /**
+     * @Author li.jiawei
+     * @Description 获得用户点赞城市列表
+     * @Date 2:13 2019/5/4
+     */
+    List<TravelCity> userFavourCities(String userId);
 
     /**
      * @Author li.jiawei

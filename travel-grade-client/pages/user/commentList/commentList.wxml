@@ -1,0 +1,36 @@
+<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight - 60}}px;" class="list" bindscrolltolower="bindDownLoad" bindscrolltoupper="refresh">
+    <view class="pro-con">
+        <block wx:for="{{comments}}" wx:key="{{index}}">
+            <view class="pro-box">
+                <!-- <view class="head"> -->
+                <!-- <view class='{{item.parentCommentId == null ? "head" : "head-reply"}}'> -->
+                <view class='head'>
+                    <image class="img" src="{{item.avatar}}" mode="aspectFit" bindtap='showUser' data-id='{{item.userId}}'></image>
+                    <view class="box">
+                        <view class="shead">
+                            <view class="names fl">{{item.nickName}}
+                                <view wx:if="{{item.toNickName != null}}">
+                                    -> {{item.toNickName}}
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <!-- <view class='{{item.parentCommentId == null ? "addr-info" : "addr-info-reply"}}'> -->
+                <view class='addr-info'>
+                    <view class="addr-text">
+                        {{item.content}}
+                    </view>
+                </view>
+                <view class="info">
+                    <view class="text">
+                        <text decode="true">{{item.date}}</text>
+                    </view>
+                    <view class="text fr">
+                        <button class="deleteBtn" decode="true" bindtap='deleteComment' data-CommentId="{{item.id}}" data-index="{{index}}">删除</button>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</scroll-view>

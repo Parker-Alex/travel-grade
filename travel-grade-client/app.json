@@ -1,8 +1,8 @@
 {
     "pages": [
+        "pages/user/index/index",
         "pages/index/index",
         "pages/city/other/other",
-        "pages/user/index/index",
         "pages/user/recommend/recommend",
         "pages/user/test/test",
         "pages/user/other/other",
@@ -14,20 +14,26 @@
         "pages/system/accountLogin/accountLogin",
         "pages/search/search",
         "pages/city/comment/comment",
-        "pages/brand/brand",        
+        "pages/brand/brand",
         "pages/topic/topic",
         "pages/coupon/coupon",
         "pages/cityList/cityList",
         "pages/provinceList/provinceList",
         "pages/user/recommendList/recommendList",
+        "pages/user/goneList/goneList",
+        "pages/user/likeList/likeList",
+        "pages/user/favourList/favourList",
+        "pages/user/commentList/commentList",
+        "pages/user/followsList/followsList",
+        "pages/user/fansList/fansList",
 
-        "pages/newGoods/newGoods",
         "pages/category/category",
         "pages/hotGoods/hotGoods",
         "pages/goods/goods",
         "pages/groupon/grouponList/grouponList",
         "pages/groupon/myGroupon/myGroupon",
         "pages/groupon/grouponDetail/grouponDetail",
+        "pages/newGoods/newGoods",
         "pages/user/order/order"
     ],
     "window": {
@@ -54,7 +60,7 @@
                 "pagePath": "pages/catalog/catalog",
                 "iconPath": "images/category.png",
                 "selectedIconPath": "images/category@selected.png",
-                "text": "分类"
+                "text": "搜索"
             },
             {
                 "pagePath": "pages/user/index/index",

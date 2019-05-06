@@ -33,7 +33,7 @@ public class ProvinceServiceImpl implements IProvinceService {
     @Override
     public List<TravelProvince> getHotProvinces() {
 
-        PageHelper.startPage(1, 10);
+        PageHelper.startPage(1, 5);
 
         Example example = new Example(TravelProvince.class);
         example.setOrderByClause("grade desc");

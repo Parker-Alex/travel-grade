@@ -44,6 +44,48 @@ Page({
         // }
     },
 
+    // 跳转我的去去城市页面
+    goGone: function(e) {
+        wx.navigateTo({
+            url: '/pages/user/goneList/goneList',
+        })
+    },
+
+    // 跳转我的想去城市页面
+    goLike: function(e) {
+        wx.navigateTo({
+            url: '/pages/user/likeList/likeList',
+        })
+    },
+
+    // 跳转我的点赞城市页面
+    goFavour: function(e) {
+        wx.navigateTo({
+            url: '/pages/user/favourList/favourList',
+        })
+    },
+
+    // 跳转我的评论页面
+    goComment: function(e) {
+        wx.navigateTo({
+            url: '/pages/user/commentList/commentList',
+        })
+    },
+
+    // 跳转我的粉丝页面
+    goFans: function() {
+        wx.navigateTo({
+            url: '/pages/user/fansList/fansList',
+        })
+    },
+
+    // 跳转我的关注页面
+    goFollows: function() {
+        wx.navigateTo({
+            url: '/pages/user/followsList/followsList',
+        })
+    },
+
     // 跳转登录界面
     goLogin() {
         if (!this.data.hasLogin) {
@@ -80,9 +122,9 @@ Page({
         })
     },
 
-    goOrder() {
-        wx.navigateTo({
-            url: "/pages/user/order/order"
-        });
-    }
+    // goOrder() {
+    //     wx.navigateTo({
+    //         url: "/pages/user/order/order"
+    //     });
+    // }
 })

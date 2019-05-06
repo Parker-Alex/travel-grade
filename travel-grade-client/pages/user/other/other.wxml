@@ -23,7 +23,7 @@
             <label class='info-items'>
                 <text class='number'>{{fans.length}}</text> 粉丝</label>
             <label class='info-items'>
-                <text class='number'>{{recommends.length}}</text> 推荐</label>
+                <text class='number'>{{follow}}</text> 关注</label>
             <label class='info-items'>
                 <text class='number'>{{comments.length}}</text> 评论</label>
         </view>
