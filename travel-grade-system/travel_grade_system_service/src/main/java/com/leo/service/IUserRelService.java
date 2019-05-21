@@ -41,4 +41,25 @@ public interface IUserRelService {
      * @Date 15:22 2019/5/4
      */
     List<TravelUserRelCustom> getMyFans(String userId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 判断用户是否关注某用户
+     * @Date 0:24 2019/5/21
+     */
+    boolean isFollow(String userId, String toUserId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 建立用户与用户关系
+     * @Date 1:57 2019/5/21
+     */
+    int createRel(String userId, String toUserId);
+
+    /**
+     * @Author li.jiawei
+     * @Description 删除用户与用户关系
+     * @Date 2:01 2019/5/21
+     */
+    int deleteRel(String userId, String toUserId);
 }

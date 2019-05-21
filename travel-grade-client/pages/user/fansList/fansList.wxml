@@ -4,8 +4,8 @@
             <view class="pro-box">
                 <!-- <view class="head"> -->
                 <!-- <view class='{{item.parentCommentId == null ? "head" : "head-reply"}}'> -->
-                <view class='head'>
-                    <image class="img" src="{{item.avatar}}" mode="aspectFit" bindtap='showUser' data-id='{{item.userId}}'></image>
+                <view class='head' bindtap='showUser' data-id='{{item.attentionUserId}}'>
+                    <image class="img" src="{{item.avatar}}" mode="aspectFit"></image>
                     <view class="box">
                         <view class="shead">
                             <view class="names fl">{{item.name}}</view>

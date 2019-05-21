@@ -32,9 +32,9 @@
     <view class='line'></view>
 
     <view class='container-video'>
-        <view class='{{videoSelClass}}{{isSelectdGone}}' bindtap='doSelectGone'>去过的城市</view>
-        <view class='{{videoSelClass}}{{isSelectdLike}}' bindtap='doSelectLike'>想去的城市</view>
-        <view class='{{videoSelClass}}{{isSelectdRecommend}}' bindtap='doSelectdRecommend'>推荐的城市</view>
+        <view class='{{isSelectdGone}}' bindtap='doSelectGone'>去过的城市</view>
+        <view class='{{isSelectdLike}}' bindtap='doSelectLike'>想去的城市</view>
+        <view class='{{isSelectdRecommend}}' bindtap='doSelectdRecommend'>推荐的城市</view>
     </view>
 
     <view class='container-video-list'></view>

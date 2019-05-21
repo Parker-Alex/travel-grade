@@ -106,7 +106,7 @@ public class UserController {
      * @Date 0:58 2019/4/18
      */
     @GetMapping("/get_other_user/{id}")
-    public MyResult getOtherUser(@PathVariable("id") String id) {
+    public MyResult getOtherUser(@PathVariable("id") String id, @LoginUser String userId) {
         LOGGER.info("------根据用户id获取用户信息方法开始------");
         LOGGER.info("请求参数id：" + id);
 
@@ -140,6 +140,9 @@ public class UserController {
 //        获得用户想去城市信息
         List<TravelCity> like_cities = cityService.userLikeCities(id);
 
+//        获得登录用户与被查看用户关系
+        boolean isFollow = userRelService.isFollow(userId, id);
+
         data.put("user", user);
         data.put("fans", fans);
         data.put("follow", follow);
@@ -147,6 +150,7 @@ public class UserController {
         data.put("recommends", recommends);
         data.put("gone_cities", gone_cities);
         data.put("like_cities", like_cities);
+        data.put("isFollow", isFollow);
 
         LOGGER.info("------根据用户id获取用户信息方法结束------");
         return MyResult.ok(data);
@@ -195,6 +199,9 @@ public class UserController {
             return MyResult.errorMsg("暂时不能推荐该城市");
         }
 
+        /**
+         * 由于显示本地图片与后台界面加载静态文件冲突，暂时先不支持上传图片
+         */
         String httpPath = saveFile(file, userId);
         if (StringUtils.isEmpty(httpPath)) {
             return MyResult.errorMsg("上传图片错误");
@@ -391,6 +398,37 @@ public class UserController {
 
         LOGGER.info("------获得用户粉丝用户列表方法开始------");
         return MyResult.ok(fans);
+    }
+
+
+    /**
+     * @Author li.jiawei
+     * @Description 关注或取消关注用户接口
+     * @Date 1:40 2019/5/21
+     */
+    @GetMapping("/follow/{type}/{toUserId}")
+    public MyResult follow(@PathVariable Integer type, @PathVariable String toUserId, @LoginUser String userId) {
+        LOGGER.info("------关注或取消关注用户方法开始------");
+        LOGGER.info("请求参数type：" + type + ",toUserId：" + toUserId);
+
+        int result = 0;
+
+//        如果是关注操作
+        if (type == 1) {
+            result = userRelService.createRel(userId, toUserId);
+            if (result <= 0) {
+                return MyResult.errorMsg("关注用户失败");
+            }
+//            如果是取消关注操作
+        } else if (type == 0) {
+            result = userRelService.deleteRel(userId, toUserId);
+            if (result <= 0) {
+                return MyResult.errorMsg("取消关注失败");
+            }
+        }
+
+        LOGGER.info("------关注或取消关注用户方法结束------");
+        return MyResult.ok();
     }
 
     /**

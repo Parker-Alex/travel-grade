@@ -5,13 +5,16 @@ import com.leo.mapper.TravelUserRelCustomMapper;
 import com.leo.mapper.TravelUserRelMapper;
 import com.leo.pojo.TravelUserRel;
 import com.leo.service.IUserRelService;
+import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +26,9 @@ import java.util.List;
  */
 @Service
 public class UserRelServiceImpl implements IUserRelService {
+
+    @Autowired
+    private Sid sid;
 
     @Autowired
     private TravelUserRelMapper userRelMapper;
@@ -64,5 +70,48 @@ public class UserRelServiceImpl implements IUserRelService {
             f.setDate(format.format(f.getAttentionDate()));
         }
         return fans;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public boolean isFollow(String userId, String toUserId) {
+        Example example = new Example(TravelUserRel.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("userId", userId);
+        criteria.andEqualTo("attentionUserId", toUserId);
+        TravelUserRel userRel = userRelMapper.selectOneByExample(example);
+        if (userRel == null) {
+            return false;
+        }
+        return true;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int createRel(String userId, String toUserId) {
+        TravelUserRel userRel = new TravelUserRel();
+        userRel.setId(sid.nextShort());
+        userRel.setUserId(userId);
+        userRel.setAttentionUserId(toUserId);
+        userRel.setAttentionDate(new Date());
+        int result = userRelMapper.insert(userRel);
+        if (result <= 0) {
+            throw new RuntimeException("建立用户与用户关系失败");
+        }
+        return result;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int deleteRel(String userId, String toUserId) {
+        Example example = new Example(TravelUserRel.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("userId", userId);
+        criteria.andEqualTo("attentionUserId", toUserId);
+        int result = userRelMapper.deleteByExample(example);
+        if (result <= 0) {
+            throw new RuntimeException("删除用户与用户关系失败");
+        }
+        return result;
     }
 }

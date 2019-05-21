@@ -102,6 +102,7 @@ public class AdminProvinceController {
     public MyResult provinceModify(TravelProvince province) {
         LOGGER.info("------调用后台修改省份方法开始-----");
 
+        System.out.println(province);
         int result = provinceService.updateProvinceByAdmin(province);
         if (result <= 0) {
             return MyResult.errorMsg("修改省份失败");

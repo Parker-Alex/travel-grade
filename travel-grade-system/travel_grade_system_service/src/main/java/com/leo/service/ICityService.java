@@ -103,4 +103,11 @@ public interface ICityService {
     int updateCityByAdmin(TravelCity newCity);
 
     int deleteCityByCityId(String cityId);
+    
+    /**
+     * @Author li.jiawei
+     * @Description 根据省份所拥有的所有城市
+     * @Date 22:39 2019/5/21
+     */
+    int deleteAllByProvinceId(String provinceId);
 }

@@ -3,9 +3,12 @@ package com.leo.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.leo.dto.TravelCommentCustom;
+import com.leo.dto.TravelUserRelCustom;
 import com.leo.mapper.TravelCommentCustomMapper;
 import com.leo.mapper.TravelCommentMapper;
+import com.leo.mapper.TravelUserMapper;
 import com.leo.pojo.TravelComment;
+import com.leo.pojo.TravelUser;
 import com.leo.service.ICommentService;
 import com.leo.utils.JacksonUtil;
 import org.n3r.idworker.Sid;
@@ -41,6 +44,9 @@ public class CommentServiceImpl implements ICommentService {
     @Autowired
     private TravelCommentCustomMapper commentCustomMapper;
 
+    @Autowired
+    private TravelUserMapper userMapper;
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public String insertComment(String request, String userId) {
@@ -54,11 +60,28 @@ public class CommentServiceImpl implements ICommentService {
         comment.setCityId(cityId);
         comment.setContent(content);
         comment.setToUserId(toUserId);
-        comment.setParentCommentId(commentId);
+        if (commentId != null || !commentId.equals("")) {
+            System.out.println("1111");
+            comment.setParentCommentId(commentId);
+        }
         comment.setId(sid.nextShort());
+        comment.setSendDate(new Date());
+
         int result = commentMapper.insertSelective(comment);
         if (result <= 0) {
-            return null;
+//            return null;
+            throw new RuntimeException("添加评论失败");
+        }
+
+//        根据用户评论数更新用户称号
+        List<TravelCommentCustom> list = getUserComments(userId);
+        if (list.size() > 100) {
+            TravelUser user = userMapper.selectByPrimaryKey(userId);
+            user.setTitleName("评论达人");
+            result = userMapper.updateByPrimaryKey(user);
+            if (result <= 0) {
+                throw new RuntimeException("更新用户评论称号失败");
+            }
         }
         return comment.getId();
     }

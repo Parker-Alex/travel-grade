@@ -248,20 +248,9 @@
 }
 
 /* 子评论的内容样式 */
-.pro-box .addr-info-reply {
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px dashed #ccc;
-    margin: 0 -20rpx;
-    margin-bottom: 20rpx;
-    padding-bottom: 20rpx;
-    padding-left: 120rpx;
-    padding-right: 20rpx;
-    display: inline-block;
-}
-
 .pro-box .addr-info .addr-text {
-    font-size: 35rpx;
+    padding-top: 15rpx;
+    font-size: 30rpx;
     line-height: 40rpx;
     width: 100%;
 }

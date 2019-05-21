@@ -29,5 +29,15 @@ Page({
                 fans: res.data
             })
         })
+    },
+
+    // 跳转用户界面
+    showUser: function (e) {
+        let id = e.currentTarget.dataset.id;
+
+        wx.navigateTo({
+            url: '/pages/user/other/other?userId=' + id,
+        })
+
     }
 })

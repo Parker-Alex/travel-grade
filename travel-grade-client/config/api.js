@@ -24,6 +24,7 @@ module.exports = {
     UserComments: WxApiRoot + 'user/comments',//获得用户评论列表
     UserFans: WxApiRoot + 'user/fans',//获得用户粉丝用户列表
     UserFollows: WxApiRoot + 'user/follows',//获得用户关注用户列表 
+    Follow: WxApiRoot + 'user/follow',//关注或取消关注用户
 
     /**
      * 首页相关操作API

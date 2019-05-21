@@ -6,6 +6,7 @@ import com.leo.mapper.TravelCityMapper;
 import com.leo.mapper.TravelProvinceMapper;
 import com.leo.pojo.TravelCity;
 import com.leo.pojo.TravelProvince;
+import com.leo.service.ICityService;
 import com.leo.service.IProvinceService;
 import com.leo.utils.JacksonUtil;
 import org.n3r.idworker.Sid;
@@ -28,6 +29,9 @@ public class ProvinceServiceImpl implements IProvinceService {
 
     @Autowired
     private TravelCityMapper cityMapper;
+
+    @Autowired
+    private ICityService cityService;
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -168,6 +172,12 @@ public class ProvinceServiceImpl implements IProvinceService {
             province.setIntroduce(newProvince.getIntroduce());
             flag = true;
         }
+//        如果封面被修改
+        if (province.getCover() == null || !province.getCover().equals(newProvince.getCover())) {
+            province.setCover(newProvince.getCover());
+            flag = true;
+        }
+
 //        如果进行了修改操作
         if (flag) {
             result = provinceMapper.updateByPrimaryKey(province);
@@ -183,6 +193,7 @@ public class ProvinceServiceImpl implements IProvinceService {
     @Override
     public int deleteProvinceById(String provinceId) {
         int result = provinceMapper.deleteByPrimaryKey(provinceId);
+        cityService.deleteAllByProvinceId(provinceId);
         if (result <= 0) {
             throw new RuntimeException("删除省份失败");
         }

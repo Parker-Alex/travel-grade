@@ -144,7 +144,7 @@ Page({
                 content: content,
                 toUserId: toUserId,
                 id: id,
-                sendDate: util.formatTime(new Date)
+                // sendDate: util.formatTime(new Date)
             }
             console.log(data);
             util.request(api.SendComment, data, 'POST').then((res) => {

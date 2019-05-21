@@ -265,7 +265,7 @@ public class SystemController {
     @PostMapping("/register")
     public MyResult register(@RequestBody String body, HttpServletRequest request) throws Exception {
 
-        LOGGER.info("调用用户注册接口");
+        LOGGER.info("------调用用户注册接口开始------");
 
 //        获得请求体中参数值
         String username = JacksonUtil.parseString(body, "username");
@@ -307,25 +307,25 @@ public class SystemController {
         try {
             WxMaJscode2SessionResult result = this.wxService.getUserService().getSessionInfo(wxCode);
             openId = result.getOpenid();
+            System.out.println(result);
         } catch (WxErrorException e) {
             e.printStackTrace();
             return MyResult.errorMsg("获取openid失败");
         }
 
 //        通过openId查询用户列表
-        userList = userService.getUsersByOpenId(openId);
-        if (userList.size() > 1) {
-            return MyResult.errorMsg("服务器错误");
-        }
-
-        if (userList.size() == 1) {
-            TravelUser checkUser = userList.get(0);
-            String checkUsername = checkUser.getUsername();
-            String checkPassword = checkUser.getPassword();
-            if (!checkUsername.equals(openId) || !checkPassword.equals(openId)) {
-                return MyResult.errorMsg("openid已绑定账号");
-            }
-        }
+//        userList = userService.getUsersByOpenId(openId);
+//        if (userList.size() > 1) {
+//            return MyResult.errorMsg("服务器错误");
+//        }
+//        if (userList.size() == 1) {
+//            TravelUser checkUser = userList.get(0);
+//            String checkUsername = checkUser.getUsername();
+//            String checkPassword = checkUser.getPassword();
+//            if (!checkUsername.equals(openId) || !checkPassword.equals(openId)) {
+//                return MyResult.errorMsg("openid已绑定账号");
+//            }
+//        }
 
 //        设置用户属性
         TravelUser user = new TravelUser();
@@ -337,7 +337,8 @@ public class SystemController {
         user.setLevel(0);
         user.setAddTime(new Date());
         user.setGender((byte)0);
-        user.setAvatar("https://yanxuan.nosdn.127.net/80841d741d7fa3073e0ae27bf487339f.jpg?imageView&quality=90&thumbnail=64x64");
+//        user.setAvatar("https://yanxuan.nosdn.127.net/80841d741d7fa3073e0ae27bf487339f.jpg?imageView&quality=90&thumbnail=64x64");
+        user.setAvatar("http://yanxuan.nosdn.127.net/8945ae63d940cc42406c3f67019c5cb6.png");
 
 //        添加用户
         userService.addUser(user);
@@ -356,6 +357,8 @@ public class SystemController {
         data.put("token", userToken.getToken());
         data.put("tokenExpire", userToken.getExpireTime().toString());
         data.put("userInfo", userInfo);
+
+        LOGGER.info("------调用用户注册接口接口------");
 
         return MyResult.ok(data);
     }

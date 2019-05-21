@@ -12,7 +12,7 @@
     <view class='user_area'>
         <view class='user_row' bindtap='goOrder'>
             <view class='user_row_left'>相关功能</view>
-            <image class='user_row_right' src=' /images/goright.png'></image>
+            <!-- <image class='user_row_right' src=' /images/goright.png'></image> -->
         </view>
         <view class='user_column'>
             <view class='user_column_item' bindtap='goRecommend' data-index='1' data-route='/pages/ucenter/order/order'>

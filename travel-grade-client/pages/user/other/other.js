@@ -19,6 +19,8 @@ Page({
         like_cities: [],
         gone_cities: [],
         cities: [],
+        isFollow: false,
+        userId: '',
 
         isSelectdGone: "video-info-selected",
         isSelectdLike: "",
@@ -32,15 +34,18 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function(options) {
         let userId = options.userId;
+        this.setData({
+            userId: userId
+        })
         this.getOtherUser(userId);
         // this.getOtherUser('190221865XWCADWH');
     },
 
     // 得到用户信息方法
     getOtherUser: function(id) {
-        let that =  this;
+        let that = this;
         util.request(api.GetOtherUser + '/' + id).then((res) => {
             console.log(res);
             that.setData({
@@ -51,7 +56,8 @@ Page({
                 recommends: res.data.recommends,
                 like_cities: res.data.like_cities,
                 gone_cities: res.data.gone_cities,
-                cities: res.data.gone_cities
+                cities: res.data.gone_cities,
+                isFollow: res.data.isFollow
             })
         })
     },
@@ -95,28 +101,44 @@ Page({
         })
     },
 
-    // onShow: function(e) {
-    //     let that = this;
-    //     if (this.data.myGoneFalg) {
-    //         this.setData({
-    //             cities: that.data.gone_cities
-    //         })
-    //     }
-    //     if (this.data.myLikeFalg) {
-    //         this.setData({
-    //             cities: that.data.like_cities
-    //         })
-    //     }
-    // },
+    // 关注/取消关注方法
+    followMe: function(e) {
+        let isFollow = this.data.isFollow;
+        let userId = this.data.userId;
+        let type = e.currentTarget.dataset.followtype;
+        let that = this;
+
+        if (isFollow) {
+            wx.showModal({
+                title: '提示',
+                content: '是否确认取消关注?',
+                success(res) {
+                    if (res.confirm) {
+                        util.request(api.Follow + '/' + type + '/' + userId).then((res) => {
+                            that.getOtherUser(userId);
+                        })
+                       
+                    } else if (res.cancel) {
+                        return;
+                    }
+                }
+            })
+        } else {
+            util.request(api.Follow + '/' + type + '/' + userId).then((res) => {
+                that.getOtherUser(userId);
+            })
+            
+        }
+    },
 
     // 更换头像
-    changeFace: function () {
+    changeFace: function() {
         var that = this;
         wx.chooseImage({
             count: 1, //上传数量
             sizeType: ['compressed'], //进行压缩
             sourceType: ['album', 'camera'], //从相册或相机获取图片
-            success: function (res) {
+            success: function(res) {
                 //tempFilePaths放在image中src属性中，用于显示图片
                 let tempFilePaths = res.tempFilePaths;
                 let url = app.serverUrl;
@@ -174,11 +196,11 @@ Page({
     },
 
     // 选择视频
-    uploadVideo: function () {
+    uploadVideo: function() {
         wx.chooseVideo({
             sourceType: ['album', 'camera'],
-            compressed: true,//视频经过压缩，默认为true
-            maxDuration: 10,//最大时长
+            compressed: true, //视频经过压缩，默认为true
+            maxDuration: 10, //最大时长
             success(res) {
                 // 视频时长
                 let duration = res.duration;
@@ -205,9 +227,9 @@ Page({
                 } else {
                     // 跳转到选择bgm页面
                     wx.navigateTo({
-                        url: '/pages/bgm/bgm?duration=' + duration
-                            + '&tmpHeight=' + tmpHeight + '&tmpWidth=' + tmpWidth
-                            + '&tmpVideoUrl=' + tmpVideoUrl + '&tmpCoverUrl=' + tmpCoverUrl
+                        url: '/pages/bgm/bgm?duration=' + duration +
+                            '&tmpHeight=' + tmpHeight + '&tmpWidth=' + tmpWidth +
+                            '&tmpVideoUrl=' + tmpVideoUrl + '&tmpCoverUrl=' + tmpCoverUrl
                     });
                 }
             }

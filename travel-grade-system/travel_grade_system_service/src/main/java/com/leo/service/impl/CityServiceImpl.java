@@ -258,7 +258,9 @@ public class CityServiceImpl implements ICityService {
     @Override
     public int updateCityByAdmin(TravelCity newCity) {
         TravelCity city = cityMapper.selectByPrimaryKey(newCity.getId());
+        int result = 0;
         boolean flag = false;
+
 //        如果名字被修改
         if (!city.getName().equals(newCity.getName())) {
             city.setName(newCity.getName());
@@ -280,7 +282,7 @@ public class CityServiceImpl implements ICityService {
 
         }
 //        如果封面被修改
-        if (!city.getCover().equals(newCity.getCover())) {
+        if (city.getCover() == null || !city.getCover().equals(newCity.getCover())) {
             city.setCover(newCity.getCover());
             flag = true;
         }
@@ -291,9 +293,12 @@ public class CityServiceImpl implements ICityService {
         }
 
         if (flag) {
-            return cityMapper.updateByPrimaryKey(city);
+            result = cityMapper.updateByPrimaryKey(city);
         }
-        return 0;
+        if (result <= 0) {
+            throw new RuntimeException("后台修改城市失败");
+        }
+        return result;
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
@@ -310,6 +315,19 @@ public class CityServiceImpl implements ICityService {
 
 //        更新省份所拥有城市数
         decreaseCount(provinceId);
+        return result;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int deleteAllByProvinceId(String provinceId) {
+        Example example = new Example(TravelCity.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("provinceId", provinceId);
+        int result = cityMapper.deleteByExample(example);
+        if (result <= 0) {
+            throw new RuntimeException("删除省份所拥有城市失败");
+        }
         return result;
     }
 

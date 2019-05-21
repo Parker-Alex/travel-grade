@@ -261,7 +261,8 @@
 }
 
 .pro-box .addr-info .addr-text {
-    font-size: 35rpx;
+    padding-top: 15rpx;
+    font-size: 30rpx;
     line-height: 40rpx;
     width: 100%;
 }

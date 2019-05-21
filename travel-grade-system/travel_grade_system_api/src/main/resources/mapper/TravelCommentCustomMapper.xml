@@ -38,7 +38,7 @@
     LEFT JOIN leo_travel_system_user u1 ON c.user_id = u1.id
     LEFT JOIN leo_travel_system_user u2 ON c.to_user_id = u2.id
     WHERE c.city_id = #{id}
-    AND c.parent_comment_id IS NULL
+    AND c.parent_comment_id = ""
     ORDER By c.id
   </select>
 
