@@ -109,6 +109,16 @@ Page({
             success(res) {
                 wx.hideLoading();
                 console.log(res);
+                // 需要将字符串数据解析城市json格式，
+                let _res = JSON.parse(res.data);
+                
+                if (res.data.status === 200) {
+                    wx.navigateTo({
+                        url: '/pages/user/recommendList/recommendList',
+                    })
+                } else {                   
+                    util.showErrorToast(_res.msg);
+                }
             }
         })       
     },

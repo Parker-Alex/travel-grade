@@ -61,6 +61,6 @@ Page({
         })
 
         this.getCities(this.data.currentProvince.id);
-    }
+    },
 
 })

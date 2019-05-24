@@ -37,8 +37,12 @@ Page({
 
     bindPickerChange(e) {
         user.checkLogin().then(() => {
+            let index = e.detail.value;
+            let myGrade = this.data.array[index];
+
             this.setData({
-                index: e.detail.value
+                index: index,
+                myGrade: myGrade
             })
         }).catch(() => {
             wx.showModal({
@@ -192,5 +196,16 @@ Page({
             this.updateCity();
         }
     },
+
+    // 查看城市封面
+    // viewCityPostImg: function (event) {
+    //     var src = event.currentTarget.dataset.src;
+    //     wx.previewImage({
+    //         // 当前显示图片的http链接
+    //         current: src,
+    //         // 需要预览的图片http链接列表
+    //         urls: [src],
+    //     });
+    // }
 
 })

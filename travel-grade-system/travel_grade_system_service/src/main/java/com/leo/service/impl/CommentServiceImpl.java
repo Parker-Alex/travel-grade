@@ -89,7 +89,10 @@ public class CommentServiceImpl implements ICommentService {
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public TravelCommentCustom getCommentByUnion(String commentId) {
-        return commentCustomMapper.getCommentByUnion(commentId);
+        TravelCommentCustom commentCustom = commentCustomMapper.getCommentByUnion(commentId);
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        commentCustom.setDate(format.format(commentCustom.getSendDate()));
+        return commentCustom;
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)

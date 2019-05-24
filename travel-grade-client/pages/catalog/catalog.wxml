@@ -15,7 +15,7 @@
         <!-- 省份对应的城市 -->
         <scroll-view class="cate" scroll-y="true">
             <!-- 省份封面 -->
-            <navigator url="url" class="banner">
+            <navigator url="/pages/province/province?id={{currentProvince.id}}" class="banner">
                 <image class="image" src="{{currentProvince.cover}}" mode='aspectFit'></image>
                 <view class="txt">{{currentProvince.name}}</view>
             </navigator>

@@ -3,7 +3,7 @@
     <scroll-view class="groupon-list" scroll-y="true" scroll-top="{{scrollTop}}">
         <!-- ----------------------------------------------- 水果 ----------------------------------------------->
         <view class='item'>
-            <image class="img" src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+            <image class="img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558703361495&di=723dadb0241a6ade6ebac5f1e7dd1786&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F584b9f224423a.jpg" mode='aspectFit'></image>
             <view class="right">
                 <view class="text">
                     <view class="header">
@@ -36,7 +36,7 @@
         </view>
         <!-- ----------------------------------------------- 交通 ----------------------------------------------->
         <view class='item'>
-            <image class="img" src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+            <image class="img" src="http://pic.90sjimg.com/design/00/58/41/78/s_1024_58d24a5b471cc.png" mode='aspectFit'></image>
             <view class="right">
                 <view class="text">
                     <view class="header">
@@ -69,7 +69,7 @@
         </view>
         <!-- ----------------------------------------------- 天气 ----------------------------------------------->
         <view class='item'>
-            <image class="img" src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+            <image class="img" src="http://pic13.nipic.com/20110406/4572067_111103579000_2.jpg" mode='aspectFit'></image>
             <view class="right">
                 <view class="text">
                     <view class="header">
@@ -100,13 +100,13 @@
                 </view>
             </view>
         </view>
-        <!-- ----------------------------------------------- 交通 ----------------------------------------------->
+        <!-- ----------------------------------------------- 美食 ----------------------------------------------->
         <view class='item'>
-            <image class="img" src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+            <image class="img" src="http://img1.qunarzz.com/travel/d3/1504/f0/39f3592fd1b530.jpg" mode='aspectFit'></image>
             <view class="right">
                 <view class="text">
                     <view class="header">
-                        <text class="name">交通</text>
+                        <text class="name">美食</text>
                         <view class="capsule-tag">
                             <picker mode='selector' value='{{index3}}' range='{{array3}}' bindchange="bindPickerChange" data-type='3'>
                                 <view wx:if='{{myGrade3 > 0}}'>
@@ -135,7 +135,7 @@
         </view>
         <!-- ----------------------------------------------- 住宿 ----------------------------------------------->
         <view class='item'>
-            <image class="img" src="http://m.tuniucdn.com/fb2/t1/G4/M00/BC/53/Cii-VVxmYN-IbncRAAd3ZbcwnSYAAD6ZgAb9DwAB3d9533_w500_h280_c1_t0.jpg" mode='aspectFit'></image>
+            <image class="img" src="http://file108.mafengwo.net/s7/M00/D0/8D/wKgB6lPQ1mKACjf-ABMHBfQYxjM06.jpeg" mode='aspectFit'></image>
             <view class="right">
                 <view class="text">
                     <view class="header">

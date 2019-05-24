@@ -196,7 +196,7 @@ public class UserController {
 
         TravelCity city = cityService.getCityByName(cityName);
         if (city == null) {
-            return MyResult.errorMsg("暂时不能推荐该城市");
+            return MyResult.errorMsg("暂时不能推荐");
         }
 
         /**

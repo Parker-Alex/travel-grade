@@ -101,7 +101,7 @@ public class OtherServiceImpl implements IOtherService {
         Double grade3 = JacksonUtil.parseDouble(body, "grade3");
         Double grade4 = JacksonUtil.parseDouble(body, "grade4");
 
-//        如果没有对象，则为插入操作
+//        如果没有对象，则为插入操作，否则为更新操作
         if (others == null || others.size() <= 0) {
             List<TravelOther> list = new ArrayList<>();
 
@@ -154,8 +154,8 @@ public class OtherServiceImpl implements IOtherService {
                 result = otherMapper.updateByPrimaryKey(other4);
             }
 
-            if (result == 0) {
-                LOGGER.error("更新其他服务用户评分");
+            if (result <= 0) {
+                LOGGER.error("更新其他服务用户评分失败");
                 throw new RuntimeException();
             }
         }

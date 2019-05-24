@@ -72,8 +72,7 @@ Page({
         util.request(api.GetOthersGrade + '/' + cityId).then((res) => {
             console.log(res);
             console.log(res.data.user_grade);
-            console.log(res.data.user_grade.length);
-            if (res.data.user_grade.length > 0) {
+            if (res.data.user_grade != null && res.data.user_grade.length > 0) {
                 console.log(111);
                 console.log(res.data.user_grade[0]);
                 that.setData({
@@ -103,24 +102,44 @@ Page({
         user.checkLogin().then(() => {
             let type = e.currentTarget.dataset.type;
             if (type == 0) {
+                let index0 = e.detail.value;
+                let myGrade0 = this.data.array0[index0];
+
                 this.setData({
-                    index0: e.detail.value
+                    index0: index0,
+                    myGrade0: myGrade0                    
                 })
             } else if (type == 1) {
+                let index1 = e.detail.value;
+                let myGrade1 = this.data.array1[index1];
+
                 this.setData({
-                    index1: e.detail.value
+                    index1: index1,
+                    myGrade1: myGrade1
                 })
             } else if (type == 2) {
+                let index2 = e.detail.value;
+                let myGrade2 = this.data.array2[index2];
+
                 this.setData({
-                    index2: e.detail.value
+                    index2: index2,
+                    myGrade2: myGrade2
                 })
             } else if (type == 3) {
+                let index3 = e.detail.value;
+                let myGrade3 = this.data.array3[index3];
+
                 this.setData({
-                    index3: e.detail.value
+                    index3: index3,
+                    myGrade3: myGrade3
                 })
             } else if (type == 4) {
+                let index4 = e.detail.value;
+                let myGrade4 = this.data.array4[index4];
+
                 this.setData({
-                    index4: e.detail.value
+                    index4: index4,
+                    myGrade4: myGrade4
                 })
             }
         }).catch(() => {
@@ -145,9 +164,9 @@ Page({
 
         let grade0 = this.data.array0[this.data.index0];
         let grade1 = this.data.array1[this.data.index1];
-        let grade2 = this.data.array1[this.data.index2];
-        let grade3 = this.data.array1[this.data.index3];
-        let grade4 = this.data.array1[this.data.index4];
+        let grade2 = this.data.array2[this.data.index2];
+        let grade3 = this.data.array3[this.data.index3];
+        let grade4 = this.data.array4[this.data.index4];
 
         // 如果用户进行了评分才提交
         if (grade0 > 0 || grade1 > 0 || grade2 > 0 || grade3 > 0 || grade4 > 0) {

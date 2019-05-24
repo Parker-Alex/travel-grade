@@ -2,7 +2,7 @@
 <import src='/pages/city/stars/stars-template.wxml' />
 <view class="container">
 
-    <image class="head-img" src="{{city.cover}}" mode="aspectFill" />
+    <image class="head-img" src="{{city.cover}}" mode="aspectFill"/>
 
     <view class="head-img-hover" data-src="{{city.cover}}" catchtap="viewMoviePostImg">
         <text class="main-title">{{city.name}}</text>
@@ -23,7 +23,7 @@
         </view>
     </view>
 
-    <image class="city-img" src="{{city.cover}}" data-src="{{city.cover}}" catchtap="viewMoviePostImg" />
+    <image class="city-img" src="{{city.cover}}" data-src="{{city.cover}}" catchtap="viewCityPostImg" />
 
     <view class="summary">
         <view class="original-title">
